@@ -1,0 +1,161 @@
+{
+  "threshold": 0.1,
+  "n": 30,
+  "wins": {
+    "original": 16,
+    "corrected": 11,
+    "tie": 3
+  },
+  "records": [
+    {
+      "id": "ragtruth-7025",
+      "verdict": "A",
+      "winner": "original"
+    },
+    {
+      "id": "ragtruth-10711",
+      "verdict": "TIE",
+      "winner": "tie"
+    },
+    {
+      "id": "ragtruth-12914",
+      "verdict": "A",
+      "winner": "corrected"
+    },
+    {
+      "id": "ragtruth-659",
+      "verdict": "B",
+      "winner": "corrected"
+    },
+    {
+      "id": "ragtruth-9936",
+      "verdict": "A",
+      "winner": "corrected"
+    },
+    {
+      "id": "ragtruth-5852",
+      "verdict": "A",
+      "winner": "original"
+    },
+    {
+      "id": "ragtruth-14511",
+      "verdict": "A",
+      "winner": "original"
+    },
+    {
+      "id": "ragtruth-143",
+      "verdict": "A",
+      "winner": "original"
+    },
+    {
+      "id": "ragtruth-15104",
+      "verdict": "A",
+      "winner": "corrected"
+    },
+    {
+      "id": "ragtruth-14996",
+      "verdict": "TIE",
+      "winner": "tie"
+    },
+    {
+      "id": "ragtruth-3637",
+      "verdict": "B",
+      "winner": "original"
+    },
+    {
+      "id": "ragtruth-6972",
+      "verdict": "B",
+      "winner": "original"
+    },
+    {
+      "id": "ragtruth-2426",
+      "verdict": "A",
+      "winner": "original"
+    },
+    {
+      "id": "ragtruth-7155",
+      "verdict": "A",
+      "winner": "original"
+    },
+    {
+      "id": "ragtruth-13433",
+      "verdict": "A",
+      "winner": "corrected"
+    },
+    {
+      "id": "ragtruth-3814",
+      "verdict": "B",
+      "winner": "corrected"
+    },
+    {
+      "id": "ragtruth-10070",
+      "verdict": "A",
+      "winner": "original"
+    },
+    {
+      "id": "ragtruth-1523",
+      "verdict": "A",
+      "winner": "original"
+    },
+    {
+      "id": "ragtruth-8778",
+      "verdict": "B",
+      "winner": "corrected"
+    },
+    {
+      "id": "ragtruth-5853",
+      "verdict": "B",
+      "winner": "original"
+    },
+    {
+      "id": "ragtruth-8152",
+      "verdict": "A",
+      "winner": "original"
+    },
+    {
+      "id": "ragtruth-8665",
+      "verdict": "A",
+      "winner": "corrected"
+    },
+    {
+      "id": "ragtruth-6845",
+      "verdict": "B",
+      "winner": "corrected"
+    },
+    {
+      "id": "ragtruth-12520",
+      "verdict": "B",
+      "winner": "original"
+    },
+    {
+      "id": "ragtruth-14704",
+      "verdict": "B",
+      "winner": "original"
+    },
+    {
+      "id": "ragtruth-3866",
+      "verdict": "B",
+      "winner": "corrected"
+    },
+    {
+      "id": "ragtruth-10821",
+      "verdict": "A",
+      "winner": "corrected"
+    },
+    {
+      "id": "ragtruth-10209",
+      "verdict": "B",
+      "winner": "original"
+    },
+    {
+      "id": "ragtruth-15202",
+      "verdict": "TIE",
+      "winner": "tie"
+    },
+    {
+      "id": "ragtruth-10881",
+      "verdict": "A",
+      "winner": "original"
+    }
+  ]
+}

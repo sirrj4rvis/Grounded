@@ -1,0 +1,4727 @@
+{
+  "verifier": "minicheck",
+  "n": 90,
+  "sweep": [
+    {
+      "threshold": 0.1,
+      "rate_before": 0.35555555555555557,
+      "rate_after": 0.18888888888888888,
+      "flips_fixed": 15,
+      "p_mcnemar": 6.103515625e-05,
+      "clean_retention": 0.8867562380038387,
+      "abstention_rate": 0.011111111111111112
+    },
+    {
+      "threshold": 0.25,
+      "rate_before": 0.35555555555555557,
+      "rate_after": 0.15555555555555556,
+      "flips_fixed": 18,
+      "p_mcnemar": 7.62939453125e-06,
+      "clean_retention": 0.7754318618042226,
+      "abstention_rate": 0.011111111111111112
+    },
+    {
+      "threshold": 0.5,
+      "rate_before": 0.35555555555555557,
+      "rate_after": 0.1,
+      "flips_fixed": 23,
+      "p_mcnemar": 2.384185791015625e-07,
+      "clean_retention": 0.6449136276391555,
+      "abstention_rate": 0.06666666666666667
+    },
+    {
+      "threshold": 0.77,
+      "rate_before": 0.35555555555555557,
+      "rate_after": 0.05555555555555555,
+      "flips_fixed": 27,
+      "p_mcnemar": 1.4901161193847656e-08,
+      "clean_retention": 0.47024952015355087,
+      "abstention_rate": 0.15555555555555556
+    }
+  ],
+  "examples": [
+    {
+      "id": "ragtruth-9840",
+      "task": "Data2txt",
+      "hallucinated": true,
+      "sentences": [
+        {
+          "text": "Itsuki was a Japanese restaurant located at 7127 Hollister Ave, Ste 30 in Goleta, CA. Specializing in sushi, soups, and ramen, it was open every day of the week from 5:30 PM to 9:00 PM. The restaurant offered outdoor seating and was suitable for groups, although it did not provide Wi-Fi or music.",
+          "start": 0,
+          "end": 297,
+          "support": 0.026816030964255333,
+          "gt_bad": true
+        },
+        {
+          "text": "It had a casual ambience and provided lot parking without validation.",
+          "start": 298,
+          "end": 367,
+          "support": 0.23094159364700317,
+          "gt_bad": false
+        },
+        {
+          "text": "Unfortunately, as of September 16, 2021, Itsuki has permanently closed.",
+          "start": 368,
+          "end": 439,
+          "support": 0.9654211401939392,
+          "gt_bad": false
+        },
+        {
+          "text": "According to customers' reviews, the restaurant was appreciated for its reasonably priced food, but there were mixed reviews about the quality and size of the sushi rolls, as well as the amount of beef in the ramen dishes.",
+          "start": 440,
+          "end": 662,
+          "support": 0.5708180069923401,
+          "gt_bad": false
+        },
+        {
+          "text": "The restaurant had an overall rating of 3 stars.",
+          "start": 663,
+          "end": 711,
+          "support": 0.9545689821243286,
+          "gt_bad": false
+        }
+      ]
+    },
+    {
+      "id": "ragtruth-7000",
+      "task": "Data2txt",
+      "hallucinated": true,
+      "sentences": [
+        {
+          "text": "Sure!",
+          "start": 0,
+          "end": 5,
+          "support": 0.058036502450704575,
+          "gt_bad": false
+        },
+        {
+          "text": "Here's an objective overview of Harbor of Santa Barbara Inc based on the provided structured data:\n\nHarbor of Santa Barbara Inc is a local business located at 210 Stearns Wharf in Santa Barbara, California.",
+          "start": 6,
+          "end": 212,
+          "support": 0.8979088068008423,
+          "gt_bad": false
+        },
+        {
+          "text": "The business offers Active Life, Restaurants, and Boating services, with hours that are not specified.",
+          "start": 213,
+          "end": 315,
+          "support": 0.5865445137023926,
+          "gt_bad": false
+        },
+        {
+          "text": "According to the attributes section of the structured data, the business does not offer BusinessParking, RestaurantsReservations, OutdoorSeating, WiFi, or RestaurantsTakeOut.",
+          "start": 316,
+          "end": 490,
+          "support": 0.32647040486335754,
+          "gt_bad": true
+        },
+        {
+          "text": "However, it does offer Music and Ambience, with a romantic, intimate, touristy, hipster, divey, classy, trendy, upscale, and casual atmosphere.",
+          "start": 491,
+          "end": 634,
+          "support": 0.02502407878637314,
+          "gt_bad": true
+        },
+        {
+          "text": "The business has a rating of 3.5 out of 5 stars based on three reviews.",
+          "start": 636,
+          "end": 707,
+          "support": 0.06635286659002304,
+          "gt_bad": false
+        },
+        {
+          "text": "The first review, left on May 12th, 2018, encourages the business to adopt strawless practices to help protect ocean life.",
+          "start": 708,
+          "end": 830,
+          "support": 0.5929997563362122,
+          "gt_bad": false
+        },
+        {
+          "text": "The second review, left on June 20th, 2014, describes the pier as decent-sized and suitable for walking and watching fishermen and rowers, with a few shops and restaurants at the end of the pier.",
+          "start": 831,
+          "end": 1026,
+          "support": 0.18463414907455444,
+          "gt_bad": false
+        },
+        {
+          "text": "The third review, left on August 23rd, 2012, expresses dissatisfaction with the dockage fees and staff policies, describing the place as crawling with snobs who won't give customers the time of day without lots of money.",
+          "start": 1027,
+          "end": 1247,
+          "support": 0.7585589289665222,
+          "gt_bad": false
+        },
+        {
+          "text": "Overall, Harbor of Santa Barbara Inc appears to be a local business offering various activities and services related to the ocean and waterfront, with mixed customer reviews regarding the ambiance, staff, and prices.",
+          "start": 1249,
+          "end": 1465,
+          "support": 0.16615858674049377,
+          "gt_bad": false
+        }
+      ]
+    },
+    {
+      "id": "ragtruth-9080",
+      "task": "Data2txt",
+      "hallucinated": true,
+      "sentences": [
+        {
+          "text": "Angel Oak is a restaurant located in Santa Barbara, California.",
+          "start": 0,
+          "end": 63,
+          "support": 0.9692118167877197,
+          "gt_bad": false
+        },
+        {
+          "text": "They serve American cuisine with seafood options and are known for their steakhouse dishes.",
+          "start": 64,
+          "end": 155,
+          "support": 0.4503478407859802,
+          "gt_bad": false
+        },
+        {
+          "text": "Their hours of operation are seven days a week from 5 pm to 10 pm.",
+          "start": 156,
+          "end": 222,
+          "support": 0.02205594815313816,
+          "gt_bad": false
+        },
+        {
+          "text": "Angel Oak has free WiFi available, valet parking, outdoor seating, and a reservation system.",
+          "start": 223,
+          "end": 315,
+          "support": 0.57198566198349,
+          "gt_bad": false
+        },
+        {
+          "text": "Customers can order takeout, but there are no appetizers or sides available during the pre-fixed menu.",
+          "start": 316,
+          "end": 418,
+          "support": 0.24716095626354218,
+          "gt_bad": false
+        },
+        {
+          "text": "The restaurant is romantic and classy with a casual atmosphere.",
+          "start": 419,
+          "end": 482,
+          "support": 0.03391539305448532,
+          "gt_bad": true
+        },
+        {
+          "text": "The food is good, but some customers feel that there is not enough variety and that the portions are small.",
+          "start": 483,
+          "end": 590,
+          "support": 0.8110365867614746,
+          "gt_bad": false
+        },
+        {
+          "text": "The service is excellent, and the Sommelier is knowledgeable about the menu.",
+          "start": 591,
+          "end": 667,
+          "support": 0.5161236524581909,
+          "gt_bad": false
+        },
+        {
+          "text": "Customers highly appreciate their server Autumn, who was very sweet and friendly.",
+          "start": 668,
+          "end": 749,
+          "support": 0.6917993426322937,
+          "gt_bad": false
+        },
+        {
+          "text": "Desserts are also good, but some customers wish there were more options on the menu.",
+          "start": 750,
+          "end": 834,
+          "support": 0.8219894766807556,
+          "gt_bad": false
+        },
+        {
+          "text": "Prices are relatively high, and there are wine recommendations starting at $300.",
+          "start": 835,
+          "end": 915,
+          "support": 0.7336797118186951,
+          "gt_bad": false
+        },
+        {
+          "text": "Overall, Angel Oak provides a great dining experience, but prices and portion sizes may be factors for some customers.",
+          "start": 916,
+          "end": 1034,
+          "support": 0.10889381915330887,
+          "gt_bad": false
+        }
+      ]
+    },
+    {
+      "id": "ragtruth-7036",
+      "task": "Data2txt",
+      "hallucinated": true,
+      "sentences": [
+        {
+          "text": "Here is an objective overview of the local business \"Denny's\" based on the provided structured data in JSON format:\n\nDenny's is a Restaurant located in Goleta, California, with a rating of 3.0 out of 5 stars based on 3 customer reviews.",
+          "start": 0,
+          "end": 236,
+          "support": 0.4707009196281433,
+          "gt_bad": false
+        },
+        {
+          "text": "The restaurant offers a variety of dining options, including breakfast, brunch, and dinner, and is open 24 hours a day.",
+          "start": 237,
+          "end": 356,
+          "support": 0.07760082930326462,
+          "gt_bad": false
+        },
+        {
+          "text": "The menu features traditional American cuisine, including burgers, sandwiches, salads, and entrees.",
+          "start": 357,
+          "end": 456,
+          "support": 0.023384803906083107,
+          "gt_bad": true
+        },
+        {
+          "text": "Two of the three customer reviews are positive, praising the restaurant's exceptional service and comfortable seating.",
+          "start": 458,
+          "end": 576,
+          "support": 0.6646405458450317,
+          "gt_bad": false
+        },
+        {
+          "text": "One reviewer notes that the staff went above and beyond their expectations, providing excellent service and treating them like old friends.",
+          "start": 577,
+          "end": 716,
+          "support": 0.965323269367218,
+          "gt_bad": false
+        },
+        {
+          "text": "Another reviewer appreciated the affordability of the restaurant and its comfortable seating, although they lament the fact that it is closing due to a significant increase in rent.",
+          "start": 717,
+          "end": 898,
+          "support": 0.1312658190727234,
+          "gt_bad": false
+        },
+        {
+          "text": "However, one reviewer had a negative experience, expressing frustration at not being able to reach the restaurant by phone despite it being open.",
+          "start": 900,
+          "end": 1045,
+          "support": 0.9478729367256165,
+          "gt_bad": false
+        },
+        {
+          "text": "They also mention that the restaurant is closing due to a rent increase.",
+          "start": 1046,
+          "end": 1118,
+          "support": 0.9749892950057983,
+          "gt_bad": false
+        },
+        {
+          "text": "Overall, Denny's seems to be a popular spot for diners in Goleta, with a focus on friendly service and comfort.",
+          "start": 1120,
+          "end": 1231,
+          "support": 0.9280527830123901,
+          "gt_bad": false
+        },
+        {
+          "text": "However, the recent rent increase and subsequent closure have caused some inconvenience for customers.",
+          "start": 1232,
+          "end": 1334,
+          "support": 0.9055843353271484,
+          "gt_bad": false
+        }
+      ]
+    },
+    {
+      "id": "ragtruth-10355",
+      "task": "Data2txt",
+      "hallucinated": true,
+      "sentences": [
+        {
+          "text": "Sandpiper Grill is a traditional American restaurant located in Goleta, California, with a beautiful outdoor patio offering stunning views of the surrounding golf course and ocean.",
+          "start": 0,
+          "end": 180,
+          "support": 0.02000684104859829,
+          "gt_bad": false
+        },
+        {
+          "text": "The restaurant is open for breakfast, lunch, and dinner, and offers a variety of menu options including sandwiches, salads, and burgers.",
+          "start": 181,
+          "end": 317,
+          "support": 0.07119487226009369,
+          "gt_bad": true
+        },
+        {
+          "text": "According to customer reviews, the food is fresh and delicious, with the Ellwood sandwich and patty melt being popular choices.",
+          "start": 318,
+          "end": 445,
+          "support": 0.2747546434402466,
+          "gt_bad": false
+        },
+        {
+          "text": "The outdoor seating area is a highlight, providing a relaxed and scenic atmosphere.",
+          "start": 446,
+          "end": 529,
+          "support": 0.16430425643920898,
+          "gt_bad": false
+        },
+        {
+          "text": "However, some customers have reported slow service, particularly during busy periods such as golf events.",
+          "start": 530,
+          "end": 635,
+          "support": 0.9694841504096985,
+          "gt_bad": false
+        },
+        {
+          "text": "The restaurant does not offer reservations or takeout, but Wi-Fi is available for free.",
+          "start": 636,
+          "end": 723,
+          "support": 0.7977351546287537,
+          "gt_bad": false
+        },
+        {
+          "text": "Overall, Sandpiper Grill is a great spot for casual dining with a view, but may require some patience during peak hours.",
+          "start": 724,
+          "end": 844,
+          "support": 0.20192261040210724,
+          "gt_bad": false
+        }
+      ]
+    },
+    {
+      "id": "ragtruth-6409",
+      "task": "Data2txt",
+      "hallucinated": false,
+      "sentences": [
+        {
+          "text": "Blaze Pizza is a local business located at 6546 Pardall Rd, Goleta, CA. The establishment offers a variety of food options including pizza, gluten-free options, salads, and fast food.",
+          "start": 0,
+          "end": 183,
+          "support": 0.8848288059234619,
+          "gt_bad": false
+        },
+        {
+          "text": "It operates from 11:00 AM to 8:00 PM from Monday to Thursday, with extended hours until 9:00 PM on Fridays and Saturdays.",
+          "start": 184,
+          "end": 305,
+          "support": 0.030126381665468216,
+          "gt_bad": false
+        },
+        {
+          "text": "On Sundays, the business operates from 11:00 AM to 8:00 PM.\n\nCustomers have mentioned their experiences at Blaze Pizza in their reviews.",
+          "start": 306,
+          "end": 442,
+          "support": 0.1669439971446991,
+          "gt_bad": false
+        },
+        {
+          "text": "One customer mentions that they enjoy the unlimited toppings offered for a personal size pizza, which is reasonably priced at just under $10.",
+          "start": 443,
+          "end": 584,
+          "support": 0.9171140193939209,
+          "gt_bad": false
+        },
+        {
+          "text": "They also appreciate the option to customize their pizza to their liking.",
+          "start": 585,
+          "end": 658,
+          "support": 0.8208942413330078,
+          "gt_bad": false
+        },
+        {
+          "text": "The customer also mentions that the lemonade served at Blaze Pizza is flavorful.",
+          "start": 659,
+          "end": 739,
+          "support": 0.9118323922157288,
+          "gt_bad": false
+        },
+        {
+          "text": "However, they raise concerns about the cleanliness of the store due to a sticky floor.",
+          "start": 740,
+          "end": 826,
+          "support": 0.970064103603363,
+          "gt_bad": false
+        },
+        {
+          "text": "Another customer had a negative experience and expressed concerns about the lack of gloves worn by the staff and the inconsistent mask use near the food.",
+          "start": 828,
+          "end": 981,
+          "support": 0.5974494218826294,
+          "gt_bad": false
+        },
+        {
+          "text": "They also mentioned encountering a rude employee.",
+          "start": 982,
+          "end": 1031,
+          "support": 0.9842334389686584,
+          "gt_bad": false
+        },
+        {
+          "text": "The customer emphasizes the need for improvements in cleanliness and employee behavior to avoid potential shutdowns.",
+          "start": 1032,
+          "end": 1148,
+          "support": 0.9795856475830078,
+          "gt_bad": false
+        },
+        {
+          "text": "On the other hand, a different customer appreciated Blaze Pizza for their adherence to safety measures during the COVID-19 pandemic.",
+          "start": 1150,
+          "end": 1282,
+          "support": 0.141805037856102,
+          "gt_bad": false
+        },
+        {
+          "text": "They mentioned that the workers wore masks and changed gloves when preparing each pizza, ensuring a contamination-free experience.",
+          "start": 1283,
+          "end": 1413,
+          "support": 0.8253276348114014,
+          "gt_bad": false
+        },
+        {
+          "text": "The customer also expressed gratitude for generous pizza toppings and felt welcomed and comfortable at the establishment.",
+          "start": 1414,
+          "end": 1535,
+          "support": 0.9695563316345215,
+          "gt_bad": false
+        },
+        {
+          "text": "Overall, Blaze Pizza offers a range of food options and has received mixed reviews from customers.",
+          "start": 1537,
+          "end": 1635,
+          "support": 0.7780857086181641,
+          "gt_bad": false
+        },
+        {
+          "text": "While some have praised the taste, customizable options, and safety measures, others have highlighted concerns regarding cleanliness and employee behavior.",
+          "start": 1636,
+          "end": 1791,
+          "support": 0.6708937883377075,
+          "gt_bad": false
+        }
+      ]
+    },
+    {
+      "id": "ragtruth-7279",
+      "task": "Data2txt",
+      "hallucinated": false,
+      "sentences": [
+        {
+          "text": "Third Window Brewing is a local brewery located at 406 E Haley St, Ste 3 in Santa Barbara, California.",
+          "start": 0,
+          "end": 102,
+          "support": 0.8377475738525391,
+          "gt_bad": false
+        },
+        {
+          "text": "The brewery offers a variety of beers, making it a popular destination for beer lovers.",
+          "start": 103,
+          "end": 190,
+          "support": 0.8521479964256287,
+          "gt_bad": false
+        },
+        {
+          "text": "Customers have praised the delicious beers served at Third Window Brewing, stating that they have a great selection.",
+          "start": 191,
+          "end": 307,
+          "support": 0.9146919846534729,
+          "gt_bad": false
+        },
+        {
+          "text": "The brewery also has a mellow vibe and provides excellent service.",
+          "start": 308,
+          "end": 374,
+          "support": 0.9618602395057678,
+          "gt_bad": false
+        },
+        {
+          "text": "In addition to beers, Third Window Brewing also offers food options.",
+          "start": 377,
+          "end": 445,
+          "support": 0.9685136675834656,
+          "gt_bad": false
+        },
+        {
+          "text": "Customers have mentioned enjoying the delicious smash burgers and tri-tip sandwiches, which are considered highlights of the menu.",
+          "start": 446,
+          "end": 576,
+          "support": 0.8213468194007874,
+          "gt_bad": false
+        },
+        {
+          "text": "The business has a nice outdoor patio, providing a pleasant atmosphere for customers to enjoy their drinks and meals.",
+          "start": 577,
+          "end": 694,
+          "support": 0.8864561319351196,
+          "gt_bad": false
+        },
+        {
+          "text": "The location of Third Window Brewing is also mentioned in the reviews.",
+          "start": 696,
+          "end": 766,
+          "support": 0.9800524711608887,
+          "gt_bad": false
+        },
+        {
+          "text": "It is situated in \"The Mill,\" which is a complex that includes a wine spot and restaurant.",
+          "start": 767,
+          "end": 857,
+          "support": 0.8947222232818604,
+          "gt_bad": false
+        },
+        {
+          "text": "This makes it a great spot for families looking to enjoy some beer drinking while also having other options for wine lovers.",
+          "start": 858,
+          "end": 982,
+          "support": 0.4958580434322357,
+          "gt_bad": false
+        },
+        {
+          "text": "Overall, Third Window Brewing has received positive reviews for its beers, food, atmosphere, and service.",
+          "start": 984,
+          "end": 1089,
+          "support": 0.8620709180831909,
+          "gt_bad": false
+        },
+        {
+          "text": "It is a popular local spot for both beer enthusiasts and families looking for a relaxed and enjoyable experience.",
+          "start": 1090,
+          "end": 1203,
+          "support": 0.23810186982154846,
+          "gt_bad": false
+        }
+      ]
+    },
+    {
+      "id": "ragtruth-7217",
+      "task": "Data2txt",
+      "hallucinated": true,
+      "sentences": [
+        {
+          "text": "iGrill Korean BBQ is a highly-rated Korean barbecue restaurant located in Santa Barbara, CA. According to its structured data, the restaurant is open Tuesday through Sunday, with extended hours on Friday and Saturday.",
+          "start": 0,
+          "end": 217,
+          "support": 0.2463451772928238,
+          "gt_bad": false
+        },
+        {
+          "text": "It offers a range of attributes, including free WiFi, takeout, and good options for groups.",
+          "start": 218,
+          "end": 309,
+          "support": 0.6826834678649902,
+          "gt_bad": false
+        },
+        {
+          "text": "The ambiance is described as casual and trendy, but not particularly romantic or upscale.",
+          "start": 310,
+          "end": 399,
+          "support": 0.21831262111663818,
+          "gt_bad": true
+        },
+        {
+          "text": "The restaurant has received positive reviews, with an average rating of 3.5 stars out of 5.",
+          "start": 401,
+          "end": 492,
+          "support": 0.7217053771018982,
+          "gt_bad": false
+        },
+        {
+          "text": "Many reviewers have praised the quality and freshness of the food, with one reviewer stating that it's the \"best Korean bbq I have ever had!\" Another reviewer noted that the portions are generous, with the combo for two being \"SO MUCH FOOD!\"\n\nOverall, iGrill Korean BBQ appears to be a solid choice for those looking for delicious and authentic Korean barbecue in the Santa Barbara area.",
+          "start": 493,
+          "end": 880,
+          "support": 0.10048055648803711,
+          "gt_bad": false
+        },
+        {
+          "text": "Its casual atmosphere and generous portions make it a great option for groups or those looking for a satisfying meal.",
+          "start": 881,
+          "end": 998,
+          "support": 0.08940672129392624,
+          "gt_bad": true
+        }
+      ]
+    },
+    {
+      "id": "ragtruth-7020",
+      "task": "Data2txt",
+      "hallucinated": false,
+      "sentences": [
+        {
+          "text": "\"Longboard's Grill\" is a restaurant located at 210 Stearns Wharf, Santa Barbara, CA. It is categorized under Nightlife, Seafood, American (Traditional), Bars, and Restaurants.",
+          "start": 0,
+          "end": 175,
+          "support": 0.7528674602508545,
+          "gt_bad": false
+        },
+        {
+          "text": "It operates from 12 PM to 8 PM from Monday to Thursday, 12 PM to 9 PM on Fridays, and 11 AM to 9 PM on Saturdays and 11 AM to 8 PM on Sundays.",
+          "start": 176,
+          "end": 318,
+          "support": 0.03800143301486969,
+          "gt_bad": false
+        },
+        {
+          "text": "The establishment does not offer parking facilities but does provide valet services.",
+          "start": 319,
+          "end": 403,
+          "support": 0.368977427482605,
+          "gt_bad": false
+        },
+        {
+          "text": "It does not take reservations and does not have WiFi or live music.",
+          "start": 404,
+          "end": 471,
+          "support": 0.7175636887550354,
+          "gt_bad": false
+        },
+        {
+          "text": "It does, however, offer outdoor seating and is suitable for groups.",
+          "start": 472,
+          "end": 539,
+          "support": 0.5917773842811584,
+          "gt_bad": false
+        },
+        {
+          "text": "It has a casual, classy, and touristy ambiance.",
+          "start": 540,
+          "end": 587,
+          "support": 0.29351142048835754,
+          "gt_bad": false
+        },
+        {
+          "text": "The restaurant has an overall rating of 3-stars.",
+          "start": 588,
+          "end": 636,
+          "support": 0.8105503916740417,
+          "gt_bad": false
+        },
+        {
+          "text": "While one customer review praised the freshness and taste of the oysters, two other customers were highly dissatisfied, with complaints about the quality of the fish and chips and a poor Thanksgiving dinner experience.",
+          "start": 637,
+          "end": 855,
+          "support": 0.08847592771053314,
+          "gt_bad": false
+        },
+        {
+          "text": "The restaurant also offers takeaway services.",
+          "start": 856,
+          "end": 901,
+          "support": 0.917104959487915,
+          "gt_bad": false
+        }
+      ]
+    },
+    {
+      "id": "ragtruth-9526",
+      "task": "Data2txt",
+      "hallucinated": true,
+      "sentences": [
+        {
+          "text": "Sure!",
+          "start": 0,
+          "end": 5,
+          "support": 0.13934774696826935,
+          "gt_bad": false
+        },
+        {
+          "text": "Here's an objective overview of Hustle & Grind Coffee Company based on the provided structured data:\n\nHustle & Grind Coffee Company is a popular coffee shop located in downtown Santa Barbara, offering a variety of specialty coffee drinks, food, and desserts.",
+          "start": 6,
+          "end": 264,
+          "support": 0.3793867826461792,
+          "gt_bad": false
+        },
+        {
+          "text": "The business has a rating of 4.5 stars based on 3 reviews, with customers praising the unique concept, friendly staff, and fast service.",
+          "start": 265,
+          "end": 401,
+          "support": 0.051118239760398865,
+          "gt_bad": false
+        },
+        {
+          "text": "One reviewer enjoyed their generic vanilla latte, while another appreciated the variety of offerings, including Hawaiian shaved ice.",
+          "start": 402,
+          "end": 534,
+          "support": 0.0684756338596344,
+          "gt_bad": false
+        },
+        {
+          "text": "However, one customer was disappointed to find that the establishment no longer offers almond milk and had a negative experience with the toast being made gluten-free.",
+          "start": 535,
+          "end": 702,
+          "support": 0.3181508183479309,
+          "gt_bad": false
+        },
+        {
+          "text": "The coffee shop has a cozy outdoor seating area and offers free WiFi.",
+          "start": 704,
+          "end": 773,
+          "support": 0.4426605999469757,
+          "gt_bad": false
+        },
+        {
+          "text": "Parking is available in a nearby garage or on the street, but it is not validated.",
+          "start": 774,
+          "end": 856,
+          "support": 0.2642385959625244,
+          "gt_bad": false
+        },
+        {
+          "text": "Reservations are not accepted, but takeout and online ordering are available.",
+          "start": 857,
+          "end": 934,
+          "support": 0.0758812353014946,
+          "gt_bad": true
+        },
+        {
+          "text": "The ambiance is casual and relaxed, making it a great spot for groups or solo visitors.",
+          "start": 935,
+          "end": 1022,
+          "support": 0.0279825571924448,
+          "gt_bad": false
+        },
+        {
+          "text": "Overall, Hustle & Grind Coffee Company is a solid choice for coffee and snacks in downtown Santa Barbara.",
+          "start": 1023,
+          "end": 1128,
+          "support": 0.16650114953517914,
+          "gt_bad": false
+        }
+      ]
+    },
+    {
+      "id": "ragtruth-9771",
+      "task": "Data2txt",
+      "hallucinated": true,
+      "sentences": [
+        {
+          "text": "Kaptain's Firehouse BBQ is a local restaurant located in Isla Vista, California, offering a variety of food options including chicken wings, sandwiches, and barbecue dishes.",
+          "start": 0,
+          "end": 173,
+          "support": 0.2650962471961975,
+          "gt_bad": false
+        },
+        {
+          "text": "According to reviews, the restaurant has a rating of 3.5 stars and provides good food, but customer service can be hit or miss.",
+          "start": 174,
+          "end": 301,
+          "support": 0.44513288140296936,
+          "gt_bad": false
+        },
+        {
+          "text": "Some patrons have had positive experiences with friendly and attentive staff, while others have encountered rude and unhelpful service.",
+          "start": 302,
+          "end": 437,
+          "support": 0.40261733531951904,
+          "gt_bad": true
+        },
+        {
+          "text": "Despite this inconsistency, many customers appreciate the quality of the food and the convenience of takeout.",
+          "start": 438,
+          "end": 547,
+          "support": 0.03750535845756531,
+          "gt_bad": true
+        },
+        {
+          "text": "However, there have been some complaints regarding the availability of certain menu items and the lack of outdoor seating.",
+          "start": 548,
+          "end": 670,
+          "support": 0.17961962521076202,
+          "gt_bad": true
+        },
+        {
+          "text": "Overall, Kaptain's Firehouse BBQ seems to offer decent food and service, although improvements could be made in these areas to enhance the overall dining experience.",
+          "start": 671,
+          "end": 836,
+          "support": 0.4428960680961609,
+          "gt_bad": false
+        }
+      ]
+    },
+    {
+      "id": "ragtruth-6766",
+      "task": "Data2txt",
+      "hallucinated": true,
+      "sentences": [
+        {
+          "text": "Sure!",
+          "start": 0,
+          "end": 5,
+          "support": 0.0519016794860363,
+          "gt_bad": false
+        },
+        {
+          "text": "Here's an objective overview of Kogilicious based on the provided structured data:\n\nKogilicious is a Korean restaurant located in Isla Vista, California, offering a variety of dishes including beef ribs, pork, tofu, and more.",
+          "start": 6,
+          "end": 231,
+          "support": 0.07924215495586395,
+          "gt_bad": false
+        },
+        {
+          "text": "The restaurant has a cozy ambiance with outdoor seating and is open seven days a week from 10am to 11pm.",
+          "start": 232,
+          "end": 336,
+          "support": 0.01836550049483776,
+          "gt_bad": false
+        },
+        {
+          "text": "According to customer reviews, Kogilicious serves delicious and reasonably priced Korean cuisine, with standout dishes including the spicy chicken burrito and half and half beef ribs and pork.",
+          "start": 337,
+          "end": 529,
+          "support": 0.10909073799848557,
+          "gt_bad": false
+        },
+        {
+          "text": "Reviewers praise the restaurant's authentic flavors, generous portions, and speedy service.",
+          "start": 530,
+          "end": 621,
+          "support": 0.02559981495141983,
+          "gt_bad": true
+        },
+        {
+          "text": "Cash payment is recommended as it is reportedly cheaper than using a credit card.",
+          "start": 622,
+          "end": 703,
+          "support": 0.7688475251197815,
+          "gt_bad": false
+        },
+        {
+          "text": "Overall, Kogilicious appears to be a popular and well-regarded Korean restaurant in the area.",
+          "start": 704,
+          "end": 797,
+          "support": 0.5753955841064453,
+          "gt_bad": false
+        }
+      ]
+    },
+    {
+      "id": "ragtruth-7202",
+      "task": "Data2txt",
+      "hallucinated": true,
+      "sentences": [
+        {
+          "text": "Valentino's Take N Bake Pizza is a restaurant located at 4421 Hollister Ave in Santa Barbara, CA. They offer sandwiches, salads, and pizza as their main menu items.",
+          "start": 0,
+          "end": 164,
+          "support": 0.46741771697998047,
+          "gt_bad": false
+        },
+        {
+          "text": "Their hours of operation are Monday through Saturday from 11:00 am to 9:00 pm.",
+          "start": 165,
+          "end": 243,
+          "support": 0.04770796000957489,
+          "gt_bad": true
+        },
+        {
+          "text": "They have parking available on site and do not offer reservations or outdoor seating.",
+          "start": 244,
+          "end": 329,
+          "support": 0.3137102723121643,
+          "gt_bad": false
+        },
+        {
+          "text": "However, they do provide takeout options and are good for groups.",
+          "start": 330,
+          "end": 395,
+          "support": 0.9101850986480713,
+          "gt_bad": false
+        },
+        {
+          "text": "Customers have praised their freshly made sandwiches, especially the Italian sub.",
+          "start": 396,
+          "end": 477,
+          "support": 0.7906422019004822,
+          "gt_bad": false
+        },
+        {
+          "text": "They also appreciated the convenience of being able to pick up their pizzas at any time and bake them when ready.",
+          "start": 478,
+          "end": 591,
+          "support": 0.5761014223098755,
+          "gt_bad": false
+        },
+        {
+          "text": "Valentino's has received positive reviews for their consistent quality of food and great service, with particular mention going to employee Shayre.",
+          "start": 592,
+          "end": 739,
+          "support": 0.48869913816452026,
+          "gt_bad": false
+        },
+        {
+          "text": "Overall, Valentino's Take N Bake Pizza appears to be a well-regarded establishment in the Santa Barbara area for its convenient takeout options and delicious sandwiches.",
+          "start": 740,
+          "end": 909,
+          "support": 0.5413087010383606,
+          "gt_bad": false
+        }
+      ]
+    },
+    {
+      "id": "ragtruth-6924",
+      "task": "Data2txt",
+      "hallucinated": false,
+      "sentences": [
+        {
+          "text": "Santa Barbara Bay Cafe, located at 131 Anacapa St in Santa Barbara, CA, is a seafood restaurant that accommodates groups and offers outdoor seating.",
+          "start": 0,
+          "end": 148,
+          "support": 0.7386502027511597,
+          "gt_bad": false
+        },
+        {
+          "text": "The business has a 3.5-star rating.",
+          "start": 149,
+          "end": 184,
+          "support": 0.9252799153327942,
+          "gt_bad": false
+        },
+        {
+          "text": "The restaurant also offers take-out options and accepts restaurant reservations.",
+          "start": 185,
+          "end": 265,
+          "support": 0.91727614402771,
+          "gt_bad": false
+        },
+        {
+          "text": "Parking is available in a lot but not on the street.",
+          "start": 266,
+          "end": 318,
+          "support": 0.2830612361431122,
+          "gt_bad": false
+        },
+        {
+          "text": "Customers' reviews have mixed sentiments.",
+          "start": 321,
+          "end": 362,
+          "support": 0.9761348366737366,
+          "gt_bad": false
+        },
+        {
+          "text": "Some patrons have praised the restaurant's seafood, particularly the swordfish, and recommended it for a relaxing dining experience.",
+          "start": 363,
+          "end": 495,
+          "support": 0.08141906559467316,
+          "gt_bad": false
+        },
+        {
+          "text": "They also appreciated the specials offered by the restaurant.",
+          "start": 496,
+          "end": 557,
+          "support": 0.8808640241622925,
+          "gt_bad": false
+        },
+        {
+          "text": "However, other customers were disappointed with their meals, specifically mentioning the clam chowder and the oysters Rockefeller.",
+          "start": 558,
+          "end": 688,
+          "support": 0.19063237309455872,
+          "gt_bad": false
+        },
+        {
+          "text": "They found the clam chowder watery and lacking in flavor, and the oysters overly cheesy and not in harmony with the natural taste of the seafood.",
+          "start": 689,
+          "end": 834,
+          "support": 0.74582839012146,
+          "gt_bad": false
+        },
+        {
+          "text": "Despite this, the restaurant received a four-star review from a local who stated it has the \"best seafood in town.\"",
+          "start": 835,
+          "end": 950,
+          "support": 0.6769119501113892,
+          "gt_bad": false
+        }
+      ]
+    },
+    {
+      "id": "ragtruth-7953",
+      "task": "Data2txt",
+      "hallucinated": true,
+      "sentences": [
+        {
+          "text": "Based on the provided structured data, here is an objective overview of Santa Barbara's Wood Fired Pizza:\n\nSanta Barbara's Wood Fired Pizza is a popular restaurant located in Santa Barbara, California, serving food, sandwiches, and pizza.",
+          "start": 0,
+          "end": 238,
+          "support": 0.0682467669248581,
+          "gt_bad": false
+        },
+        {
+          "text": "With a rating of 4.0 out of 5 stars, the business has received positive reviews for its quality pizzas and late hours of operation.",
+          "start": 239,
+          "end": 370,
+          "support": 0.12351997941732407,
+          "gt_bad": false
+        },
+        {
+          "text": "Some customers have reported issues with empty stores after placing online orders, while others have praised the light and delicious thin-crust pizzas.",
+          "start": 371,
+          "end": 522,
+          "support": 0.7969828844070435,
+          "gt_bad": false
+        },
+        {
+          "text": "One reviewer highlighted the excellent customer service and recommended the pesto pizza, which is said to be addictive and of high quality.",
+          "start": 523,
+          "end": 662,
+          "support": 0.036377884447574615,
+          "gt_bad": true
+        },
+        {
+          "text": "However, there have been some complaints regarding payment processing and food availability.",
+          "start": 663,
+          "end": 755,
+          "support": 0.9006865620613098,
+          "gt_bad": false
+        },
+        {
+          "text": "Overall, Santa Barbara's Wood Fired Pizza appears to offer tasty and satisfying meals, but may need to improve upon its online ordering system and store operations.",
+          "start": 756,
+          "end": 920,
+          "support": 0.264463871717453,
+          "gt_bad": false
+        }
+      ]
+    },
+    {
+      "id": "ragtruth-6139",
+      "task": "Data2txt",
+      "hallucinated": false,
+      "sentences": [
+        {
+          "text": "Uniboil is a local business located at 5599 Hollister Ave, Unit C in Goleta, CA. It offers a variety of food options including bubble tea, Chinese cuisine, Asian fusion, and hot pot.",
+          "start": 0,
+          "end": 182,
+          "support": 0.6232306361198425,
+          "gt_bad": false
+        },
+        {
+          "text": "The restaurant has both indoor and outdoor seating, making it convenient for customers who prefer either option.",
+          "start": 183,
+          "end": 295,
+          "support": 0.7443099617958069,
+          "gt_bad": false
+        },
+        {
+          "text": "Parking is easy with plenty of spaces available in the parking lot.",
+          "start": 296,
+          "end": 363,
+          "support": 0.9540249705314636,
+          "gt_bad": false
+        },
+        {
+          "text": "Customers have mentioned that Uniboil is known for their hot pots, which come in generous portions and are reasonably priced.",
+          "start": 365,
+          "end": 490,
+          "support": 0.2999236285686493,
+          "gt_bad": false
+        },
+        {
+          "text": "The Beef Thai Tom Yum Hotpot is highly recommended, although there are other dishes on the menu for those who may not be interested in hot pots.",
+          "start": 491,
+          "end": 635,
+          "support": 0.26358407735824585,
+          "gt_bad": false
+        },
+        {
+          "text": "The sizzling beef and popcorn chicken have been praised for their fantastic flavors.",
+          "start": 636,
+          "end": 720,
+          "support": 0.5084837675094604,
+          "gt_bad": false
+        },
+        {
+          "text": "However, one customer was disappointed with the beef noodle soup, as the meat quality was poor.",
+          "start": 721,
+          "end": 816,
+          "support": 0.15573731064796448,
+          "gt_bad": false
+        },
+        {
+          "text": "The business has received a 4-star rating, indicating a generally positive customer experience.",
+          "start": 818,
+          "end": 913,
+          "support": 0.799491822719574,
+          "gt_bad": false
+        },
+        {
+          "text": "The service at Uniboil can be inconsistent, with some instances of slow service and others being quick.",
+          "start": 914,
+          "end": 1017,
+          "support": 0.9123239517211914,
+          "gt_bad": false
+        },
+        {
+          "text": "However, the staff is friendly and attentive, checking up on customers regularly.",
+          "start": 1018,
+          "end": 1099,
+          "support": 0.2940077483654022,
+          "gt_bad": false
+        },
+        {
+          "text": "In addition to food, Uniboil also offers a selection of boba drinks.",
+          "start": 1101,
+          "end": 1169,
+          "support": 0.3978147804737091,
+          "gt_bad": false
+        },
+        {
+          "text": "Customers have praised the quality of the boba, recommending the kumquat drink and suggesting to order the milk drink with less sweetness.",
+          "start": 1170,
+          "end": 1308,
+          "support": 0.04837377741932869,
+          "gt_bad": false
+        },
+        {
+          "text": "Overall, Uniboil is a local business that offers a diverse menu with a focus on hot pots and boba drinks.",
+          "start": 1310,
+          "end": 1415,
+          "support": 0.5092799067497253,
+          "gt_bad": false
+        },
+        {
+          "text": "While there may be some inconsistencies in service, customers generally enjoy the food and appreciate the friendly staff.",
+          "start": 1416,
+          "end": 1537,
+          "support": 0.757670521736145,
+          "gt_bad": false
+        }
+      ]
+    },
+    {
+      "id": "ragtruth-7260",
+      "task": "Data2txt",
+      "hallucinated": true,
+      "sentences": [
+        {
+          "text": "\"Little Alex's\" is a Mexican restaurant located at 1024 Coast Village Rd, Santa Barbara, CA. They operate from 10:00 to 20:00 from Monday to Saturday.",
+          "start": 0,
+          "end": 150,
+          "support": 0.04478653892874718,
+          "gt_bad": false
+        },
+        {
+          "text": "The restaurant is known for its casual ambience and is ideal for groups.",
+          "start": 151,
+          "end": 223,
+          "support": 0.2957448363304138,
+          "gt_bad": false
+        },
+        {
+          "text": "They provide outdoor seating and offer take-out service but do not accept reservations.",
+          "start": 224,
+          "end": 311,
+          "support": 0.26331308484077454,
+          "gt_bad": false
+        },
+        {
+          "text": "The place doesn't provide WiFi and has no music.",
+          "start": 312,
+          "end": 360,
+          "support": 0.8812243342399597,
+          "gt_bad": true
+        },
+        {
+          "text": "Parking is available in a lot, but there's no garage, street, validated or valet parking.",
+          "start": 361,
+          "end": 450,
+          "support": 0.1886824071407318,
+          "gt_bad": false
+        },
+        {
+          "text": "Reviews for Little Alex's are mixed, with an overall rating of 3.5 stars.",
+          "start": 453,
+          "end": 526,
+          "support": 0.43023502826690674,
+          "gt_bad": false
+        },
+        {
+          "text": "A recent review praised the restaurant's service and food quality, particularly noting the staff's helpfulness and frequent chip refills.",
+          "start": 527,
+          "end": 664,
+          "support": 0.8208921551704407,
+          "gt_bad": false
+        },
+        {
+          "text": "However, other reviews were less positive, indicating the restaurant was under construction and another criticising the diminishing quality and flavor of their food over the years.",
+          "start": 665,
+          "end": 845,
+          "support": 0.0820038840174675,
+          "gt_bad": false
+        }
+      ]
+    },
+    {
+      "id": "ragtruth-11458",
+      "task": "Data2txt",
+      "hallucinated": true,
+      "sentences": [
+        {
+          "text": "Sure!",
+          "start": 0,
+          "end": 5,
+          "support": 0.04946067929267883,
+          "gt_bad": false
+        },
+        {
+          "text": "Here's an objective overview of The Lark based on the provided structured data:\n\nThe Lark is a popular restaurant located in the heart of the Santa Barbara Funk Zone, offering a unique \"Shared Dining Experience\" with a focus on seasonal American cuisine.",
+          "start": 6,
+          "end": 260,
+          "support": 0.35493379831314087,
+          "gt_bad": false
+        },
+        {
+          "text": "The menu features a variety of small plates and entrees, including vegetarian and gluten-free options.",
+          "start": 261,
+          "end": 363,
+          "support": 0.02582727000117302,
+          "gt_bad": true
+        },
+        {
+          "text": "The restaurant has a trendy and intimate atmosphere, with outdoor seating and a cozy fireplace.",
+          "start": 364,
+          "end": 459,
+          "support": 0.7326682806015015,
+          "gt_bad": true
+        },
+        {
+          "text": "According to customer reviews, the food at The Lark is delicious and visually appealing, with standout dishes such as the Crispy Brussels Sprouts, Winter Beets & Marinated Burrata, and the Creekstone Prime Hanger Steak.",
+          "start": 461,
+          "end": 680,
+          "support": 0.5175196528434753,
+          "gt_bad": false
+        },
+        {
+          "text": "The restaurant's wine list is also impressive, with a focus on local wines.",
+          "start": 681,
+          "end": 756,
+          "support": 0.3888261020183563,
+          "gt_bad": false
+        },
+        {
+          "text": "However, some reviewers have noted issues with the service, specifically regarding the attentiveness and knowledge of the servers.",
+          "start": 758,
+          "end": 888,
+          "support": 0.5991383790969849,
+          "gt_bad": false
+        },
+        {
+          "text": "One reviewer reported that the restaurant was mostly empty but they were seated next to other tables, and the staff seemed oblivious to the empty tables and forgot to remove empty dishes.",
+          "start": 889,
+          "end": 1076,
+          "support": 0.9111260175704956,
+          "gt_bad": false
+        },
+        {
+          "text": "Overall, The Lark appears to be a trendy and upscale dining spot with delicious food and a cozy atmosphere.",
+          "start": 1078,
+          "end": 1185,
+          "support": 0.17247214913368225,
+          "gt_bad": true
+        },
+        {
+          "text": "However, service issues may require improvement.",
+          "start": 1186,
+          "end": 1234,
+          "support": 0.9602560997009277,
+          "gt_bad": false
+        },
+        {
+          "text": "Customers looking for a special dining experience with a focus on seasonal cuisine and local wines may enjoy dining here, but those looking for a more traditional dining experience may want to consider other options.",
+          "start": 1235,
+          "end": 1451,
+          "support": 0.09134520590305328,
+          "gt_bad": false
+        }
+      ]
+    },
+    {
+      "id": "ragtruth-6672",
+      "task": "Data2txt",
+      "hallucinated": false,
+      "sentences": [
+        {
+          "text": "The Ritz-Carlton Bacara, Santa Barbara, located at 8301 Hollister Ave, is a multi-faceted establishment offering a range of services including restaurants, beauty and spa services, event planning, and hotel accommodation.",
+          "start": 0,
+          "end": 221,
+          "support": 0.21264570951461792,
+          "gt_bad": false
+        },
+        {
+          "text": "The property is known for its beautiful setting and great service, as well as its good food and pleasant ambiance.",
+          "start": 222,
+          "end": 336,
+          "support": 0.7926197052001953,
+          "gt_bad": false
+        },
+        {
+          "text": "Despite its remote location away from downtown, it makes for a compelling stay with various activities such as beach hiking and biking around the hotel area.",
+          "start": 337,
+          "end": 494,
+          "support": 0.08843828737735748,
+          "gt_bad": false
+        },
+        {
+          "text": "However, some guests have reported issues with room booking and amenities, such as TV malfunctions.",
+          "start": 495,
+          "end": 594,
+          "support": 0.9292579889297485,
+          "gt_bad": false
+        },
+        {
+          "text": "The hotel seeks to resolve these issues by providing compensations like restaurant fees.",
+          "start": 595,
+          "end": 683,
+          "support": 0.8967717289924622,
+          "gt_bad": false
+        },
+        {
+          "text": "The property also offers valet parking and free Wi-Fi.",
+          "start": 684,
+          "end": 738,
+          "support": 0.6266721487045288,
+          "gt_bad": false
+        },
+        {
+          "text": "Despite a few hiccups, most guests had a pleasant stay and would recommend the hotel, with particular praise for its comfortable rooms, fantastic gym facilities, great views, and delicious food options.",
+          "start": 739,
+          "end": 941,
+          "support": 0.4632391929626465,
+          "gt_bad": false
+        },
+        {
+          "text": "The Ritz-Carlton Bacara holds a business star rating of 3.5.",
+          "start": 942,
+          "end": 1002,
+          "support": 0.9606381058692932,
+          "gt_bad": false
+        }
+      ]
+    },
+    {
+      "id": "ragtruth-11459",
+      "task": "Data2txt",
+      "hallucinated": true,
+      "sentences": [
+        {
+          "text": "The Lark is a popular Nightlife, Bar, Cocktail Bar, Food, American (New), and Desserts restaurant located in the heart of Santa Barbara's Funk Zone.",
+          "start": 0,
+          "end": 148,
+          "support": 0.8568143844604492,
+          "gt_bad": false
+        },
+        {
+          "text": "With an average rating of 4.0 stars, it offers a unique dining experience with its creative menu and extensive drinks selection.",
+          "start": 149,
+          "end": 277,
+          "support": 0.26231786608695984,
+          "gt_bad": false
+        },
+        {
+          "text": "The restaurant is known for its delicious Shared Dining Experience, including Crispy Brussel Sprouts, Winter Beets & Marinated Burrata, Caramelized Cauliflower, and Cast Iron Morro Bay Black Cod.",
+          "start": 278,
+          "end": 473,
+          "support": 0.8296664953231812,
+          "gt_bad": false
+        },
+        {
+          "text": "The ambiance is trendy and upscale, with outdoor seating and heat lamps for a cozy atmosphere.",
+          "start": 475,
+          "end": 569,
+          "support": 0.14495590329170227,
+          "gt_bad": true
+        },
+        {
+          "text": "The service is attentive and friendly, with servers like Laurel who are knowledgeable about the menu and wine list.",
+          "start": 570,
+          "end": 685,
+          "support": 0.7789089679718018,
+          "gt_bad": false
+        },
+        {
+          "text": "The restaurant also offers takeout and is suitable for groups, dates, and special occasions.",
+          "start": 686,
+          "end": 778,
+          "support": 0.26779961585998535,
+          "gt_bad": true
+        },
+        {
+          "text": "Some of the standout dishes include the Buttermilk Fried Chicken, Creekstone Prime Hanger Steak, and the Buttermilk Fried Chicken.",
+          "start": 780,
+          "end": 910,
+          "support": 0.5631979703903198,
+          "gt_bad": false
+        },
+        {
+          "text": "The restaurant also has a great selection of wine by the glass, including Grimm's Bluff, Happy Canyon, and Rose of Cabernet Sauvignon.",
+          "start": 911,
+          "end": 1045,
+          "support": 0.8049906492233276,
+          "gt_bad": false
+        },
+        {
+          "text": "However, some customers have reported issues with the service, such as slow recovery of tables and forgotten checks.",
+          "start": 1047,
+          "end": 1163,
+          "support": 0.8759706616401672,
+          "gt_bad": false
+        },
+        {
+          "text": "Despite these minor setbacks, The Lark remains a top choice for diners looking for a unique and memorable dining experience in Santa Barbara.",
+          "start": 1164,
+          "end": 1305,
+          "support": 0.11174029856920242,
+          "gt_bad": false
+        }
+      ]
+    },
+    {
+      "id": "ragtruth-9077",
+      "task": "Data2txt",
+      "hallucinated": true,
+      "sentences": [
+        {
+          "text": "Xanadu Bakery is a popular bakery and restaurant located in Santa Barbara, CA. According to their hours, they are open seven days a week, from 6:00 AM to 9:00 PM, with extended hours on Fridays and Saturdays.",
+          "start": 0,
+          "end": 208,
+          "support": 0.02186698652803898,
+          "gt_bad": true
+        },
+        {
+          "text": "The bakery offers a variety of goods, including pastries, cakes, and bread, as well as breakfast and lunch options.",
+          "start": 209,
+          "end": 324,
+          "support": 0.0627269446849823,
+          "gt_bad": true
+        },
+        {
+          "text": "They also serve coffee and other beverages.",
+          "start": 325,
+          "end": 368,
+          "support": 0.9608327746391296,
+          "gt_bad": false
+        },
+        {
+          "text": "The bakery has a cozy atmosphere and provides outdoor seating for customers to enjoy their treats.",
+          "start": 369,
+          "end": 467,
+          "support": 0.17279694974422455,
+          "gt_bad": true
+        },
+        {
+          "text": "Reviews of Xanadu Bakery are mixed, with some customers praising the bakery's exquisite goods and friendly service, while others have criticized the quality of the pastries and customer service.",
+          "start": 469,
+          "end": 663,
+          "support": 0.09846155345439911,
+          "gt_bad": false
+        },
+        {
+          "text": "One reviewer noted that the bakery uses Crisco in their pastries, which they found to be unhealthy and disappointing.",
+          "start": 664,
+          "end": 781,
+          "support": 0.6581687331199646,
+          "gt_bad": false
+        },
+        {
+          "text": "Another reviewer enjoyed the ganache but found the coffee to be average.",
+          "start": 782,
+          "end": 854,
+          "support": 0.19213776290416718,
+          "gt_bad": false
+        },
+        {
+          "text": "However, a third reviewer had a positive experience and enjoyed the variety of baked goods available.",
+          "start": 855,
+          "end": 956,
+          "support": 0.5223280787467957,
+          "gt_bad": false
+        },
+        {
+          "text": "Overall, Xanadu Bakery appears to be a well-established and popular bakery in Santa Barbara, with a loyal customer base.",
+          "start": 958,
+          "end": 1078,
+          "support": 0.5802468657493591,
+          "gt_bad": false
+        },
+        {
+          "text": "While there have been some negative reviews, the bakery's strengths include its cozy atmosphere, outdoor seating, and variety of baked goods.",
+          "start": 1079,
+          "end": 1220,
+          "support": 0.2440415918827057,
+          "gt_bad": true
+        }
+      ]
+    },
+    {
+      "id": "ragtruth-11101",
+      "task": "Data2txt",
+      "hallucinated": true,
+      "sentences": [
+        {
+          "text": "805 Deli is a local business located at 135 E Carrillo St in Santa Barbara, California.",
+          "start": 0,
+          "end": 87,
+          "support": 0.9187132716178894,
+          "gt_bad": false
+        },
+        {
+          "text": "It offers a variety of food options including sandwiches, soups, breakfast and brunch items, and American (Traditional) cuisine.",
+          "start": 88,
+          "end": 216,
+          "support": 0.32049456238746643,
+          "gt_bad": false
+        },
+        {
+          "text": "The deli also provides catering services and event planning.",
+          "start": 217,
+          "end": 277,
+          "support": 0.8868271708488464,
+          "gt_bad": false
+        },
+        {
+          "text": "The business operates from 6:00 AM to 9:00 PM from Monday to Saturday.",
+          "start": 279,
+          "end": 349,
+          "support": 0.028812898322939873,
+          "gt_bad": true
+        },
+        {
+          "text": "It offers free WiFi and has outdoor seating available.",
+          "start": 350,
+          "end": 404,
+          "support": 0.7678592801094055,
+          "gt_bad": false
+        },
+        {
+          "text": "Customers can take out their orders from the restaurant.",
+          "start": 405,
+          "end": 461,
+          "support": 0.8869431614875793,
+          "gt_bad": false
+        },
+        {
+          "text": "However, the business does not accept restaurant reservations and is not suitable for large groups.",
+          "start": 462,
+          "end": 561,
+          "support": 0.10001659393310547,
+          "gt_bad": false
+        },
+        {
+          "text": "Customers have left positive reviews about 805 Deli.",
+          "start": 563,
+          "end": 615,
+          "support": 0.9717367887496948,
+          "gt_bad": false
+        },
+        {
+          "text": "One customer mentioned that they had a delicious chicken kabob and appreciated the generous portion sizes.",
+          "start": 616,
+          "end": 722,
+          "support": 0.8632438778877258,
+          "gt_bad": false
+        },
+        {
+          "text": "Another customer enjoyed a breakfast muffin sandwich that was loaded with scrambled egg, cheese, and bacon.",
+          "start": 723,
+          "end": 830,
+          "support": 0.8852784037590027,
+          "gt_bad": false
+        },
+        {
+          "text": "They also liked the ample seating options and the variety of beverages and snacks available.",
+          "start": 831,
+          "end": 923,
+          "support": 0.9633548855781555,
+          "gt_bad": false
+        },
+        {
+          "text": "Another customer recommended the deli for its unique and flavorful sandwich creations.",
+          "start": 924,
+          "end": 1010,
+          "support": 0.8910624384880066,
+          "gt_bad": false
+        },
+        {
+          "text": "Overall, 805 Deli has received a rating of 4.0 stars.",
+          "start": 1012,
+          "end": 1065,
+          "support": 0.9173834919929504,
+          "gt_bad": false
+        }
+      ]
+    },
+    {
+      "id": "ragtruth-8241",
+      "task": "Data2txt",
+      "hallucinated": true,
+      "sentences": [
+        {
+          "text": "Based on the structured data provided, 101 Deli is a small, family-owned deli located in Santa Barbara, California.",
+          "start": 0,
+          "end": 115,
+          "support": 0.14869046211242676,
+          "gt_bad": false
+        },
+        {
+          "text": "The business has a rating of 4.5 stars and offers a variety of dishes, including sandwiches, sushi, and Asian-inspired meals.",
+          "start": 116,
+          "end": 241,
+          "support": 0.21227310597896576,
+          "gt_bad": false
+        },
+        {
+          "text": "According to customer reviews, the quality of the food is inconsistent, with some customers finding the meat to be lacking in flavor and the bread being older than expected.",
+          "start": 242,
+          "end": 415,
+          "support": 0.2666853666305542,
+          "gt_bad": false
+        },
+        {
+          "text": "However, others have praised the friendly service and generous portion sizes.",
+          "start": 416,
+          "end": 493,
+          "support": 0.4329797625541687,
+          "gt_bad": false
+        },
+        {
+          "text": "The deli is known for its outdoor seating and convenient location near the city's industrial area, making it a popular spot for lunchtime diners.",
+          "start": 494,
+          "end": 639,
+          "support": 0.5346201658248901,
+          "gt_bad": true
+        },
+        {
+          "text": "While some customers have expressed disappointment with their experiences, overall, 101 Deli seems to offer a unique and satisfying dining experience for those looking for a taste of something different in Santa Barbara.",
+          "start": 640,
+          "end": 860,
+          "support": 0.11583627760410309,
+          "gt_bad": false
+        }
+      ]
+    },
+    {
+      "id": "ragtruth-9578",
+      "task": "Data2txt",
+      "hallucinated": true,
+      "sentences": [
+        {
+          "text": "Night Lizard Brewing Company is a brewery located on 607 State St in Santa Barbara, California.",
+          "start": 0,
+          "end": 95,
+          "support": 0.9587650299072266,
+          "gt_bad": false
+        },
+        {
+          "text": "It falls under the categories of Food, Breweries, Beer Gardens, Mediterranean, Nightlife, and Restaurants.",
+          "start": 96,
+          "end": 202,
+          "support": 0.8636868596076965,
+          "gt_bad": false
+        },
+        {
+          "text": "The hours of operation for the brewery are Monday through Sunday, with varying times depending on the day.",
+          "start": 203,
+          "end": 309,
+          "support": 0.3917551338672638,
+          "gt_bad": false
+        },
+        {
+          "text": "The brewery features attributes such as BusinessParking, which includes street parking, and OutdoorSeating, which offers a relaxing atmosphere outside.",
+          "start": 312,
+          "end": 463,
+          "support": 0.1326810121536255,
+          "gt_bad": true
+        },
+        {
+          "text": "WiFi is also available, making it convenient for customers to work or connect online while enjoying their drinks.",
+          "start": 464,
+          "end": 577,
+          "support": 0.040705785155296326,
+          "gt_bad": false
+        },
+        {
+          "text": "The restaurant offers takeout options and is GoodForGroups, making it a popular choice for groups.",
+          "start": 578,
+          "end": 676,
+          "support": 0.04448039084672928,
+          "gt_bad": true
+        },
+        {
+          "text": "According to customer reviews, Night Lizard Brewing Company has a high rating of 4.5 stars.",
+          "start": 679,
+          "end": 770,
+          "support": 0.9725213050842285,
+          "gt_bad": false
+        },
+        {
+          "text": "One reviewer mentions that the brewery is much lower key and chill than other breweries in the area, but still has a couple of TVs to watch the game while listening to some Reggae!",
+          "start": 771,
+          "end": 951,
+          "support": 0.6287388205528259,
+          "gt_bad": false
+        },
+        {
+          "text": "Another reviewer praises the line on loop in their head, which included a fire pit, live music, delicious beer, and sales that support an eco-friendly, sustainable cause.",
+          "start": 952,
+          "end": 1122,
+          "support": 0.4071824550628662,
+          "gt_bad": false
+        },
+        {
+          "text": "The third reviewer mentions that Trivia night is soooo cool and that the best kombucha and seltzer are served there.",
+          "start": 1123,
+          "end": 1239,
+          "support": 0.46258389949798584,
+          "gt_bad": false
+        },
+        {
+          "text": "Overall, Night Lizard Brewing Company seems like a great spot for customers looking for a relaxed and enjoyable night out, whether they're in the mood for good food, excellent drinks, or engaging in fun activities like trivia night.",
+          "start": 1240,
+          "end": 1472,
+          "support": 0.5593476295471191,
+          "gt_bad": false
+        }
+      ]
+    },
+    {
+      "id": "ragtruth-6280",
+      "task": "Data2txt",
+      "hallucinated": true,
+      "sentences": [
+        {
+          "text": "Sure!",
+          "start": 0,
+          "end": 5,
+          "support": 0.04397527873516083,
+          "gt_bad": false
+        },
+        {
+          "text": "Here's an objective overview of Mala Town based on the provided structured data:\n\nMala Town is a Chinese restaurant located in Goleta, California.",
+          "start": 6,
+          "end": 152,
+          "support": 0.970177173614502,
+          "gt_bad": false
+        },
+        {
+          "text": "It has a cozy atmosphere with outdoor seating and offers WiFi.",
+          "start": 153,
+          "end": 215,
+          "support": 0.4868028163909912,
+          "gt_bad": true
+        },
+        {
+          "text": "The restaurant serves various dishes such as mala tang, dry pot, and jian bing.",
+          "start": 216,
+          "end": 295,
+          "support": 0.8103624582290649,
+          "gt_bad": false
+        },
+        {
+          "text": "The menu offers a variety of options, including vegetarian and vegan choices.",
+          "start": 296,
+          "end": 373,
+          "support": 0.027821220457553864,
+          "gt_bad": true
+        },
+        {
+          "text": "According to reviews, the food at Mala Town is delicious but not always great, and the prices are considered high for what you get.",
+          "start": 375,
+          "end": 506,
+          "support": 0.1565258502960205,
+          "gt_bad": false
+        },
+        {
+          "text": "Some reviewers found the mala soup base to be not very numbing, and the flavors of the base did not seem well-incorporated into the mix-ins.",
+          "start": 507,
+          "end": 647,
+          "support": 0.9368101954460144,
+          "gt_bad": false
+        },
+        {
+          "text": "However, one reviewer enjoyed their bowl of spicy soup noodles and appreciated the generosity of the server who offered them a complimentary side dish.",
+          "start": 648,
+          "end": 799,
+          "support": 0.2321051061153412,
+          "gt_bad": false
+        },
+        {
+          "text": "Some reviewers noted that the restaurant's utensils could be improved, with one reviewer expressing disappointment with the small plastic spoon and disposable wooden chopsticks provided.",
+          "start": 801,
+          "end": 987,
+          "support": 0.6940484046936035,
+          "gt_bad": false
+        },
+        {
+          "text": "However, the ambiance was described as touristy, hipster, and intimate, making it a good option for casual dining.",
+          "start": 988,
+          "end": 1102,
+          "support": 0.037817247211933136,
+          "gt_bad": true
+        },
+        {
+          "text": "Overall, Mala Town appears to be a decent option for those looking for Chinese cuisine in the Goleta area, but they may want to consider the prices and the quality of the food when deciding whether to visit.",
+          "start": 1104,
+          "end": 1311,
+          "support": 0.13246281445026398,
+          "gt_bad": false
+        }
+      ]
+    },
+    {
+      "id": "ragtruth-7319",
+      "task": "Data2txt",
+      "hallucinated": true,
+      "sentences": [
+        {
+          "text": "Brasil Arts Cafe is a popular restaurant located in Santa Barbara, California, offering a variety of Brazilian-inspired dishes for breakfast, brunch, and lunch.",
+          "start": 0,
+          "end": 160,
+          "support": 0.3998091518878937,
+          "gt_bad": false
+        },
+        {
+          "text": "With a cozy and welcoming atmosphere, the cafe features traditional Brazilian cuisine made with fresh, locally-sourced ingredients.",
+          "start": 161,
+          "end": 292,
+          "support": 0.13089142739772797,
+          "gt_bad": false
+        },
+        {
+          "text": "The menu includes delicious options such as acai fruit bowls, Brazilian stroganoff, and tri tip, as well as a variety of salads and smoothies.",
+          "start": 293,
+          "end": 435,
+          "support": 0.017087431624531746,
+          "gt_bad": false
+        },
+        {
+          "text": "The cafe also offers a unique cultural experience, with African drumming classes and live music performances.",
+          "start": 436,
+          "end": 545,
+          "support": 0.32822275161743164,
+          "gt_bad": true
+        },
+        {
+          "text": "The staff is friendly and attentive, making guests feel at home.",
+          "start": 546,
+          "end": 610,
+          "support": 0.9149553775787354,
+          "gt_bad": false
+        },
+        {
+          "text": "The restaurant has a 4-star rating and is highly recommended by customers, who praise the flavorful food, pleasant atmosphere, and reasonable prices.",
+          "start": 611,
+          "end": 760,
+          "support": 0.6893611550331116,
+          "gt_bad": false
+        },
+        {
+          "text": "Brasil Arts Cafe is a great spot for families, couples, and individuals looking for a healthy, tasty meal in a culturally rich environment.",
+          "start": 761,
+          "end": 900,
+          "support": 0.24651390314102173,
+          "gt_bad": false
+        }
+      ]
+    },
+    {
+      "id": "ragtruth-8756",
+      "task": "Data2txt",
+      "hallucinated": true,
+      "sentences": [
+        {
+          "text": "Your Choice is a restaurant located in Santa Barbara, California.",
+          "start": 0,
+          "end": 65,
+          "support": 0.971038818359375,
+          "gt_bad": false
+        },
+        {
+          "text": "It serves Thai cuisine, along with chicken wings, ice cream and frozen yogurt, desserts, and food.",
+          "start": 66,
+          "end": 164,
+          "support": 0.35059139132499695,
+          "gt_bad": false
+        },
+        {
+          "text": "The restaurant offers takeout and is known for its fast and efficient service.",
+          "start": 165,
+          "end": 243,
+          "support": 0.9655857086181641,
+          "gt_bad": true
+        },
+        {
+          "text": "Customers have praised the taste and quality of the food, with some mentioning the use of fresh ingredients and excellent flavors.",
+          "start": 244,
+          "end": 374,
+          "support": 0.6073777079582214,
+          "gt_bad": true
+        },
+        {
+          "text": "The restaurant does not offer outdoor seating, WiFi, or reservations.",
+          "start": 375,
+          "end": 444,
+          "support": 0.6315580606460571,
+          "gt_bad": false
+        },
+        {
+          "text": "However, it is known for being a great place for groups and offering delicious options for takeout.",
+          "start": 445,
+          "end": 544,
+          "support": 0.26069146394729614,
+          "gt_bad": false
+        },
+        {
+          "text": "Overall, Your Choice seems to be a popular choice for those looking for authentic Thai cuisine in a casual setting.",
+          "start": 545,
+          "end": 660,
+          "support": 0.07280287146568298,
+          "gt_bad": false
+        }
+      ]
+    },
+    {
+      "id": "ragtruth-9601",
+      "task": "Data2txt",
+      "hallucinated": false,
+      "sentences": [
+        {
+          "text": "Javan's is a local business located at 938 Embarcadero Del Nrte in Goleta, CA. It is a restaurant that specializes in sandwiches, burgers, and other food items.",
+          "start": 0,
+          "end": 160,
+          "support": 0.823014497756958,
+          "gt_bad": false
+        },
+        {
+          "text": "The business is known for its high-quality ingredients and the overall dedication of the owners to provide a great dining experience.",
+          "start": 161,
+          "end": 294,
+          "support": 0.9696241021156311,
+          "gt_bad": false
+        },
+        {
+          "text": "The restaurant has received positive reviews from customers.",
+          "start": 295,
+          "end": 355,
+          "support": 0.9825240969657898,
+          "gt_bad": false
+        },
+        {
+          "text": "One customer mentioned that Javan's is the best food in the area and praised the owners for being invested in the quality of their ingredients and products.",
+          "start": 357,
+          "end": 513,
+          "support": 0.895186185836792,
+          "gt_bad": false
+        },
+        {
+          "text": "The customer also highlighted the friendly and entertaining nature of the owners.",
+          "start": 514,
+          "end": 595,
+          "support": 0.6950559616088867,
+          "gt_bad": false
+        },
+        {
+          "text": "They recommended trying the Tuna sandwich, which they described as savory and delicious.",
+          "start": 596,
+          "end": 684,
+          "support": 0.9614278674125671,
+          "gt_bad": false
+        },
+        {
+          "text": "Another customer mentioned that the restaurant has good sandwiches and chili.",
+          "start": 686,
+          "end": 763,
+          "support": 0.4699001908302307,
+          "gt_bad": false
+        },
+        {
+          "text": "However, they suggested that the owners invest in a better quality sign for better visibility, especially at night.",
+          "start": 764,
+          "end": 879,
+          "support": 0.9325318336486816,
+          "gt_bad": false
+        },
+        {
+          "text": "Overall, Javan's has received a rating of 4.0 stars, indicating a positive customer experience.",
+          "start": 881,
+          "end": 976,
+          "support": 0.9160481095314026,
+          "gt_bad": false
+        },
+        {
+          "text": "The restaurant offers outdoor seating and free WiFi.",
+          "start": 977,
+          "end": 1029,
+          "support": 0.9422096014022827,
+          "gt_bad": false
+        },
+        {
+          "text": "It is suitable for groups and also offers takeout service.",
+          "start": 1030,
+          "end": 1088,
+          "support": 0.3143113851547241,
+          "gt_bad": false
+        },
+        {
+          "text": "The business does not have specific hours mentioned in the provided data.",
+          "start": 1089,
+          "end": 1162,
+          "support": 0.9752037525177002,
+          "gt_bad": false
+        },
+        {
+          "text": "Javan's is a casual dining option that competes well with other restaurants in the area in terms of quality and pricing.",
+          "start": 1163,
+          "end": 1283,
+          "support": 0.4022063910961151,
+          "gt_bad": false
+        }
+      ]
+    },
+    {
+      "id": "ragtruth-8080",
+      "task": "Data2txt",
+      "hallucinated": true,
+      "sentences": [
+        {
+          "text": "Here is an objective overview of Bogo SB based on the provided structured data:\n\nBogo SB is a local business in Santa Barbara, CA that offers a variety of menu options including burgers, pizza, and catering services.",
+          "start": 0,
+          "end": 216,
+          "support": 0.8450542092323303,
+          "gt_bad": false
+        },
+        {
+          "text": "The restaurant has a rating of 4.5 stars and is known for its good food and easy ordering process.",
+          "start": 217,
+          "end": 315,
+          "support": 0.902334451675415,
+          "gt_bad": false
+        },
+        {
+          "text": "Customers have praised the restaurant's buy one, get one free pizza deal and the value it offers.",
+          "start": 316,
+          "end": 413,
+          "support": 0.7208945155143738,
+          "gt_bad": false
+        },
+        {
+          "text": "The restaurant also serves burgers, salads, and other entrees, and has a full bar with beer and cocktails.",
+          "start": 414,
+          "end": 520,
+          "support": 0.04553329572081566,
+          "gt_bad": true
+        },
+        {
+          "text": "According to reviews, the restaurant has a clean and modern atmosphere and the staff is friendly and efficient.",
+          "start": 522,
+          "end": 633,
+          "support": 0.06536874175071716,
+          "gt_bad": true
+        },
+        {
+          "text": "One reviewer noted that the restaurant is located within the 1114 restaurant complex and has a separate entrance.",
+          "start": 634,
+          "end": 747,
+          "support": 0.6832149624824524,
+          "gt_bad": false
+        },
+        {
+          "text": "Another reviewer mentioned that the restaurant offers delivery and takeout options, but noted that the delivery fees can be high.",
+          "start": 748,
+          "end": 877,
+          "support": 0.7878652215003967,
+          "gt_bad": false
+        },
+        {
+          "text": "One reviewer praised the restaurant's burgers, saying they were delicious and had a good balance of ingredients.",
+          "start": 879,
+          "end": 991,
+          "support": 0.592994213104248,
+          "gt_bad": true
+        },
+        {
+          "text": "Another reviewer enjoyed the pizza and thought it was a good value, but noted that the cakes were overpriced.",
+          "start": 992,
+          "end": 1101,
+          "support": 0.5394396781921387,
+          "gt_bad": false
+        },
+        {
+          "text": "Overall, customers seem to enjoy the food and value offered by Bogo SB, and the restaurant appears to be a popular spot for both dine-in and takeout.",
+          "start": 1102,
+          "end": 1251,
+          "support": 0.6841297149658203,
+          "gt_bad": false
+        }
+      ]
+    },
+    {
+      "id": "ragtruth-11520",
+      "task": "Data2txt",
+      "hallucinated": false,
+      "sentences": [
+        {
+          "text": "'The Spot' is a local restaurant situated at 389 Linden Ave, Carpinteria, CA, offering a mix of Mexican and traditional American cuisine, with a special focus on burgers.",
+          "start": 0,
+          "end": 170,
+          "support": 0.31740736961364746,
+          "gt_bad": false
+        },
+        {
+          "text": "The restaurant operates from 10:00 am every day, with closing hours varying between 4:00 pm and 8:00 pm depending on the day.",
+          "start": 171,
+          "end": 296,
+          "support": 0.029414791613817215,
+          "gt_bad": false
+        },
+        {
+          "text": "It is a casual dining spot that does not accept reservations but offers outdoor seating and is suitable for groups.",
+          "start": 297,
+          "end": 412,
+          "support": 0.5555884838104248,
+          "gt_bad": false
+        },
+        {
+          "text": "However, they do not provide WiFi and only accept cash payments, though an ATM is available onsite.",
+          "start": 413,
+          "end": 512,
+          "support": 0.042059917002916336,
+          "gt_bad": false
+        },
+        {
+          "text": "'The Spot' has mixed reviews with an average rating of 3.5 stars, with customers praising the quick service, delicious food, especially the burgers, onion rings, and clam chowder.",
+          "start": 513,
+          "end": 692,
+          "support": 0.29141899943351746,
+          "gt_bad": false
+        },
+        {
+          "text": "The restaurant does not provide a parking garage or valet service, but street parking and a parking lot are available.",
+          "start": 693,
+          "end": 811,
+          "support": 0.725864589214325,
+          "gt_bad": false
+        }
+      ]
+    },
+    {
+      "id": "ragtruth-13721",
+      "task": "QA",
+      "hallucinated": false,
+      "sentences": [
+        {
+          "text": "Sure, here's a brief answer to the question \"How to clean dryer vent\" based on the given passages:\n\nTo clean the dryer vent, start by locating the vent cover on the outside of the house and removing it.",
+          "start": 0,
+          "end": 202,
+          "support": 0.9398832321166992,
+          "gt_bad": false
+        },
+        {
+          "text": "Then, remove the vent from the back of the dryer and use a dryer vent brush to clean the lint from the vent and the hole in the back of the dryer.",
+          "start": 203,
+          "end": 349,
+          "support": 0.6616935133934021,
+          "gt_bad": false
+        },
+        {
+          "text": "Reconnect the vent and move the dryer back against the wall.",
+          "start": 350,
+          "end": 410,
+          "support": 0.8995376825332642,
+          "gt_bad": false
+        },
+        {
+          "text": "Additionally, consider removing the bottom front panel of the dryer and cleaning the area around the lint filter for a more thorough cleaning.",
+          "start": 411,
+          "end": 553,
+          "support": 0.6705867648124695,
+          "gt_bad": false
+        },
+        {
+          "text": "Use a vacuum nozzle to clean the lint deposits and ensure your dryer runs efficiently.",
+          "start": 554,
+          "end": 640,
+          "support": 0.9441744685173035,
+          "gt_bad": false
+        },
+        {
+          "text": "If the passages did not contain the necessary information to answer the question, I would have replied with \"Unable to answer based on given passages.\"",
+          "start": 642,
+          "end": 793,
+          "support": 0.035650834441185,
+          "gt_bad": false
+        }
+      ]
+    },
+    {
+      "id": "ragtruth-12443",
+      "task": "QA",
+      "hallucinated": false,
+      "sentences": [
+        {
+          "text": "To prepare a blood slide, follow these steps:\n\n1.",
+          "start": 0,
+          "end": 49,
+          "support": 0.9463788270950317,
+          "gt_bad": false
+        },
+        {
+          "text": "Place a clean glass slide on a flat surface.\n2.",
+          "start": 50,
+          "end": 97,
+          "support": 0.9638241529464722,
+          "gt_bad": false
+        },
+        {
+          "text": "Add one small drop of blood to one end of the slide.\n3.",
+          "start": 98,
+          "end": 153,
+          "support": 0.9449814558029175,
+          "gt_bad": false
+        },
+        {
+          "text": "Take another clean slide and hold it at an angle of about 45 degrees.",
+          "start": 154,
+          "end": 223,
+          "support": 0.9382336139678955,
+          "gt_bad": false
+        },
+        {
+          "text": "Touch the blood with one end of the slide so that it runs along the edge of the slide by capillary action.\n4.",
+          "start": 224,
+          "end": 333,
+          "support": 0.3787256181240082,
+          "gt_bad": false
+        },
+        {
+          "text": "Push the second slide carefully along the length of the first slide to produce a thin smear of blood.\n5.",
+          "start": 334,
+          "end": 438,
+          "support": 0.21251972019672394,
+          "gt_bad": false
+        },
+        {
+          "text": "Repeat step 4 to make two smears.\n6.",
+          "start": 439,
+          "end": 475,
+          "support": 0.029659802094101906,
+          "gt_bad": false
+        },
+        {
+          "text": "Allow the smears to air dry.\n7.",
+          "start": 476,
+          "end": 507,
+          "support": 0.10962327569723129,
+          "gt_bad": false
+        },
+        {
+          "text": "Label the slides clearly.\n8.",
+          "start": 508,
+          "end": 536,
+          "support": 0.12208188325166702,
+          "gt_bad": false
+        },
+        {
+          "text": "Once dried, place the slides in the provided slide transport containers.",
+          "start": 537,
+          "end": 609,
+          "support": 0.961456298828125,
+          "gt_bad": false
+        },
+        {
+          "text": "Note: It is important to sterilize the needle used to obtain the blood sample by heating it with a flame before using it.",
+          "start": 611,
+          "end": 732,
+          "support": 0.6770293712615967,
+          "gt_bad": false
+        },
+        {
+          "text": "Additionally, it is essential to wear rubber gloves when handling blood to avoid coming into contact with potentially infectious materials.",
+          "start": 733,
+          "end": 872,
+          "support": 0.9593141078948975,
+          "gt_bad": false
+        }
+      ]
+    },
+    {
+      "id": "ragtruth-16509",
+      "task": "QA",
+      "hallucinated": true,
+      "sentences": [
+        {
+          "text": "Based on the provided passages, here is why you may not be getting a toned body despite exercising every day:\n\n1.",
+          "start": 0,
+          "end": 113,
+          "support": 0.8279194831848145,
+          "gt_bad": false
+        },
+        {
+          "text": "Lack of muscle mass: According to passage 1, having muscle is essential for having a toned body.",
+          "start": 114,
+          "end": 210,
+          "support": 0.08012886345386505,
+          "gt_bad": false
+        },
+        {
+          "text": "If you don't have enough muscle mass, then you won't be able to see definition or tone, even if you have a low body fat percentage.\n2.",
+          "start": 211,
+          "end": 345,
+          "support": 0.4819622039794922,
+          "gt_bad": false
+        },
+        {
+          "text": "High body fat percentage: Passage 2 states that having too much fat covering your muscles can hide their definition and make them appear flabby instead of toned.",
+          "start": 346,
+          "end": 507,
+          "support": 0.09019158780574799,
+          "gt_bad": true
+        },
+        {
+          "text": "Therefore, if you have a high body fat percentage, it could be difficult to achieve a toned appearance, regardless of how much you exercise.\n3.",
+          "start": 508,
+          "end": 651,
+          "support": 0.5297400951385498,
+          "gt_bad": true
+        },
+        {
+          "text": "Insufficient intensity or duration of workouts: To build muscle and burn fat, your workouts need to be intense enough to challenge your muscles and raise your heart rate.",
+          "start": 652,
+          "end": 822,
+          "support": 0.02215716615319252,
+          "gt_bad": true
+        },
+        {
+          "text": "If your workouts are too easy or too short, you may not be stimulating enough growth and fat loss to achieve a toned body.\n4.",
+          "start": 823,
+          "end": 948,
+          "support": 0.0397079735994339,
+          "gt_bad": true
+        },
+        {
+          "text": "Poor nutrition: Adequate nutrition is crucial for building muscle and losing fat.",
+          "start": 949,
+          "end": 1030,
+          "support": 0.026087190955877304,
+          "gt_bad": true
+        },
+        {
+          "text": "If you're not consuming enough protein, calories, and other essential nutrients, your muscle growth and fat loss may be limited, making it harder to achieve a toned body.",
+          "start": 1031,
+          "end": 1201,
+          "support": 0.034006230533123016,
+          "gt_bad": true
+        },
+        {
+          "text": "Unable to answer based on given passages.",
+          "start": 1203,
+          "end": 1244,
+          "support": 0.052964139729738235,
+          "gt_bad": false
+        }
+      ]
+    },
+    {
+      "id": "ragtruth-12297",
+      "task": "QA",
+      "hallucinated": true,
+      "sentences": [
+        {
+          "text": "Based on the provided passages, the proper way to dispose of a worn USA flag is as follows:\n\n1.",
+          "start": 0,
+          "end": 95,
+          "support": 0.9500570893287659,
+          "gt_bad": false
+        },
+        {
+          "text": "Remove the blue field from the flag and then place the flag out for collection.",
+          "start": 96,
+          "end": 175,
+          "support": 0.1166791170835495,
+          "gt_bad": false
+        },
+        {
+          "text": "The blue field should be burned in a peaceful manner and the ashes buried.",
+          "start": 176,
+          "end": 250,
+          "support": 0.9813359379768372,
+          "gt_bad": false
+        },
+        {
+          "text": "(Passage 1)\n2.",
+          "start": 251,
+          "end": 265,
+          "support": 0.46461567282676697,
+          "gt_bad": true
+        },
+        {
+          "text": "Burn the flag in a proper ceremony.",
+          "start": 266,
+          "end": 301,
+          "support": 0.9694125652313232,
+          "gt_bad": true
+        },
+        {
+          "text": "If you are able to personally discharge your worn flag from service, the ceremony that follows is the proper way.",
+          "start": 302,
+          "end": 415,
+          "support": 0.9396370649337769,
+          "gt_bad": true
+        },
+        {
+          "text": "The flag must be folded in the customary triangle fold.",
+          "start": 416,
+          "end": 471,
+          "support": 0.9815338253974915,
+          "gt_bad": true
+        },
+        {
+          "text": "(Passage 2)\n\nTherefore, the proper way to dispose of a worn USA flag is through burning it in a peaceful manner during a proper ceremony, or by placing it out for collection after removing the blue field and then properly disposing of the blue field through burning.",
+          "start": 472,
+          "end": 738,
+          "support": 0.44637781381607056,
+          "gt_bad": true
+        }
+      ]
+    },
+    {
+      "id": "ragtruth-17394",
+      "task": "QA",
+      "hallucinated": false,
+      "sentences": [
+        {
+          "text": "Based on the passages given, exercises that can tone the chest include a modified tri-set for the chest, pushups, and heavy sets of dumbbell bench presses.",
+          "start": 0,
+          "end": 155,
+          "support": 0.7590301036834717,
+          "gt_bad": false
+        },
+        {
+          "text": "Another exercise involves laying on your back with a dumbbell in each hand, extending your arms out to your side, slowly curling your hands together until the dumbbells meet above the center of your chest, and then slowly returning your arms back to your sides.",
+          "start": 156,
+          "end": 417,
+          "support": 0.8238168954849243,
+          "gt_bad": false
+        },
+        {
+          "text": "High-intensity interval training programs like The Anarchy Workout can also help tone the chest.",
+          "start": 418,
+          "end": 514,
+          "support": 0.9811853766441345,
+          "gt_bad": false
+        }
+      ]
+    },
+    {
+      "id": "ragtruth-16060",
+      "task": "QA",
+      "hallucinated": true,
+      "sentences": [
+        {
+          "text": "Based on the given passages, here is how to perform skill moves in FIFA 16 on Xbox One:\n\nTo execute a skill move while standing, press and hold the LT button and then tap the RB button.",
+          "start": 0,
+          "end": 185,
+          "support": 0.3702366352081299,
+          "gt_bad": false
+        },
+        {
+          "text": "This will allow your player to perform various skill moves such as flip fouls, step-overs, and heel-to-heel turns.",
+          "start": 186,
+          "end": 300,
+          "support": 0.011692937463521957,
+          "gt_bad": true
+        },
+        {
+          "text": "You can find more tutorials and guides on executing skill moves in FIFA 16 by visiting the official website or watching video tutorials available online.",
+          "start": 302,
+          "end": 455,
+          "support": 0.08782366663217545,
+          "gt_bad": false
+        },
+        {
+          "text": "Additionally, the complete FIFA 16 Skill Moves guide with a list and tutorial videos can be found on the official website.",
+          "start": 456,
+          "end": 578,
+          "support": 0.07136357575654984,
+          "gt_bad": false
+        }
+      ]
+    },
+    {
+      "id": "ragtruth-13940",
+      "task": "QA",
+      "hallucinated": false,
+      "sentences": [
+        {
+          "text": "Based on the given passages, severe osteoporosis can be characterized by sudden, severe back pain that worsens when standing or walking, pain relief when lying down, back pain, loss of height over time with stooped posture, and frequent fractures of the vertebrae, wrists, hips, or other bones.",
+          "start": 0,
+          "end": 294,
+          "support": 0.5079837441444397,
+          "gt_bad": false
+        },
+        {
+          "text": "It is important to note that osteoporosis can be a silent disease and that symptoms may not appear until significant bone damage has already occurred.",
+          "start": 295,
+          "end": 445,
+          "support": 0.8795435428619385,
+          "gt_bad": false
+        }
+      ]
+    },
+    {
+      "id": "ragtruth-14775",
+      "task": "QA",
+      "hallucinated": false,
+      "sentences": [
+        {
+          "text": "Here are brief answers to why we should serve others based on the provided passages:\n\n1.",
+          "start": 0,
+          "end": 88,
+          "support": 0.6110774278640747,
+          "gt_bad": false
+        },
+        {
+          "text": "Love your neighbor as yourself (Matthew 22:39) - We should serve others because it shows love and kindness to everyone, regardless of how they treat us.\n2.",
+          "start": 89,
+          "end": 244,
+          "support": 0.33015117049217224,
+          "gt_bad": false
+        },
+        {
+          "text": "The fact that we should serve God is obvious in Scripture (Luke 4:8) - We should serve God because He is worthy of our love and service, and it is a natural response to knowing Him.\n3.",
+          "start": 245,
+          "end": 429,
+          "support": 0.5142324566841125,
+          "gt_bad": false
+        },
+        {
+          "text": "If we are serving others for selfish reasons, we are not serving or loving properly (unable to answer based on given passages) - The passages do not provide explicit reasons why we should serve others without selfish motives.",
+          "start": 430,
+          "end": 655,
+          "support": 0.13642901182174683,
+          "gt_bad": false
+        },
+        {
+          "text": "Therefore, the main reasons why we should serve others based on these passages are:\n\n* To show love and kindness to everyone, regardless of their treatment towards us.\n* To express our love and appreciation for God, who deserves our service and devotion.",
+          "start": 657,
+          "end": 911,
+          "support": 0.22485391795635223,
+          "gt_bad": false
+        }
+      ]
+    },
+    {
+      "id": "ragtruth-15345",
+      "task": "QA",
+      "hallucinated": true,
+      "sentences": [
+        {
+          "text": "Based on the provided passages, here are the benefits of hiking as a hobby:\n\n1.",
+          "start": 0,
+          "end": 79,
+          "support": 0.9289109110832214,
+          "gt_bad": false
+        },
+        {
+          "text": "Promotes mental health: Hiking is a form of outdoor recreation that promotes mental well-being by exposing individuals to nature and allowing them to disconnect from their daily routines (Passage 1).\n2.",
+          "start": 80,
+          "end": 282,
+          "support": 0.02900790236890316,
+          "gt_bad": false
+        },
+        {
+          "text": "Increases vitamin D levels: Spending time outdoors while hiking exposes individuals to sunlight, which helps to increase vitamin D levels (Passage 2).\n3.",
+          "start": 283,
+          "end": 436,
+          "support": 0.9345197081565857,
+          "gt_bad": false
+        },
+        {
+          "text": "Improves cardiovascular health: Hiking is a cardiovascular activity that can help reduce the risk of heart disease and improve overall fitness (Passage 2).\n4.",
+          "start": 437,
+          "end": 595,
+          "support": 0.19494181871414185,
+          "gt_bad": false
+        },
+        {
+          "text": "Combats stress and anxiety: Research suggests that hiking has a positive impact on reducing symptoms of stress and anxiety (Passage 3).",
+          "start": 596,
+          "end": 731,
+          "support": 0.9708905816078186,
+          "gt_bad": false
+        },
+        {
+          "text": "Unable to answer based on given passages.",
+          "start": 733,
+          "end": 774,
+          "support": 0.0687636211514473,
+          "gt_bad": false
+        },
+        {
+          "text": "The passages do not provide information on the following benefits of hiking:\n\n* Building muscle strength and endurance\n* Improving balance and coordination\n* Enhancing cognitive function\n* Reducing the risk of chronic diseases such as obesity and diabetes\n\nThe passages primarily focus on the mental and physical health benefits of hiking, but do not provide information on other potential advantages of the activity.",
+          "start": 775,
+          "end": 1192,
+          "support": 0.03528774157166481,
+          "gt_bad": true
+        }
+      ]
+    },
+    {
+      "id": "ragtruth-12445",
+      "task": "QA",
+      "hallucinated": false,
+      "sentences": [
+        {
+          "text": "Essential amino acids are those that cannot be made by the body and must be obtained from the diet.",
+          "start": 0,
+          "end": 99,
+          "support": 0.9520362019538879,
+          "gt_bad": false
+        },
+        {
+          "text": "Adults need to obtain eight essential amino acids: valine, isoleucine, leucine, lysine, methionine, phenylalanine, threonine, and tryptophan.",
+          "start": 100,
+          "end": 241,
+          "support": 0.8933584094047546,
+          "gt_bad": false
+        },
+        {
+          "text": "The ninth essential amino acid, histidine, is only essential for infants.",
+          "start": 242,
+          "end": 315,
+          "support": 0.8815798759460449,
+          "gt_bad": false
+        },
+        {
+          "text": "Nonessential amino acids, on the other hand, can be made by the body from essential amino acids or by breaking down protein products.",
+          "start": 316,
+          "end": 449,
+          "support": 0.8757407665252686,
+          "gt_bad": false
+        },
+        {
+          "text": "Some examples of nonessential amino acids are alanine, asparagine, aspartic acid, glutamic acid, arginine, cysteine, glutamine, glycine, ornithine, proline, serine, and tyrosine.",
+          "start": 450,
+          "end": 628,
+          "support": 0.6785208582878113,
+          "gt_bad": false
+        }
+      ]
+    },
+    {
+      "id": "ragtruth-14132",
+      "task": "QA",
+      "hallucinated": false,
+      "sentences": [
+        {
+          "text": "Based on the given passages, examples of potential energy include an object's gravitational potential energy due to its vertical position or height, and elastic potential energy stored in objects due to their deformation.",
+          "start": 0,
+          "end": 221,
+          "support": 0.015592538751661777,
+          "gt_bad": false
+        },
+        {
+          "text": "Examples of kinetic energy include an airplane's kinetic energy in flight due to its large mass and fast velocity, a baseball's kinetic energy due to its fast velocity despite its small mass, and the kinetic energy possessed by objects in motion such as cars, balls, rivers, athletes, amusement park rides, and satellites in orbit.",
+          "start": 222,
+          "end": 553,
+          "support": 0.604989230632782,
+          "gt_bad": false
+        }
+      ]
+    },
+    {
+      "id": "ragtruth-14688",
+      "task": "QA",
+      "hallucinated": false,
+      "sentences": [
+        {
+          "text": "To give wood an antique effect using normal paint, start by painting the wood piece with a basecoat of flat or satin paint.",
+          "start": 0,
+          "end": 123,
+          "support": 0.7644357681274414,
+          "gt_bad": false
+        },
+        {
+          "text": "Satin paint is easier to work with, but flat paint gives an older look.",
+          "start": 124,
+          "end": 195,
+          "support": 0.9403380155563354,
+          "gt_bad": false
+        },
+        {
+          "text": "Once the basecoat dries, mix paint that's two shades darker than your basecoat with an equal amount of glaze.",
+          "start": 196,
+          "end": 305,
+          "support": 0.7913060188293457,
+          "gt_bad": false
+        },
+        {
+          "text": "Dab a crumpled rag or plastic bag in the glaze mixture and apply it to the wood.",
+          "start": 306,
+          "end": 386,
+          "support": 0.40424323081970215,
+          "gt_bad": false
+        },
+        {
+          "text": "You can also layer stain for a cool, antique effect.",
+          "start": 387,
+          "end": 439,
+          "support": 0.8575891852378845,
+          "gt_bad": false
+        },
+        {
+          "text": "Apply the stain, distress the wood, then apply another layer of stain.",
+          "start": 440,
+          "end": 510,
+          "support": 0.04323400557041168,
+          "gt_bad": false
+        },
+        {
+          "text": "Another technique involves applying a layer of molding paste which dries white, then mixing in a rust or dull color such as yellow ochre or paynes grey, spreading it over the wood, and letting it dry.",
+          "start": 511,
+          "end": 711,
+          "support": 0.434736967086792,
+          "gt_bad": false
+        }
+      ]
+    },
+    {
+      "id": "ragtruth-13745",
+      "task": "QA",
+      "hallucinated": false,
+      "sentences": [
+        {
+          "text": "Based on the given passages, the benefits of MSM powder include:\n\n* Helping to increase oxygen efficiency in the blood\n* Increasing energy levels by making cell walls more permeable\n* Enhancing nutrient absorption, particularly when taken with Co-enzyme Q10\n* Relieving muscular aches and pains\n* Reducing inflammation due to injury or inflammatory diseases such as arthritis\n\nTherefore, MSM powder has several benefits for overall health and wellness, including improved oxygenation, energy, and reduction of pain and inflammation.",
+          "start": 0,
+          "end": 532,
+          "support": 0.7890754342079163,
+          "gt_bad": false
+        }
+      ]
+    },
+    {
+      "id": "ragtruth-15709",
+      "task": "QA",
+      "hallucinated": false,
+      "sentences": [
+        {
+          "text": "Based on the given passages, the difference between sirloin steak and porterhouse steak is that porterhouse steak is a larger version of T-Bone steak and it contains more of the tenderloin or fillet than T-Bone steak.",
+          "start": 0,
+          "end": 217,
+          "support": 0.9111528396606445,
+          "gt_bad": false
+        }
+      ]
+    },
+    {
+      "id": "ragtruth-15775",
+      "task": "QA",
+      "hallucinated": false,
+      "sentences": [
+        {
+          "text": "Safety pins in a first aid box are used for various purposes such as immobilizing an arm by creating a makeshift sling, securing a bandana over a wounded arm or leg, closing severe wounds in emergency situations, and removing splinters.",
+          "start": 0,
+          "end": 236,
+          "support": 0.8110228180885315,
+          "gt_bad": false
+        }
+      ]
+    },
+    {
+      "id": "ragtruth-13133",
+      "task": "QA",
+      "hallucinated": false,
+      "sentences": [
+        {
+          "text": "Based on the given passages, here's how to soften sugar:\n\n1.",
+          "start": 0,
+          "end": 60,
+          "support": 0.9518743753433228,
+          "gt_bad": false
+        },
+        {
+          "text": "Place brown sugar in an airtight container with a damp paper towel or napkin on top.",
+          "start": 61,
+          "end": 145,
+          "support": 0.9676077961921692,
+          "gt_bad": false
+        },
+        {
+          "text": "Cover tightly and let it sit for a couple of days.",
+          "start": 146,
+          "end": 196,
+          "support": 0.9206787347793579,
+          "gt_bad": false
+        },
+        {
+          "text": "Remove the damp paper towel, and the sugar should be soft.",
+          "start": 197,
+          "end": 255,
+          "support": 0.8635420203208923,
+          "gt_bad": false
+        },
+        {
+          "text": "(Passage 1)\n2.",
+          "start": 256,
+          "end": 270,
+          "support": 0.6359881162643433,
+          "gt_bad": false
+        },
+        {
+          "text": "Preheat the oven to a low temperature (150-200 degrees), place hardened granulated sugar in an ovenproof container, and tap it with a spoon after 15 minutes.",
+          "start": 271,
+          "end": 428,
+          "support": 0.7791301012039185,
+          "gt_bad": false
+        },
+        {
+          "text": "If it starts to fall apart, turn off the oven and leave it in for an hour or two to dry out completely.",
+          "start": 429,
+          "end": 532,
+          "support": 0.9300218224525452,
+          "gt_bad": false
+        },
+        {
+          "text": "Store granulated sugar in an airtight container.",
+          "start": 533,
+          "end": 581,
+          "support": 0.9835804104804993,
+          "gt_bad": false
+        },
+        {
+          "text": "(Passage 2)\n3.",
+          "start": 582,
+          "end": 596,
+          "support": 0.5550020933151245,
+          "gt_bad": false
+        },
+        {
+          "text": "Keep brown sugar soft by storing it in an airtight container with minimal air space between the sugar and the lid.",
+          "start": 597,
+          "end": 711,
+          "support": 0.9782453179359436,
+          "gt_bad": false
+        },
+        {
+          "text": "Pack the sugar into the smallest container possible.",
+          "start": 712,
+          "end": 764,
+          "support": 0.9445491433143616,
+          "gt_bad": false
+        },
+        {
+          "text": "(Passage 3)",
+          "start": 765,
+          "end": 776,
+          "support": 0.918300211429596,
+          "gt_bad": false
+        }
+      ]
+    },
+    {
+      "id": "ragtruth-15271",
+      "task": "QA",
+      "hallucinated": false,
+      "sentences": [
+        {
+          "text": "Cupping massage has several benefits including eliminating toxins from the body, improved circulation, pain relief, and mental benefits such as reducing anxiety and depression.",
+          "start": 0,
+          "end": 176,
+          "support": 0.8920634388923645,
+          "gt_bad": false
+        }
+      ]
+    },
+    {
+      "id": "ragtruth-14804",
+      "task": "QA",
+      "hallucinated": false,
+      "sentences": [
+        {
+          "text": "Unable to answer based on given passages.",
+          "start": 0,
+          "end": 41,
+          "support": 0.05613229423761368,
+          "gt_bad": false
+        }
+      ]
+    },
+    {
+      "id": "ragtruth-14703",
+      "task": "QA",
+      "hallucinated": false,
+      "sentences": [
+        {
+          "text": "Based on the provided passages, the main difference between a rock and a stone is their size.",
+          "start": 0,
+          "end": 93,
+          "support": 0.2820266783237457,
+          "gt_bad": false
+        },
+        {
+          "text": "Rocks are typically larger and more massive than stones, which are smaller and more fragmented.",
+          "start": 94,
+          "end": 189,
+          "support": 0.063226617872715,
+          "gt_bad": false
+        },
+        {
+          "text": "Passage 1 states that rocks are often used to refer to something solid, large, and grounded, such as a mountain or palisade, while stones are often used to refer to small pieces of rock or pebbles.",
+          "start": 191,
+          "end": 388,
+          "support": 0.8441670536994934,
+          "gt_bad": false
+        },
+        {
+          "text": "Passage 2 defines rocks as the hard material of the earth's crust that is exposed on the surface of the earth or underlying the soil, while stones are smaller fragments of rock that can be carried in the hand.",
+          "start": 389,
+          "end": 598,
+          "support": 0.6278041005134583,
+          "gt_bad": false
+        },
+        {
+          "text": "Passage 3 further clarifies the distinction by stating that rocks are made up of smaller stones, while stones are made from rocks.",
+          "start": 600,
+          "end": 730,
+          "support": 0.9446480870246887,
+          "gt_bad": false
+        },
+        {
+          "text": "Additionally, rocks are described as being difficult to carry in the hand, while stones are small enough to be carried easily.",
+          "start": 731,
+          "end": 857,
+          "support": 0.8520373702049255,
+          "gt_bad": false
+        },
+        {
+          "text": "In summary, while both rocks and stones are made of the same material, they differ in size and usage.",
+          "start": 859,
+          "end": 960,
+          "support": 0.43825337290763855,
+          "gt_bad": false
+        },
+        {
+          "text": "Rocks are generally larger and more massive, while stones are smaller and more fragmented.",
+          "start": 961,
+          "end": 1051,
+          "support": 0.04139772802591324,
+          "gt_bad": false
+        }
+      ]
+    },
+    {
+      "id": "ragtruth-17566",
+      "task": "QA",
+      "hallucinated": false,
+      "sentences": [
+        {
+          "text": "Sure!",
+          "start": 0,
+          "end": 5,
+          "support": 0.031791556626558304,
+          "gt_bad": false
+        },
+        {
+          "text": "Here's my answer based on the given passages:\n\nWhat is the weather like in Wellesley today?",
+          "start": 6,
+          "end": 97,
+          "support": 0.12017469853162766,
+          "gt_bad": false
+        },
+        {
+          "text": "According to the provided passages, today's weather in Wellesley (Aug 23) is sunny with a high of 82 degrees and a 39% chance of rain.",
+          "start": 99,
+          "end": 233,
+          "support": 0.18933328986167908,
+          "gt_bad": false
+        },
+        {
+          "text": "The winds are blowing at 10 mph from the north-northwest.",
+          "start": 234,
+          "end": 291,
+          "support": 0.5646918416023254,
+          "gt_bad": false
+        }
+      ]
+    },
+    {
+      "id": "ragtruth-15107",
+      "task": "QA",
+      "hallucinated": false,
+      "sentences": [
+        {
+          "text": "Based on the given passages, here's a brief answer to the question \"How to clean tarnished jewelry at home\":\n\nTo clean tarnished jewelry at home, mix a few drops of mild dish soap with warm water and dip a soft cloth in the solution.",
+          "start": 0,
+          "end": 233,
+          "support": 0.9570742845535278,
+          "gt_bad": false
+        },
+        {
+          "text": "Rub the jewelry gently, then rinse it in cool water and buff it with a cloth until dry.",
+          "start": 234,
+          "end": 321,
+          "support": 0.851948618888855,
+          "gt_bad": false
+        },
+        {
+          "text": "For heavier tarnish, mix a paste of three parts baking soda to one part water and apply it with a soft, lint-free cloth.",
+          "start": 322,
+          "end": 442,
+          "support": 0.8955813050270081,
+          "gt_bad": false
+        },
+        {
+          "text": "You can also use a saltwater solution by pouring two cups of hot water into a bowl and submerging the jewelry in it.",
+          "start": 443,
+          "end": 559,
+          "support": 0.8856589198112488,
+          "gt_bad": false
+        },
+        {
+          "text": "Let it sit for a while, then remove and rinse it with cool water.",
+          "start": 560,
+          "end": 625,
+          "support": 0.057961318641901016,
+          "gt_bad": false
+        },
+        {
+          "text": "Be sure to use a soft-bristle brush or old toothbrush to clean diamonds.",
+          "start": 626,
+          "end": 698,
+          "support": 0.940338134765625,
+          "gt_bad": false
+        }
+      ]
+    },
+    {
+      "id": "ragtruth-13364",
+      "task": "QA",
+      "hallucinated": false,
+      "sentences": [
+        {
+          "text": "To wash wine glasses properly, start by using hot water and mild detergent to clean the outside of the glass.",
+          "start": 0,
+          "end": 109,
+          "support": 0.22395746409893036,
+          "gt_bad": false
+        },
+        {
+          "text": "If there are stubborn wine residues, use baking soda to dissolve them by mixing a small amount of soda with hot water and letting it sit in the glass for a few minutes.",
+          "start": 110,
+          "end": 278,
+          "support": 0.8853586912155151,
+          "gt_bad": false
+        },
+        {
+          "text": "For cleaning the inside of the glass, use a stemware brush with soft-foam bristles.",
+          "start": 279,
+          "end": 362,
+          "support": 0.9428897500038147,
+          "gt_bad": false
+        },
+        {
+          "text": "Rinse thoroughly with hot water and dry the glasses with a smooth lint-free cloth.",
+          "start": 363,
+          "end": 445,
+          "support": 0.9231200814247131,
+          "gt_bad": false
+        },
+        {
+          "text": "To avoid damage, wash one wine glass at a time, use a small amount of detergent only where it's needed, and cradle the bowl of the glass in one hand while washing to protect the stem.",
+          "start": 446,
+          "end": 629,
+          "support": 0.8779485821723938,
+          "gt_bad": false
+        }
+      ]
+    },
+    {
+      "id": "ragtruth-12243",
+      "task": "QA",
+      "hallucinated": false,
+      "sentences": [
+        {
+          "text": "Based on the provided passages, here are some ways to keep birds from building nests on your porch:\n\n1.",
+          "start": 0,
+          "end": 103,
+          "support": 0.9392476677894592,
+          "gt_bad": false
+        },
+        {
+          "text": "Attach bird netting to the eaves around the perimeter of your porch using a staple gun.",
+          "start": 104,
+          "end": 191,
+          "support": 0.9618261456489563,
+          "gt_bad": false
+        },
+        {
+          "text": "This will prevent birds from reaching those spaces they often choose to build their nests, which can block your ventilation systems, are made from flammable materials, and bird droppings can transmit disease.",
+          "start": 192,
+          "end": 400,
+          "support": 0.896003782749176,
+          "gt_bad": false
+        },
+        {
+          "text": "(Passage 1:4)\n2.",
+          "start": 401,
+          "end": 417,
+          "support": 0.7866168022155762,
+          "gt_bad": false
+        },
+        {
+          "text": "Install bird netting over the top of your light fixture to block the birds' access to it.",
+          "start": 418,
+          "end": 507,
+          "support": 0.9550853371620178,
+          "gt_bad": false
+        },
+        {
+          "text": "Choose a netting that is non-flammable and safe to use around light bulbs, and make sure it is installed so that it doesn't entangle birds.",
+          "start": 508,
+          "end": 647,
+          "support": 0.8973032236099243,
+          "gt_bad": false
+        },
+        {
+          "text": "(Passage 2:1)\n3.",
+          "start": 648,
+          "end": 664,
+          "support": 0.7644392251968384,
+          "gt_bad": false
+        },
+        {
+          "text": "Mount a plastic hawk on or near your porch.",
+          "start": 665,
+          "end": 708,
+          "support": 0.964228093624115,
+          "gt_bad": false
+        },
+        {
+          "text": "The sight of a predator can scare the birds away from the area and keep them from inhabiting your porch.",
+          "start": 709,
+          "end": 813,
+          "support": 0.9567215442657471,
+          "gt_bad": false
+        },
+        {
+          "text": "Move the plastic hawk periodically to keep the birds from becoming accustomed to its presence.",
+          "start": 814,
+          "end": 908,
+          "support": 0.9580605626106262,
+          "gt_bad": false
+        },
+        {
+          "text": "(Passage 3:1)\n\nTherefore, based on the provided passages, you can keep birds from building nests on your porch by using bird netting, installing bird netting over your light fixture, or mounting a plastic hawk near your porch.",
+          "start": 909,
+          "end": 1135,
+          "support": 0.7855642437934875,
+          "gt_bad": false
+        }
+      ]
+    },
+    {
+      "id": "ragtruth-17054",
+      "task": "QA",
+      "hallucinated": false,
+      "sentences": [
+        {
+          "text": "Based on the given passages, it can be understood that the Weighted Average Costing (WAC) method is used to determine the average cost of inventory when a unit is sold.",
+          "start": 0,
+          "end": 168,
+          "support": 0.9197049736976624,
+          "gt_bad": false
+        },
+        {
+          "text": "This method takes the average cost of all inventories currently available and uses it to calculate the weighted average cost per unit.",
+          "start": 169,
+          "end": 303,
+          "support": 0.9652292132377625,
+          "gt_bad": false
+        },
+        {
+          "text": "WAC is commonly used when inventory items are intermingled and it's difficult to assign a specific cost to an individual unit, or when the accounting system is not sophisticated enough to track FIFO or LIFO inventory layers.",
+          "start": 304,
+          "end": 528,
+          "support": 0.7021161317825317,
+          "gt_bad": false
+        }
+      ]
+    },
+    {
+      "id": "ragtruth-15207",
+      "task": "QA",
+      "hallucinated": false,
+      "sentences": [
+        {
+          "text": "Based on the provided passages, the colonists responded to the Stamp Act of 1765 with a mix of violent and non-violent protests, starting with peaceful demonstrations such as holding signs and chanting slogans like \"No Taxation without Representation\".",
+          "start": 0,
+          "end": 252,
+          "support": 0.2427220493555069,
+          "gt_bad": false
+        },
+        {
+          "text": "However, some of these protests led to confrontations with British soldiers, resulting in arrests.",
+          "start": 253,
+          "end": 351,
+          "support": 0.12407006323337555,
+          "gt_bad": false
+        },
+        {
+          "text": "The colonists were upset about the Stamp Act because it was the first direct tax imposed by Parliament on the colonies, which they saw as a violation of their rights as British subjects and a breach of their consent to be governed under the British Constitution.",
+          "start": 353,
+          "end": 615,
+          "support": 0.15715312957763672,
+          "gt_bad": false
+        },
+        {
+          "text": "They believed that no taxes could be levied on them without their representation in Parliament, which they did not have at the time.",
+          "start": 616,
+          "end": 748,
+          "support": 0.09851428866386414,
+          "gt_bad": false
+        },
+        {
+          "text": "The Stamp Act required the use of tax-stamped paper for all newspapers, legal documents, and other printed materials, which further annoyed the colonists who felt that it interfered with their freedom of speech and press.",
+          "start": 749,
+          "end": 970,
+          "support": 0.20704016089439392,
+          "gt_bad": false
+        },
+        {
+          "text": "Therefore, the colonists responded to the Stamp Act with a variety of measures, including public protests, legislative resolutions, town meetings, and citizen boycotts of British goods.",
+          "start": 972,
+          "end": 1157,
+          "support": 0.8036364316940308,
+          "gt_bad": false
+        },
+        {
+          "text": "While the Stamp Act went into effect on November 1, 1765, it was eventually repealed by Parliament on March 18, 1766, and replaced with the Declaratory Act, which reaffirmed Parliament's authority to make laws binding on the colonies.",
+          "start": 1158,
+          "end": 1392,
+          "support": 0.38665199279785156,
+          "gt_bad": false
+        }
+      ]
+    },
+    {
+      "id": "ragtruth-12020",
+      "task": "QA",
+      "hallucinated": false,
+      "sentences": [
+        {
+          "text": "Based on the given passages, DNA is a nucleic acid responsible for storing genetic information.",
+          "start": 0,
+          "end": 95,
+          "support": 0.9797552824020386,
+          "gt_bad": false
+        },
+        {
+          "text": "It is made up of molecules called nucleotides, each containing a phosphate group, a sugar group, and one of four types of nitrogen bases (adenine, thymine, guanine, or cytosine).",
+          "start": 96,
+          "end": 274,
+          "support": 0.8886035680770874,
+          "gt_bad": false
+        },
+        {
+          "text": "The order of these bases forms the genetic code, which instructs cells to make proteins.",
+          "start": 275,
+          "end": 363,
+          "support": 0.9701381325721741,
+          "gt_bad": false
+        },
+        {
+          "text": "DNA is a double helix structure with a sugar-phosphate backbone and can replicate itself.",
+          "start": 364,
+          "end": 453,
+          "support": 0.9704481363296509,
+          "gt_bad": false
+        }
+      ]
+    },
+    {
+      "id": "ragtruth-12437",
+      "task": "QA",
+      "hallucinated": false,
+      "sentences": [
+        {
+          "text": "Sure, I can help you with that!",
+          "start": 0,
+          "end": 31,
+          "support": 0.014752437360584736,
+          "gt_bad": false
+        },
+        {
+          "text": "Here are the symptoms and causes of irritable bowel syndrome (IBS) based on the given passages:\n\nSymptoms:\n\n* Diarrhea (often described as violent episodes of diarrhea)\n* Constipation\n* Constipation alternating with diarrhea\n* Belly pains or cramps, usually in the lower half of the belly, that get worse after meals and feel better after a bowel movement\n* A lot of gas or bloating\n\nCauses:\n\n* Abnormal gastrointestinal (GI) tract movements\n* Increased awareness of bodily functions\n* Disruption in the communication between the brain and the GI tract\n* Alterations in the GI tract motility\n* Abnormal nervous system signals\n* Increased sensitivity to pain\n* Food intolerances\n* Poor absorption of sugars or acids in food\n\nIt's worth noting that the exact cause of IBS is still unknown, and it's believed to be a complex interaction of various factors.",
+          "start": 32,
+          "end": 885,
+          "support": 0.9740618467330933,
+          "gt_bad": false
+        }
+      ]
+    },
+    {
+      "id": "ragtruth-16456",
+      "task": "QA",
+      "hallucinated": false,
+      "sentences": [
+        {
+          "text": "Based on the provided passages, I am unable to determine the location of Dove soap's headquarters.",
+          "start": 0,
+          "end": 98,
+          "support": 0.04542645066976547,
+          "gt_bad": false
+        },
+        {
+          "text": "The passages only provide contact information and a brief statement about the company's mission and values, but do not include any information about the company's physical location.",
+          "start": 99,
+          "end": 280,
+          "support": 0.3866584897041321,
+          "gt_bad": false
+        }
+      ]
+    },
+    {
+      "id": "ragtruth-17252",
+      "task": "QA",
+      "hallucinated": false,
+      "sentences": [
+        {
+          "text": "Children learn various gross motor skills, academic concepts, scientific knowledge, and develop creativity through water play.",
+          "start": 0,
+          "end": 126,
+          "support": 0.8810055255889893,
+          "gt_bad": false
+        },
+        {
+          "text": "Teachers can enhance water play by providing interesting and challenging materials, encouraging active play, using open-ended questions, modeling new vocabulary, and observing children's actions.",
+          "start": 127,
+          "end": 322,
+          "support": 0.9415571689605713,
+          "gt_bad": false
+        }
+      ]
+    },
+    {
+      "id": "ragtruth-14364",
+      "task": "QA",
+      "hallucinated": false,
+      "sentences": [
+        {
+          "text": "To get rid of ticks from dogs, first, check common tick hiding places such as inside and behind the dog's ears and around the eyes.",
+          "start": 0,
+          "end": 131,
+          "support": 0.9044420719146729,
+          "gt_bad": false
+        },
+        {
+          "text": "Once you locate a tick, use a pair of tweezers to grasp the tick's head where it attaches to the skin.",
+          "start": 132,
+          "end": 234,
+          "support": 0.8488540053367615,
+          "gt_bad": false
+        },
+        {
+          "text": "If you plan to use your fingers, wear gloves.",
+          "start": 235,
+          "end": 280,
+          "support": 0.9761282205581665,
+          "gt_bad": false
+        },
+        {
+          "text": "Pull on the tick gently and steadily to avoid leaving part of the tick's mouth behind, which can cause an infection.",
+          "start": 281,
+          "end": 397,
+          "support": 0.846445620059967,
+          "gt_bad": false
+        },
+        {
+          "text": "Regular use of tick control products can also prevent ticks from attaching to your dog.",
+          "start": 398,
+          "end": 485,
+          "support": 0.9464097619056702,
+          "gt_bad": false
+        },
+        {
+          "text": "Your veterinarian can advise you about the best product for your dog and your situation.",
+          "start": 486,
+          "end": 574,
+          "support": 0.9667028188705444,
+          "gt_bad": false
+        },
+        {
+          "text": "Flea and tick shampoos can kill the ticks that are already on your pet.",
+          "start": 575,
+          "end": 646,
+          "support": 0.9783861041069031,
+          "gt_bad": false
+        }
+      ]
+    },
+    {
+      "id": "ragtruth-5279",
+      "task": "Summary",
+      "hallucinated": false,
+      "sentences": [
+        {
+          "text": "Luna, the intern, reveals Eric Forrester's secret health diagnosis to Ridge Forrester, causing tension between RJ and Luna.",
+          "start": 0,
+          "end": 123,
+          "support": 0.2926168739795685,
+          "gt_bad": false
+        },
+        {
+          "text": "RJ feels betrayed by Luna, but Ridge encourages him to forgive her for doing the right thing.",
+          "start": 124,
+          "end": 217,
+          "support": 0.10986166447401047,
+          "gt_bad": false
+        },
+        {
+          "text": "RJ struggles with whether to forgive Luna and what Luna's motives were for revealing Eric's secret.",
+          "start": 218,
+          "end": 317,
+          "support": 0.3242532014846802,
+          "gt_bad": false
+        }
+      ]
+    },
+    {
+      "id": "ragtruth-776",
+      "task": "Summary",
+      "hallucinated": false,
+      "sentences": [
+        {
+          "text": "The California Public Utilities Commission (CPUC) fined Pacific Gas & Electric (PG&E) $1.6 billion in penalties for the unsafe operation of its gas transmission system.",
+          "start": 0,
+          "end": 168,
+          "support": 0.9702755212783813,
+          "gt_bad": false
+        },
+        {
+          "text": "Most of the amount will be used for improving pipeline safety.",
+          "start": 169,
+          "end": 231,
+          "support": 0.9850548505783081,
+          "gt_bad": false
+        },
+        {
+          "text": "The penalty stems from the 2010 pipeline explosion in San Bruno that killed eight people and caused widespread damage.",
+          "start": 232,
+          "end": 350,
+          "support": 0.980064332485199,
+          "gt_bad": false
+        },
+        {
+          "text": "This is the largest penalty ever imposed by the CPUC. PG&E has already spent over $500 million settling claims with the victims and implementing safety measures recommended by regulators.",
+          "start": 351,
+          "end": 538,
+          "support": 0.9531925320625305,
+          "gt_bad": false
+        },
+        {
+          "text": "The company pledges to become the safest energy provider in the US. The CPUC's president Michael Picker stated that they failed to prevent the tragedy and must do everything possible to avoid similar incidents in the future.",
+          "start": 539,
+          "end": 763,
+          "support": 0.96602863073349,
+          "gt_bad": false
+        }
+      ]
+    },
+    {
+      "id": "ragtruth-621",
+      "task": "Summary",
+      "hallucinated": true,
+      "sentences": [
+        {
+          "text": "On Wednesday, SkyWest Flight 5622 made an emergency landing in Buffalo, New York due to a pressurization issue.",
+          "start": 0,
+          "end": 111,
+          "support": 0.05953889712691307,
+          "gt_bad": false
+        },
+        {
+          "text": "Passengers reported feeling dizzy, disoriented, and experiencing vision problems during the descent.",
+          "start": 112,
+          "end": 212,
+          "support": 0.13139040768146515,
+          "gt_bad": false
+        },
+        {
+          "text": "The Federal Aviation Administration (FAA) is investigating the incident, but so far, no indication of a pressurization problem has been found on the aircraft.",
+          "start": 213,
+          "end": 371,
+          "support": 0.4539070725440979,
+          "gt_bad": false
+        },
+        {
+          "text": "A nurse on board the flight, Mary Cunningham, administered oxygen to a sick passenger and later assisted with another passenger who lost consciousness.",
+          "start": 372,
+          "end": 523,
+          "support": 0.6148094534873962,
+          "gt_bad": false
+        },
+        {
+          "text": "Thirty-one passengers were evaluated by medical personnel at the airport, but none were transported to the hospital.",
+          "start": 524,
+          "end": 640,
+          "support": 0.07054546475410461,
+          "gt_bad": true
+        },
+        {
+          "text": "The flight was carrying 84 passengers and nine crew members.",
+          "start": 641,
+          "end": 701,
+          "support": 0.9703112840652466,
+          "gt_bad": false
+        }
+      ]
+    },
+    {
+      "id": "ragtruth-4847",
+      "task": "Summary",
+      "hallucinated": false,
+      "sentences": [
+        {
+          "text": "The Formula 1 Heineken Silver Las Vegas Grand Prix 2023 is set to take place on a new temporary street circuit in Las Vegas on November 18th.",
+          "start": 0,
+          "end": 141,
+          "support": 0.9826677441596985,
+          "gt_bad": false
+        },
+        {
+          "text": "The 3.8-mile track features 17 corners, 3 straights, and 3 DRS zones, and will be raced at night, providing a visual spectacle against the city's glittering skyline.",
+          "start": 142,
+          "end": 307,
+          "support": 0.7064533829689026,
+          "gt_bad": false
+        },
+        {
+          "text": "The race marks the return of a Formula One Grand Prix event to Las Vegas after a 40-year absence and will be the 1100th round of the Formula One World Championship.",
+          "start": 308,
+          "end": 472,
+          "support": 0.9803487658500671,
+          "gt_bad": false
+        }
+      ]
+    },
+    {
+      "id": "ragtruth-4588",
+      "task": "Summary",
+      "hallucinated": true,
+      "sentences": [
+        {
+          "text": "Sure!",
+          "start": 0,
+          "end": 5,
+          "support": 0.06577331572771072,
+          "gt_bad": false
+        },
+        {
+          "text": "Here's the summary within 100 words:\n\nOn Wednesday, October 4th at 2:20 PM EDT, FEMA will conduct a nationwide test of their Emergency Alert System.",
+          "start": 6,
+          "end": 154,
+          "support": 0.8954682946205139,
+          "gt_bad": false
+        },
+        {
+          "text": "The test will be sent to phones, radios, and televisions across the country, and will feature a distinctive tone that has been used since 1963.",
+          "start": 155,
+          "end": 298,
+          "support": 0.8713040947914124,
+          "gt_bad": false
+        },
+        {
+          "text": "The test is designed to evaluate the effectiveness of FEMA's alert systems and ensure that they are ready to be used in case of an emergency.",
+          "start": 299,
+          "end": 440,
+          "support": 0.7814033031463623,
+          "gt_bad": false
+        },
+        {
+          "text": "Not all phones may receive the alert, and some older phones may not be compatible.",
+          "start": 441,
+          "end": 523,
+          "support": 0.623838484287262,
+          "gt_bad": false
+        },
+        {
+          "text": "The test is scheduled to take place at 2:20 PM EDT, and will be followed by a second test on October 11th, should there be severe weather or other significant events.",
+          "start": 524,
+          "end": 690,
+          "support": 0.06001514941453934,
+          "gt_bad": true
+        }
+      ]
+    },
+    {
+      "id": "ragtruth-1001",
+      "task": "Summary",
+      "hallucinated": false,
+      "sentences": [
+        {
+          "text": "The killing of Walter Scott by Officer Michael Slager has sparked outrage and calls for police reform.",
+          "start": 0,
+          "end": 102,
+          "support": 0.497989684343338,
+          "gt_bad": false
+        },
+        {
+          "text": "The video of the incident shows Slager shooting Scott eight times as he fled, with his back turned to the officer.",
+          "start": 103,
+          "end": 217,
+          "support": 0.8792743682861328,
+          "gt_bad": false
+        },
+        {
+          "text": "The author argues that if Slager had been wearing a body camera, the tragedy may have been prevented.",
+          "start": 218,
+          "end": 319,
+          "support": 0.9606519937515259,
+          "gt_bad": false
+        },
+        {
+          "text": "Body cameras can help to reduce complaints against police and use of force incidents.",
+          "start": 320,
+          "end": 405,
+          "support": 0.9831050038337708,
+          "gt_bad": false
+        },
+        {
+          "text": "However, they are only an interim solution to the deeper problem of racial bias in the criminal justice system.",
+          "start": 406,
+          "end": 517,
+          "support": 0.9707428216934204,
+          "gt_bad": false
+        },
+        {
+          "text": "The author suggests that stricter employment screening standards, training to recognize bias, and broad social changes to address disparities in income, education, and opportunities are needed to address this issue.",
+          "start": 518,
+          "end": 733,
+          "support": 0.9503237009048462,
+          "gt_bad": false
+        }
+      ]
+    },
+    {
+      "id": "ragtruth-4532",
+      "task": "Summary",
+      "hallucinated": true,
+      "sentences": [
+        {
+          "text": "Governor Shapiro's office recently settled a sexual harassment claim against Mike Vereb, a former senior aide.",
+          "start": 0,
+          "end": 110,
+          "support": 0.9569590091705322,
+          "gt_bad": false
+        },
+        {
+          "text": "The woman who made the accusations received a settlement of $295,000.",
+          "start": 111,
+          "end": 180,
+          "support": 0.832172691822052,
+          "gt_bad": false
+        },
+        {
+          "text": "The settlement included legal fees and the woman's compensation.",
+          "start": 181,
+          "end": 245,
+          "support": 0.14150992035865784,
+          "gt_bad": false
+        },
+        {
+          "text": "In return, the woman agreed to not sue the governor's office or appear in any further court proceedings.",
+          "start": 246,
+          "end": 350,
+          "support": 0.0330660343170166,
+          "gt_bad": true
+        },
+        {
+          "text": "As part of the settlement, the governor's office will provide sexual harassment training to its employees and allow the accuser to seek employment elsewhere in the state government or as a contractor.",
+          "start": 351,
+          "end": 551,
+          "support": 0.6120575666427612,
+          "gt_bad": false
+        }
+      ]
+    },
+    {
+      "id": "ragtruth-4037",
+      "task": "Summary",
+      "hallucinated": false,
+      "sentences": [
+        {
+          "text": "On \"The Young and the Restless,\" Nick Newman forces Sally Spectra to choose between him and his brother Adam.",
+          "start": 0,
+          "end": 109,
+          "support": 0.9631339907646179,
+          "gt_bad": false
+        },
+        {
+          "text": "Sally is torn between her feelings for both men and struggles to make a decision.",
+          "start": 110,
+          "end": 191,
+          "support": 0.9756736755371094,
+          "gt_bad": false
+        },
+        {
+          "text": "The brothers' rivalry intensifies, leading to a physical altercation.",
+          "start": 192,
+          "end": 261,
+          "support": 0.9411718249320984,
+          "gt_bad": false
+        },
+        {
+          "text": "In the end, Sally makes a shocking decision that will impact her future.",
+          "start": 262,
+          "end": 334,
+          "support": 0.3575649559497833,
+          "gt_bad": false
+        }
+      ]
+    },
+    {
+      "id": "ragtruth-779",
+      "task": "Summary",
+      "hallucinated": false,
+      "sentences": [
+        {
+          "text": "The California Public Utilities Commission has ordered Pacific Gas & Electric Co. to pay a record $1.6 billion penalty for unsafe operation of its gas transmission system, including the pipeline rupture that killed eight people in San Bruno in 2010.",
+          "start": 0,
+          "end": 249,
+          "support": 0.966617226600647,
+          "gt_bad": false
+        },
+        {
+          "text": "The penalty includes $850 million for gas transmission pipeline safety infrastructure improvements and $50 million for other safety measures.",
+          "start": 250,
+          "end": 391,
+          "support": 0.9516818523406982,
+          "gt_bad": false
+        },
+        {
+          "text": "The company has also paid over $500 million in claims to victims and their families.",
+          "start": 392,
+          "end": 476,
+          "support": 0.9280634522438049,
+          "gt_bad": false
+        }
+      ]
+    },
+    {
+      "id": "ragtruth-928",
+      "task": "Summary",
+      "hallucinated": false,
+      "sentences": [
+        {
+          "text": "Here is a summary of the article in 198 words:\n\nJia Jiang, a Chinese-born entrepreneur, embarked on a project called \"100 Days of Rejection\" to overcome his fear of rejection.",
+          "start": 0,
+          "end": 175,
+          "support": 0.8823782801628113,
+          "gt_bad": false
+        },
+        {
+          "text": "He asked strangers for unusual requests, such as $100 or an apple, and documented their responses.",
+          "start": 176,
+          "end": 274,
+          "support": 0.6521745920181274,
+          "gt_bad": false
+        },
+        {
+          "text": "His project went viral, leading to media appearances and speaking engagements.",
+          "start": 275,
+          "end": 353,
+          "support": 0.971906304359436,
+          "gt_bad": false
+        },
+        {
+          "text": "Jiang's book, \"Rejection Proof,\" offers eight tips for turning rejection into an opportunity, including not letting fear hold you back, treating rejection as a numbers game, and asking why for feedback.",
+          "start": 354,
+          "end": 556,
+          "support": 0.1701996773481369,
+          "gt_bad": false
+        },
+        {
+          "text": "Jiang's project and book aim to demystify rejection and empower others to face their fears.",
+          "start": 557,
+          "end": 648,
+          "support": 0.9116921424865723,
+          "gt_bad": false
+        }
+      ]
+    },
+    {
+      "id": "ragtruth-275",
+      "task": "Summary",
+      "hallucinated": true,
+      "sentences": [
+        {
+          "text": "Somali-Canadian sisters Iman and Siham Hashi, known collectively as Faarrow, are set to release their debut album, blending Afro-pop, hip-hop, and rhythmic African percussion.",
+          "start": 0,
+          "end": 175,
+          "support": 0.7784736156463623,
+          "gt_bad": true
+        },
+        {
+          "text": "They have been working with producer Elijah Kelley, who has also worked with artists like Michael Jackson and Whitney Houston.",
+          "start": 176,
+          "end": 302,
+          "support": 0.1545829325914383,
+          "gt_bad": true
+        },
+        {
+          "text": "The sisters write their own songs and have been influenced by artists like the Spice Girls and Sia.",
+          "start": 303,
+          "end": 402,
+          "support": 0.05067168176174164,
+          "gt_bad": false
+        },
+        {
+          "text": "They have also been advocating for refugees, working with the UNHCR, and have started a non-profit organization to support women in Kenya and Somalia.",
+          "start": 403,
+          "end": 553,
+          "support": 0.18914543092250824,
+          "gt_bad": false
+        },
+        {
+          "text": "They hope to use their music to inspire others and make a positive impact, breaking away from the traditional expectation that creative pursuits are not respected in their culture.",
+          "start": 554,
+          "end": 734,
+          "support": 0.4763457179069519,
+          "gt_bad": false
+        }
+      ]
+    },
+    {
+      "id": "ragtruth-2359",
+      "task": "Summary",
+      "hallucinated": false,
+      "sentences": [
+        {
+          "text": "The Centers for Disease Control and Prevention (CDC) has reported a severe outbreak of HIV infections in a rural county in Indiana.",
+          "start": 0,
+          "end": 131,
+          "support": 0.9643674492835999,
+          "gt_bad": false
+        },
+        {
+          "text": "The outbreak has been ongoing since mid-December and has primarily affected users of the prescription opioid Opana.",
+          "start": 132,
+          "end": 247,
+          "support": 0.9527977705001831,
+          "gt_bad": false
+        },
+        {
+          "text": "As of Friday, there have been 142 people who have tested positive for HIV, with 136 confirmed cases and six more with preliminary positive test results in rural Scott and Jackson counties.",
+          "start": 248,
+          "end": 436,
+          "support": 0.1144777163863182,
+          "gt_bad": false
+        },
+        {
+          "text": "This is a significant number of cases for an area with a small population.",
+          "start": 437,
+          "end": 511,
+          "support": 0.937505841255188,
+          "gt_bad": false
+        },
+        {
+          "text": "The CDC and state health leaders held a news conference to address the growing threat of disease spread from intravenous (IV) drug use, particularly in isolated rural areas with limited healthcare resources.",
+          "start": 512,
+          "end": 719,
+          "support": 0.905431866645813,
+          "gt_bad": false
+        },
+        {
+          "text": "Scott County, which is at the center of the outbreak, only has one doctor who deals with infectious diseases, but they are not an HIV specialist.",
+          "start": 720,
+          "end": 865,
+          "support": 0.1100434809923172,
+          "gt_bad": false
+        },
+        {
+          "text": "Indiana has declared a public health emergency in the county and has deployed additional resources, including healthcare volunteers and a needle exchange program.",
+          "start": 866,
+          "end": 1028,
+          "support": 0.861568033695221,
+          "gt_bad": false
+        },
+        {
+          "text": "The outbreak has primarily affected younger people who are not as aware of the dangers of sharing needles.",
+          "start": 1029,
+          "end": 1135,
+          "support": 0.22116149961948395,
+          "gt_bad": false
+        },
+        {
+          "text": "Education and prevention efforts will be crucial in controlling the spread of the virus.",
+          "start": 1136,
+          "end": 1224,
+          "support": 0.9074631333351135,
+          "gt_bad": false
+        },
+        {
+          "text": "Health leaders are concerned about the nationwide increase in illegal prescription drug use and the associated risk of HIV and other diseases.",
+          "start": 1225,
+          "end": 1367,
+          "support": 0.9819368720054626,
+          "gt_bad": false
+        },
+        {
+          "text": "The situation in Indiana serves as a reminder to remain vigilant in preventing the spread of infectious diseases.",
+          "start": 1368,
+          "end": 1481,
+          "support": 0.9850685000419617,
+          "gt_bad": false
+        }
+      ]
+    },
+    {
+      "id": "ragtruth-5478",
+      "task": "Summary",
+      "hallucinated": false,
+      "sentences": [
+        {
+          "text": "Jag Bains has won the Power of Veto (POV) competition in Big Brother 25, marking his fifth consecutive win.",
+          "start": 0,
+          "end": 107,
+          "support": 0.947607696056366,
+          "gt_bad": false
+        },
+        {
+          "text": "After Cory Wurtrnberger's eviction, Jag won the Head of Household competition and nominated Blue Kim and America Lopez for eviction.",
+          "start": 108,
+          "end": 240,
+          "support": 0.4951685667037964,
+          "gt_bad": false
+        },
+        {
+          "text": "His target is Blue.",
+          "start": 241,
+          "end": 260,
+          "support": 0.9823302030563354,
+          "gt_bad": false
+        },
+        {
+          "text": "While Blue tries to gather votes to stay, Jag needs one more vote to ensure her eviction.",
+          "start": 261,
+          "end": 350,
+          "support": 0.7515577673912048,
+          "gt_bad": false
+        },
+        {
+          "text": "There is a double eviction coming up, and Matt Klotz must win the next competition to keep Jag safe.",
+          "start": 351,
+          "end": 451,
+          "support": 0.9791561365127563,
+          "gt_bad": false
+        }
+      ]
+    },
+    {
+      "id": "ragtruth-273",
+      "task": "Summary",
+      "hallucinated": true,
+      "sentences": [
+        {
+          "text": "Sure, here's a summary of the article in 200 words:\n\nSomali-Canadian singing sisters Iman and Siham Hashi, known as Faarrow, are set to release their debut album in Los Angeles after fleeing their home country due to war in 1991.",
+          "start": 0,
+          "end": 229,
+          "support": 0.8162909150123596,
+          "gt_bad": true
+        },
+        {
+          "text": "They have been working with producer Elijah Kelley and have described their sound as a fusion of pop, hip-hop, and African rhythms.",
+          "start": 230,
+          "end": 361,
+          "support": 0.7515244483947754,
+          "gt_bad": false
+        },
+        {
+          "text": "The sisters also work with the UNHCR and have started a non-profit organization to provide sustainable income for women in Kenya and Somalia.",
+          "start": 362,
+          "end": 503,
+          "support": 0.12450586259365082,
+          "gt_bad": false
+        },
+        {
+          "text": "They hope to use their platform to inspire others and help rebuild their home country.",
+          "start": 504,
+          "end": 590,
+          "support": 0.9369619488716125,
+          "gt_bad": false
+        }
+      ]
+    },
+    {
+      "id": "ragtruth-5200",
+      "task": "Summary",
+      "hallucinated": false,
+      "sentences": [
+        {
+          "text": "Sure!",
+          "start": 0,
+          "end": 5,
+          "support": 0.059024035930633545,
+          "gt_bad": false
+        },
+        {
+          "text": "Here's the summary within 109 words:\n\nSavannah Chrisley is dating former Auburn player Robert Shiver and double dated with her brother Grayson and his girlfriend over the weekend.",
+          "start": 6,
+          "end": 185,
+          "support": 0.7242550849914551,
+          "gt_bad": false
+        },
+        {
+          "text": "This is her first serious relationship since her engagement to Nic Kerdiles ended.",
+          "start": 186,
+          "end": 268,
+          "support": 0.05998624488711357,
+          "gt_bad": false
+        },
+        {
+          "text": "Savannah is happy to have found someone who understands her commitment to her siblings, as she is their guardian after her parents went to prison.",
+          "start": 269,
+          "end": 415,
+          "support": 0.09798681735992432,
+          "gt_bad": false
+        },
+        {
+          "text": "While she's excited about the relationship, it's unclear where it will go as Robert is still married and needs to finalize his divorce before they can move forward.",
+          "start": 416,
+          "end": 580,
+          "support": 0.10557357221841812,
+          "gt_bad": false
+        }
+      ]
+    },
+    {
+      "id": "ragtruth-961",
+      "task": "Summary",
+      "hallucinated": false,
+      "sentences": [
+        {
+          "text": "Over the past year, more than 25,000 people have contracted Ebola, with over 10,000 deaths.",
+          "start": 0,
+          "end": 91,
+          "support": 0.6771482825279236,
+          "gt_bad": false
+        },
+        {
+          "text": "The Ebola epidemic has highlighted the vulnerability of the world to disease and exposed flaws in government systems.",
+          "start": 92,
+          "end": 209,
+          "support": 0.982570469379425,
+          "gt_bad": false
+        },
+        {
+          "text": "While the number of cases has decreased, there are still new infections each week, with 30 new cases reported in the week of April 5.",
+          "start": 210,
+          "end": 343,
+          "support": 0.9735612869262695,
+          "gt_bad": false
+        },
+        {
+          "text": "Liberia and Sierra Leone have seen a significant decline in cases, but Guinea still faces challenges with unknown transmission chains and unsafe burials.",
+          "start": 344,
+          "end": 497,
+          "support": 0.9753913879394531,
+          "gt_bad": false
+        }
+      ]
+    },
+    {
+      "id": "ragtruth-140",
+      "task": "Summary",
+      "hallucinated": false,
+      "sentences": [
+        {
+          "text": "Kanye West has settled a lawsuit with a paparazzi photographer he assaulted in 2013.",
+          "start": 0,
+          "end": 84,
+          "support": 0.8783249258995056,
+          "gt_bad": false
+        },
+        {
+          "text": "The photographer, Daniel Ramos, had sued West for damages and accused him of interfering with his right to pursue a lawful occupation.",
+          "start": 85,
+          "end": 219,
+          "support": 0.6851353049278259,
+          "gt_bad": false
+        },
+        {
+          "text": "Ramos accepted an apology from West and the two shook hands in a photo released by Ramos' lawyer, Gloria Allred.",
+          "start": 220,
+          "end": 332,
+          "support": 0.3171725869178772,
+          "gt_bad": false
+        },
+        {
+          "text": "Ramos and West had previously reached a criminal settlement in which West pleaded no contest to a misdemeanor count of battery and received two years' probation and community service.",
+          "start": 333,
+          "end": 516,
+          "support": 0.07198994606733322,
+          "gt_bad": false
+        },
+        {
+          "text": "Allred stated that the case sent an important message that celebrities are not above the law and cannot physically attack someone simply because they were asked a question.",
+          "start": 517,
+          "end": 689,
+          "support": 0.8975770473480225,
+          "gt_bad": false
+        }
+      ]
+    },
+    {
+      "id": "ragtruth-205",
+      "task": "Summary",
+      "hallucinated": false,
+      "sentences": [
+        {
+          "text": "Selena, the Tejano star who died 20 years ago, is being brought back through a hologram-like figure.",
+          "start": 0,
+          "end": 100,
+          "support": 0.6580724120140076,
+          "gt_bad": false
+        },
+        {
+          "text": "Her family is creating a digital embodiment of her persona that will be able to walk, talk, sing, and dance.",
+          "start": 101,
+          "end": 209,
+          "support": 0.4795994758605957,
+          "gt_bad": false
+        },
+        {
+          "text": "The technology is being handled by Acrovirt LLC, and the project is called \"Selena the One.\" The family intends to release new music and videos through this digital version of Selena, and they also plan to collaborate with current artists and go on tour in 2018.",
+          "start": 210,
+          "end": 472,
+          "support": 0.8971105217933655,
+          "gt_bad": false
+        },
+        {
+          "text": "This is not the first time a performer has used virtual technology, but Selena's hologram is expected to be more advanced.",
+          "start": 473,
+          "end": 595,
+          "support": 0.7432804107666016,
+          "gt_bad": false
+        },
+        {
+          "text": "Fans can support the launch through an Indiegogo campaign.",
+          "start": 596,
+          "end": 654,
+          "support": 0.9709178805351257,
+          "gt_bad": false
+        }
+      ]
+    },
+    {
+      "id": "ragtruth-4342",
+      "task": "Summary",
+      "hallucinated": false,
+      "sentences": [
+        {
+          "text": "Here is a summary of the news article within 80 words:\n\nJudge Alia Moses granted a temporary restraining order against the Biden Administration's decision to cut concertina wire along the southern border, which allowed migrants to enter Texas freely.",
+          "start": 0,
+          "end": 250,
+          "support": 0.7861040234565735,
+          "gt_bad": false
+        },
+        {
+          "text": "The ruling is only temporary until November 13th, and both sides will present their arguments on November 7th.",
+          "start": 251,
+          "end": 361,
+          "support": 0.9589871764183044,
+          "gt_bad": false
+        },
+        {
+          "text": "Texas Attorney General Ken Paxton argued that the wire was essential to securing the border and preventing illegal migration, while the Biden Administration claimed that it needed to be cut to allow medical aid access to migrants.",
+          "start": 362,
+          "end": 592,
+          "support": 0.5598663687705994,
+          "gt_bad": false
+        }
+      ]
+    },
+    {
+      "id": "ragtruth-2169",
+      "task": "Summary",
+      "hallucinated": false,
+      "sentences": [
+        {
+          "text": "Here is a summary of the article in 79 words:\n\nStephen Hawking teamed up with Monty Python to release a new version of the group's classic song \"Galaxy Song\" to celebrate Record Store Day.",
+          "start": 0,
+          "end": 188,
+          "support": 0.7974247932434082,
+          "gt_bad": false
+        },
+        {
+          "text": "The song features Hawking's signature computerized voice and incorporates scientific facts about the universe.",
+          "start": 189,
+          "end": 299,
+          "support": 0.9646981358528137,
+          "gt_bad": false
+        },
+        {
+          "text": "The collaboration marks Hawking's latest venture into music after appearing on the Pink Floyd track \"Talkin' Hawkin'\".",
+          "start": 300,
+          "end": 418,
+          "support": 0.24243764579296112,
+          "gt_bad": false
+        }
+      ]
+    },
+    {
+      "id": "ragtruth-2252",
+      "task": "Summary",
+      "hallucinated": false,
+      "sentences": [
+        {
+          "text": "Cheryl wants to keep her birthday a secret and gives her friends ten possible dates.",
+          "start": 0,
+          "end": 84,
+          "support": 0.5083673596382141,
+          "gt_bad": false
+        },
+        {
+          "text": "After a conversation between Albert and Bernard, they eliminate nine options leaving only one date as her birthday.",
+          "start": 85,
+          "end": 200,
+          "support": 0.0878831297159195,
+          "gt_bad": false
+        },
+        {
+          "text": "This problem has gone viral and has been solved by various sources including the New York Times and Washington Post.",
+          "start": 201,
+          "end": 317,
+          "support": 0.964982807636261,
+          "gt_bad": false
+        }
+      ]
+    },
+    {
+      "id": "ragtruth-690",
+      "task": "Summary",
+      "hallucinated": false,
+      "sentences": [
+        {
+          "text": "The French prosecutor leading the investigation into the crash of Germanwings Flight 9525 has insisted that he was not aware of any video footage from on board the plane.",
+          "start": 0,
+          "end": 170,
+          "support": 0.5120605230331421,
+          "gt_bad": false
+        },
+        {
+          "text": "The comments follow claims by Paris Match and Bild that a cell phone video showing the final seconds from on board the flight was recovered from a phone at the wreckage site.",
+          "start": 171,
+          "end": 345,
+          "support": 0.7097975611686707,
+          "gt_bad": false
+        },
+        {
+          "text": "The two publications described the video, but did not post it on their websites.",
+          "start": 346,
+          "end": 426,
+          "support": 0.8305994868278503,
+          "gt_bad": false
+        },
+        {
+          "text": "They claim the video was found by a source close to the investigation.",
+          "start": 427,
+          "end": 497,
+          "support": 0.9303070902824402,
+          "gt_bad": false
+        },
+        {
+          "text": "An official with France's accident investigation agency, the BEA, said the agency is not aware of any such video.",
+          "start": 498,
+          "end": 611,
+          "support": 0.34845978021621704,
+          "gt_bad": false
+        },
+        {
+          "text": "Jean-Marc Menichini, a French Gendarmerie spokesman in charge of communications on rescue efforts around the crash site, said the reports were \"completely wrong\" and \"unwarranted\".",
+          "start": 612,
+          "end": 792,
+          "support": 0.08969749510288239,
+          "gt_bad": false
+        },
+        {
+          "text": "Cell phones have been collected at the site, he said, but that they \"hadn't been exploited yet\".",
+          "start": 793,
+          "end": 889,
+          "support": 0.7485707998275757,
+          "gt_bad": false
+        }
+      ]
+    },
+    {
+      "id": "ragtruth-1685",
+      "task": "Summary",
+      "hallucinated": false,
+      "sentences": [
+        {
+          "text": "The article discusses the prevalence of sexual harassment against women in India, particularly in public spaces such as local trains and buses.",
+          "start": 0,
+          "end": 143,
+          "support": 0.9665763974189758,
+          "gt_bad": false
+        },
+        {
+          "text": "The author shares her personal experience of being groped in a crowded train as a 13-year-old, and how it has affected her ever since.",
+          "start": 144,
+          "end": 278,
+          "support": 0.06948886811733246,
+          "gt_bad": false
+        },
+        {
+          "text": "She notes that many women in India face similar experiences, and that it is not just about rape, but also other forms of harassment such as stalking, ogling, leering, catcalling, and whistling.",
+          "start": 279,
+          "end": 472,
+          "support": 0.8600609302520752,
+          "gt_bad": false
+        },
+        {
+          "text": "The article cites a study that found 80% of women in Mumbai have experienced street harassment, and notes that most people, including women, tend to overlook these forms of harassment.",
+          "start": 473,
+          "end": 657,
+          "support": 0.8915978074073792,
+          "gt_bad": false
+        },
+        {
+          "text": "The author highlights the impact it has on women's lives, limiting their freedom and mobility.",
+          "start": 658,
+          "end": 752,
+          "support": 0.17816591262817383,
+          "gt_bad": false
+        },
+        {
+          "text": "She argues that it is important for women to speak up and acknowledge the problem in order to create a change in culture and shift the power dynamics.",
+          "start": 753,
+          "end": 903,
+          "support": 0.8479851484298706,
+          "gt_bad": false
+        },
+        {
+          "text": "The article also mentions two recent high-profile cases in India where women came forward to report sexual harassment by powerful men, resulting in their resignation and arrest, respectively.",
+          "start": 904,
+          "end": 1095,
+          "support": 0.056311797350645065,
+          "gt_bad": false
+        },
+        {
+          "text": "The author emphasizes that women have allies who are willing to help clear the barriers, and that speaking out is essential to create a world where women can live full lives without feeling restricted and disempowered.",
+          "start": 1096,
+          "end": 1314,
+          "support": 0.9648017883300781,
+          "gt_bad": false
+        }
+      ]
+    },
+    {
+      "id": "ragtruth-4225",
+      "task": "Summary",
+      "hallucinated": false,
+      "sentences": [
+        {
+          "text": "The Social Security Administration has announced that over 71 million Americans receiving Social Security benefits will see a 3.2% increase in their checks in 2024 to help them keep up with inflation.",
+          "start": 0,
+          "end": 200,
+          "support": 0.8442457318305969,
+          "gt_bad": false
+        },
+        {
+          "text": "This adjustment is higher than the typical cost-of-living adjustment but lower than last year's 8.7% increase.",
+          "start": 201,
+          "end": 311,
+          "support": 0.8322905898094177,
+          "gt_bad": false
+        },
+        {
+          "text": "The average monthly benefit for retired workers will rise by $59 to $1,907.",
+          "start": 312,
+          "end": 387,
+          "support": 0.9820289611816406,
+          "gt_bad": false
+        },
+        {
+          "text": "While this increase is important for retirees, rising Medicare Part B premiums may offset some of these gains.",
+          "start": 388,
+          "end": 498,
+          "support": 0.9615520238876343,
+          "gt_bad": false
+        },
+        {
+          "text": "The method used to calculate cost-of-living adjustments has been debated, and the funding shortfall of Social Security remains a significant concern.",
+          "start": 499,
+          "end": 648,
+          "support": 0.9594669342041016,
+          "gt_bad": false
+        },
+        {
+          "text": "More comprehensive solutions are needed to ensure the long-term stability of the program.",
+          "start": 649,
+          "end": 738,
+          "support": 0.977196216583252,
+          "gt_bad": false
+        }
+      ]
+    },
+    {
+      "id": "ragtruth-3912",
+      "task": "Summary",
+      "hallucinated": false,
+      "sentences": [
+        {
+          "text": "The Pentagon has confirmed that US soldiers from two Texan bases, Fort Cavazos in Killeen and Fort Bliss in El Paso, are deploying to the Middle East.",
+          "start": 0,
+          "end": 150,
+          "support": 0.6356380581855774,
+          "gt_bad": false
+        },
+        {
+          "text": "They are among 900 troops being sent to protect US forces from drone and rocket attacks following recent incidents in Iraq and Syria.",
+          "start": 151,
+          "end": 284,
+          "support": 0.9320719838142395,
+          "gt_bad": false
+        },
+        {
+          "text": "Soldiers from Fort Bliss will primarily operate a Terminal High Altitude Area Defense (THAAD) System, while the rest will join Fort Cavazos' troops as \"air defense headquarters elements\".",
+          "start": 285,
+          "end": 472,
+          "support": 0.41812777519226074,
+          "gt_bad": false
+        },
+        {
+          "text": "The remaining soldiers are from bases in Oklahoma and North Carolina.",
+          "start": 473,
+          "end": 542,
+          "support": 0.9200817346572876,
+          "gt_bad": false
+        }
+      ]
+    },
+    {
+      "id": "ragtruth-1519",
+      "task": "Summary",
+      "hallucinated": false,
+      "sentences": [
+        {
+          "text": "The Defense Minister of Japan, Gen Nakatani, has stated that the country's Air Self Defense Force (ASDF) has never encountered an extraterrestrial unidentified flying object (UFO).",
+          "start": 0,
+          "end": 180,
+          "support": 0.7601616978645325,
+          "gt_bad": false
+        },
+        {
+          "text": "This statement was made in response to a query from former wrestler-turned-lawmaker Antonio Inoki during a parliamentary session.",
+          "start": 181,
+          "end": 310,
+          "support": 0.7126328349113464,
+          "gt_bad": false
+        },
+        {
+          "text": "Inoki, who claims to have seen a UFO himself, asked if aircraft were ever scrambled to meet extraterrestrial threats and if research was being done into alien visitors.",
+          "start": 311,
+          "end": 479,
+          "support": 0.7954890727996826,
+          "gt_bad": false
+        },
+        {
+          "text": "Nakatani assured that if any unidentified flying object violated Japan's airspace, fighter jets would be scrambled to investigate, but so far, no such instances have occurred.",
+          "start": 480,
+          "end": 655,
+          "support": 0.2645946145057678,
+          "gt_bad": false
+        },
+        {
+          "text": "Inoki is known for his various achievements in sports and entertainment, including his wrestling career and efforts in diplomacy.",
+          "start": 656,
+          "end": 785,
+          "support": 0.8633441925048828,
+          "gt_bad": false
+        },
+        {
+          "text": "This exchange is not the first time Japanese politicians have discussed the implications of visitors from outer space.",
+          "start": 786,
+          "end": 904,
+          "support": 0.9785588979721069,
+          "gt_bad": false
+        }
+      ]
+    },
+    {
+      "id": "ragtruth-148",
+      "task": "Summary",
+      "hallucinated": false,
+      "sentences": [
+        {
+          "text": "Blues legend B.B. King was hospitalized for dehydration but has since recovered and is back home resting.",
+          "start": 0,
+          "end": 105,
+          "support": 0.9127808809280396,
+          "gt_bad": false
+        },
+        {
+          "text": "His dehydration was caused by his Type II diabetes.",
+          "start": 106,
+          "end": 157,
+          "support": 0.9760380983352661,
+          "gt_bad": false
+        },
+        {
+          "text": "King thanked fans for their concerns and promised to return to performing soon.",
+          "start": 158,
+          "end": 237,
+          "support": 0.6842418313026428,
+          "gt_bad": false
+        },
+        {
+          "text": "He has been inducted into the Rock and Roll Hall of Fame and has won numerous Grammys throughout his career.",
+          "start": 238,
+          "end": 346,
+          "support": 0.7486363649368286,
+          "gt_bad": false
+        }
+      ]
+    },
+    {
+      "id": "ragtruth-2674",
+      "task": "Summary",
+      "hallucinated": false,
+      "sentences": [
+        {
+          "text": "Sure!",
+          "start": 0,
+          "end": 5,
+          "support": 0.0853598415851593,
+          "gt_bad": false
+        },
+        {
+          "text": "Here's the summary in 188 words:\n\nSaudi-led airstrikes resumed in Yemen after the Houthis called for peace talks.",
+          "start": 6,
+          "end": 119,
+          "support": 0.49870508909225464,
+          "gt_bad": false
+        },
+        {
+          "text": "The airstrikes targeted a weapons depot in the province of Taiz, with explosions lasting for 40 minutes.",
+          "start": 120,
+          "end": 224,
+          "support": 0.5650277733802795,
+          "gt_bad": false
+        },
+        {
+          "text": "The Houthi rebels released Yemeni Defense Minister Mahmoud al-Subaihi, who had been held since March 26.",
+          "start": 225,
+          "end": 329,
+          "support": 0.5662075877189636,
+          "gt_bad": false
+        },
+        {
+          "text": "The Saudi-led coalition has been trying to restore the Yemeni government, which was overthrown by the Houthis, and has degraded Houthi-controlled military infrastructure.",
+          "start": 330,
+          "end": 500,
+          "support": 0.8250029683113098,
+          "gt_bad": false
+        },
+        {
+          "text": "The Houthis have agreed to nearly all demands of the UN Security Council, but their leader has stated that they will not surrender.",
+          "start": 501,
+          "end": 632,
+          "support": 0.4419926106929779,
+          "gt_bad": false
+        },
+        {
+          "text": "The Saudi-led coalition aims to bring back \"security and stability through establishing a political process.\" US drones have also struck al Qaeda militants in Yemen.",
+          "start": 633,
+          "end": 798,
+          "support": 0.9738335609436035,
+          "gt_bad": false
+        }
+      ]
+    },
+    {
+      "id": "ragtruth-996",
+      "task": "Summary",
+      "hallucinated": false,
+      "sentences": [
+        {
+          "text": "A defence attorney writes that the video of Officer Michael Slager shooting Walter Scott in the back as he fled a police encounter haunts him.",
+          "start": 0,
+          "end": 142,
+          "support": 0.4286137819290161,
+          "gt_bad": false
+        },
+        {
+          "text": "He is disturbed by how Slager cuffed Scott and left him to die face-down in the dirt while apparently planting an item next to his body.",
+          "start": 143,
+          "end": 279,
+          "support": 0.623748779296875,
+          "gt_bad": false
+        },
+        {
+          "text": "The attorney believes that had Slager been wearing a body camera, Scott might still be alive and Slager would not be facing life in prison or a possible death sentence.",
+          "start": 280,
+          "end": 448,
+          "support": 0.7212856411933899,
+          "gt_bad": false
+        },
+        {
+          "text": "Although deploying body cameras is expensive, particularly when it comes to storing the data they generate, the attorney believes the cost would be offset by the punitive damages likely to be awarded to Scott's family in their inevitable civil suit against the North Charleston Police Department.",
+          "start": 449,
+          "end": 745,
+          "support": 0.722168505191803,
+          "gt_bad": false
+        },
+        {
+          "text": "He also argues that body cameras could help restore public confidence in law enforcement and break the cycle of tension and fear between police and the communities they serve.",
+          "start": 746,
+          "end": 921,
+          "support": 0.9408917427062988,
+          "gt_bad": false
+        },
+        {
+          "text": "He concludes that although body cameras are an interim solution, they are a start towards shining a spotlight on racial bias.",
+          "start": 922,
+          "end": 1047,
+          "support": 0.9526022672653198,
+          "gt_bad": false
+        }
+      ]
+    },
+    {
+      "id": "ragtruth-4076",
+      "task": "Summary",
+      "hallucinated": true,
+      "sentences": [
+        {
+          "text": "A 1988 cold case in Georgia has been solved after a woman was identified using genealogy technology.",
+          "start": 0,
+          "end": 100,
+          "support": 0.9557099938392639,
+          "gt_bad": false
+        },
+        {
+          "text": "The victim was Chong Un Kim, a Korean immigrant who lived in Hinesville, Liberty County, Georgia.",
+          "start": 101,
+          "end": 198,
+          "support": 0.899652361869812,
+          "gt_bad": false
+        },
+        {
+          "text": "She was found dead in a Jenkins County dumpster with her hands bound and causes of death being asphyxiation.",
+          "start": 199,
+          "end": 307,
+          "support": 0.06807323545217514,
+          "gt_bad": true
+        },
+        {
+          "text": "The GBI collaborated with Othram, Inc., a Texas-based company, to use advanced DNA analysis to identify Kim.",
+          "start": 308,
+          "end": 416,
+          "support": 0.9301891922950745,
+          "gt_bad": false
+        },
+        {
+          "text": "The GBI is now asking for information related to the case if anyone knows Kim or has information about her life.",
+          "start": 417,
+          "end": 529,
+          "support": 0.814613401889801,
+          "gt_bad": false
+        }
+      ]
+    }
+  ]
+}

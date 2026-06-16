@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Grounded — live demo</title>
+<style>
+  @font-face { font-family:'Space Grotesk'; src:url('/fonts/space-grotesk-500.woff2') format('woff2'); font-weight:500; font-display:swap; }
+  @font-face { font-family:'Space Grotesk'; src:url('/fonts/space-grotesk-700.woff2') format('woff2'); font-weight:700; font-display:swap; }
+  @font-face { font-family:'IBM Plex Sans'; src:url('/fonts/ibm-plex-sans-400.woff2') format('woff2'); font-weight:400; font-display:swap; }
+  @font-face { font-family:'IBM Plex Sans'; src:url('/fonts/ibm-plex-sans-600.woff2') format('woff2'); font-weight:600; font-display:swap; }
+  @font-face { font-family:'IBM Plex Mono'; src:url('/fonts/ibm-plex-mono-400.woff2') format('woff2'); font-weight:400; font-display:swap; }
+  @font-face { font-family:'IBM Plex Mono'; src:url('/fonts/ibm-plex-mono-500.woff2') format('woff2'); font-weight:500; font-display:swap; }
+
+  :root {
+    --ground:#EAEEF2; --surface:#FFFFFF; --ink:#1B2233; --muted:#5B6675;
+    --supported:#2F7D63; --unsupported:#9E3B47; --accent:#B07A2B;
+    --sup-bg:#E4EFEA; --sup-ink:#1F5A46; --uns-bg:#F3E2E4; --uns-ink:#7E2D38;
+    --line:#D6DCE5; --radius:12px;
+    --hero-1:#141826; --hero-2:#212A40; --on-dark:#EAEEF4; --on-dim:#97A2B6; --brass-glow:#DBA64E;
+    --shadow:0 1px 2px rgba(27,34,51,.05), 0 8px 26px rgba(27,34,51,.07);
+    --font-display:'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+    --font-body:'IBM Plex Sans', system-ui, -apple-system, sans-serif;
+    --font-mono:'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+  }
+  *,*::before,*::after { box-sizing:border-box; }
+  body { margin:0; background:var(--ground); color:var(--ink); font-family:var(--font-body);
+         font-size:16px; line-height:1.55; -webkit-font-smoothing:antialiased; }
+  .mono { font-family:var(--font-mono); font-variant-numeric:tabular-nums; }
+  .wrap { max-width:920px; margin:0 auto; padding:clamp(1rem,3vw,1.6rem); }
+
+  /* ── Top bar (dark, consistent with landing) ───────────────────────── */
+  .topbar { background:radial-gradient(900px 300px at 85% -40%, #2A3552 0%, transparent 60%),
+            linear-gradient(160deg,var(--hero-1),var(--hero-2)); color:var(--on-dark); }
+  .topbar .wrap { display:flex; align-items:center; gap:1rem; padding-top:1rem; padding-bottom:1rem; }
+  .brand { font-family:var(--font-display); font-weight:700; font-size:1.25rem; letter-spacing:-.02em; text-decoration:none; color:var(--on-dark); }
+  .brand .dot { color:var(--brass-glow); }
+  .topbar .tag { color:var(--on-dim); font-size:.88rem; }
+  .topbar .right { margin-left:auto; display:flex; align-items:center; gap:1.2rem; }
+  .topbar .stat { font-family:var(--font-mono); font-size:.92rem; }
+  .topbar .stat .lbl { color:var(--on-dim); font-size:.68rem; text-transform:uppercase; letter-spacing:.08em; margin-right:.5rem; }
+  .topbar .stat .from { color:#D26E75; } .topbar .stat .to { color:#57B894; } .topbar .stat .arrow { color:var(--brass-glow); }
+  .topbar a.back { color:var(--on-dim); text-decoration:none; font-size:.9rem; }
+  .topbar a.back:hover { color:var(--on-dark); }
+
+  /* ── Query + examples ──────────────────────────────────────────────── */
+  form { display:flex; gap:.6rem; margin-top:.3rem; }
+  #q { flex:1; padding:.85rem 1rem; font:inherit; color:var(--ink); background:var(--surface);
+       border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); }
+  #q::placeholder { color:var(--muted); }
+  #go { font-family:var(--font-display); font-weight:500; font-size:.98rem; padding:.85rem 1.5rem;
+        color:#fff; background:var(--ink); border:0; border-radius:var(--radius); cursor:pointer; transition:background .15s; }
+  #go:hover { background:#2b344a; } #go:disabled { opacity:.5; cursor:wait; }
+  .examples { display:flex; flex-wrap:wrap; align-items:center; gap:.45rem; margin:.75rem 0 0; }
+  .examples .lead { font-size:.85rem; color:var(--muted); margin-right:.15rem; }
+  .chip { font-family:var(--font-mono); font-size:.8rem; color:var(--ink); background:var(--surface);
+          border:1px solid var(--line); border-radius:999px; padding:.32rem .75rem; cursor:pointer; transition:border-color .15s, color .15s; }
+  .chip:hover { border-color:var(--accent); color:var(--accent); }
+
+  .card { background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); padding:1.15rem 1.25rem; margin-top:1rem; }
+  .card h2 { margin:0 0 .85rem; font-family:var(--font-display); font-weight:500; font-size:.78rem; text-transform:uppercase; letter-spacing:.09em; color:var(--muted); }
+  .card h2 .hint { float:right; text-transform:none; letter-spacing:0; font-family:var(--font-body); color:var(--muted); font-size:.8rem; }
+
+  /* ── SIGNATURE: Calibration Rail ───────────────────────────────────── */
+  .calib-top { display:flex; justify-content:space-between; align-items:flex-start; }
+  .calib-pct { font-family:var(--font-mono); font-weight:500; font-size:1.9rem; line-height:1; }
+  .calib-sub { color:var(--muted); font-size:.86rem; text-align:right; }
+  .calib-thr { font-family:var(--font-mono); color:var(--accent); font-weight:500; }
+  .rail { position:relative; margin:1.15rem 0 .15rem; }
+  .rail-track { position:relative; height:50px; border:1px solid var(--line); border-radius:9px;
+                background:linear-gradient(90deg,#F3E7E8,#FBFCFD 50%,#E7F0EC); }
+  .rail-dropzone { position:absolute; left:0; top:0; bottom:0; border-radius:9px 0 0 9px;
+                   background:rgba(158,59,71,.10); border-right:2px dashed rgba(158,59,71,.55); transition:width .05s linear; }
+  .tick { position:absolute; top:10px; width:2px; height:30px; border-radius:2px; transform:translateX(-1px);
+          background:var(--supported); transition:background .3s, height .15s; }
+  .tick.u { background:var(--unsupported); }
+  .tick:hover,.tick:focus { height:42px; top:4px; outline:none; cursor:help; }
+  .tick.flash { box-shadow:0 0 0 3px rgba(176,122,43,.5); }
+  .rail input[type=range] { position:absolute; left:0; top:8px; width:100%; height:34px; margin:0; background:transparent; -webkit-appearance:none; appearance:none; }
+  .rail input[type=range]::-webkit-slider-thumb { -webkit-appearance:none; width:7px; height:48px; cursor:ew-resize;
+          background:var(--accent); border-radius:3px; box-shadow:0 0 0 1.5px #fff,0 2px 6px rgba(27,34,51,.4); }
+  .rail input[type=range]::-moz-range-thumb { width:7px; height:48px; cursor:ew-resize; border:0; background:var(--accent);
+          border-radius:3px; box-shadow:0 0 0 1.5px #fff,0 2px 6px rgba(27,34,51,.4); }
+  .rail input[type=range]:focus-visible::-webkit-slider-thumb { box-shadow:0 0 0 2px #fff,0 0 0 4px var(--accent); }
+  .rail-axis { display:flex; justify-content:space-between; font-family:var(--font-mono); font-size:.72rem; color:var(--muted); margin-top:.35rem; }
+
+  /* ── Claims ────────────────────────────────────────────────────────── */
+  .legend { display:flex; flex-wrap:wrap; gap:.6rem 1rem; margin-bottom:.85rem; font-size:.82rem; color:var(--muted); }
+  .legend b { font-weight:600; } .legend i.sw { display:inline-block; width:.7rem; height:.7rem; border-radius:3px; vertical-align:-1px; margin-right:.3rem; }
+  .legend .s { background:var(--supported); } .legend .u { background:var(--unsupported); }
+  .claim { border:1px solid var(--line); border-left-width:3px; border-left-color:var(--line); border-radius:9px; margin-bottom:.55rem; overflow:hidden; transition:background .3s, border-color .3s, opacity .3s; }
+  .claim.pending { opacity:.4; }
+  .claim.flashclaim { box-shadow:0 0 0 3px rgba(176,122,43,.45); }
+  .claim-main { display:flex; gap:.9rem; align-items:flex-start; padding:.75rem .85rem; }
+  .claim .text { flex:1; }
+  .claim .meta-r { display:flex; flex-direction:column; align-items:flex-end; min-width:5.2rem; gap:.1rem; }
+  .claim .score { font-family:var(--font-mono); font-weight:500; font-size:1.04rem; color:var(--muted); }
+  .claim .verdict { font-family:var(--font-mono); font-size:.68rem; text-transform:uppercase; letter-spacing:.06em; color:var(--muted); }
+  .claim.s { border-left-color:var(--supported); background:linear-gradient(90deg,var(--sup-bg),transparent 55%); }
+  .claim.s .score { color:var(--supported); } .claim.s .verdict { color:var(--sup-ink); }
+  .claim.u { border-left-color:var(--unsupported); background:linear-gradient(90deg,var(--uns-bg),transparent 55%); }
+  .claim.u .score { color:var(--unsupported); } .claim.u .verdict { color:var(--uns-ink); }
+  .claim.u .text { text-decoration:line-through; text-decoration-color:rgba(158,59,71,.45); color:var(--uns-ink); }
+  .evtoggle { font-family:var(--font-mono); font-size:.72rem; color:var(--muted); background:none; border:0; cursor:pointer;
+              padding:.1rem .85rem .6rem; display:inline-flex; align-items:center; gap:.35rem; }
+  .evtoggle:hover { color:var(--accent); }
+  .evtoggle .caret { transition:transform .2s; } .evtoggle[aria-expanded=true] .caret { transform:rotate(90deg); }
+  .evbox { margin:0 .85rem .8rem; padding:.7rem .85rem; background:#F6F8FA; border:1px solid var(--line); border-radius:8px; font-size:.86rem; }
+  .evbox .lbl { font-family:var(--font-mono); font-size:.7rem; text-transform:uppercase; letter-spacing:.06em; color:var(--muted); display:block; margin-bottom:.35rem; }
+  .evbox blockquote { margin:0; color:var(--ink); border-left:2px solid var(--accent); padding-left:.7rem; max-height:9rem; overflow:auto; }
+
+  /* ── Corrected + toggle ────────────────────────────────────────────── */
+  .seg { display:inline-flex; border:1px solid var(--line); border-radius:8px; overflow:hidden; }
+  .seg button { font:inherit; font-size:.82rem; padding:.32rem .8rem; border:0; background:var(--surface); color:var(--muted); cursor:pointer; }
+  .seg button[aria-pressed="true"] { background:var(--ink); color:#fff; }
+  #correctedText { margin:.7rem 0 0; }
+  .sources { margin-top:.8rem; padding-top:.7rem; border-top:1px solid var(--line); font-size:.82rem; color:var(--muted); }
+  .sources .note { color:var(--accent); }
+
+  /* ── States ────────────────────────────────────────────────────────── */
+  .state { text-align:center; color:var(--muted); padding:2.2rem 1rem; }
+  .state .big { font-family:var(--font-display); font-weight:500; font-size:1.05rem; color:var(--ink); margin-bottom:.35rem; }
+  .steps { display:flex; justify-content:center; gap:.5rem; margin-top:1rem; font-family:var(--font-mono); font-size:.8rem; }
+  .steps span { padding:.25rem .7rem; border-radius:999px; border:1px solid var(--line); color:var(--muted); transition:color .2s,border-color .2s; }
+  .steps span.active { color:var(--accent); border-color:var(--accent); }
+  .steps span.done { color:var(--supported); border-color:var(--supported); }
+  .error { color:var(--uns-ink); }
+
+  :focus-visible { outline:2px solid var(--accent); outline-offset:2px; border-radius:4px; }
+  @media (prefers-reduced-motion:reduce){ *{ transition:none!important; animation:none!important; } }
+  @media (max-width:600px){
+    .topbar .wrap{ flex-wrap:wrap; } .topbar .tag{ display:none; } .topbar .right{ width:100%; justify-content:space-between; }
+    form{ flex-direction:column; } #go{ width:100%; } .claim .meta-r{ min-width:4.4rem; }
+  }
+  footer { margin:1.4rem 0 .5rem; color:var(--muted); font-size:.8rem; text-align:center; }
+</style>
+</head>
+<body>
+<div class="topbar"><div class="wrap">
+  <a class="brand" href="/">Grounded<span class="dot">.</span></a>
+  <span class="tag">live verification demo</span>
+  <span class="right">
+    <span class="stat"><span class="lbl">RAGTruth</span><span class="from">34.9%</span><span class="arrow"> → </span><span class="to">13.1%</span></span>
+    <a class="back" href="/">← Overview</a>
+  </span>
+</div></div>
+
+<div class="wrap">
+  <form id="f" autocomplete="off">
+    <input id="q" type="text" placeholder="Ask a question about the corpus…" aria-label="Ask a question" required>
+    <button id="go" type="submit">Ask</button>
+  </form>
+  <div class="examples">
+    <span class="lead">or inspect a real caught hallucination:</span>
+    <span id="exbtns"></span>
+  </div>
+
+  <div id="empty" class="card state">
+    <div class="big">Ask a question to verify an answer.</div>
+    <div>Each claim is checked against the retrieved context and marked
+         <b style="color:var(--supported)">supported</b> or
+         <b style="color:var(--unsupported)">unsupported</b> — then unsupported claims are dropped.</div>
+  </div>
+
+  <div id="loading" class="card state" hidden>
+    <div class="big">Verifying…</div>
+    <div>Generation runs locally on CPU — this can take a minute.</div>
+    <div class="steps" id="steps">
+      <span data-step="retrieve">retrieve</span><span data-step="generate">generate</span><span data-step="verify">verify</span>
+    </div>
+  </div>
+
+  <div id="error" class="card state" hidden>
+    <div class="big error">Couldn't complete the request.</div>
+    <div id="errmsg"></div>
+  </div>
+
+  <div id="out" hidden>
+    <div class="card" id="calib">
+      <h2>Calibration <span class="hint">drag the threshold to trade precision against recall</span></h2>
+      <div class="calib-top">
+        <span class="calib-pct" id="gpct">—</span>
+        <span class="calib-sub" id="gsub"></span>
+      </div>
+      <div class="rail">
+        <div class="rail-track" id="railTrack">
+          <div class="rail-dropzone" id="dropzone"></div>
+          <div id="railTicks"></div>
+          <input id="thr" type="range" min="0" max="1" step="0.01" value="0.5" aria-label="Support-score threshold" aria-valuetext="0.50">
+        </div>
+        <div class="rail-axis"><span>0.00 · not in context</span><span>support score →</span><span>1.00 · fully grounded</span></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Answer — claim by claim</h2>
+      <div class="legend">
+        <span><i class="sw s"></i><b>supported</b> — kept</span>
+        <span><i class="sw u"></i><b>unsupported</b> — dropped</span>
+        <span>number = support score · open <b>evidence</b> to see the passage checked</span>
+      </div>
+      <div id="claims"></div>
+    </div>
+
+    <div class="card">
+      <h2>Corrected answer
+        <span class="seg" role="group" aria-label="View" style="float:right">
+          <button id="vClean" aria-pressed="true">corrected</button>
+          <button id="vAnno" aria-pressed="false">annotated</button>
+        </span>
+      </h2>
+      <p id="correctedText"></p>
+      <div class="sources" id="sources"></div>
+    </div>
+  </div>
+
+  <footer>A faithfulness instrument — it checks grounding in the retrieved evidence, not world-truth.</footer>
+</div>
+
+<script>
+const $ = id => document.getElementById(id);
+const reduce = () => matchMedia("(prefers-reduced-motion: reduce)").matches;
+const state = { data:null, threshold:0.5, view:"clean", revealTimers:[] };
+const supported = c => c.support >= state.threshold;
+
+// RAGTruth context windows arrive as JSON ({question, passages}); show readable text.
+function cleanEvidence(s){
+  if(!s) return "";
+  if(s.trim()[0]==="{"){
+    try { const o=JSON.parse(s); return Object.values(o).filter(v=>typeof v==="string").join("  ").trim(); }
+    catch(_){}
+  }
+  return s;
+}
+
+function buildClaims(){
+  $("claims").innerHTML = state.data.claims.map((c,i)=>`
+    <div class="claim pending" id="cl${i}">
+      <div class="claim-main">
+        <span class="text">${escapeHtml(c.text)}</span>
+        <span class="meta-r"><span class="score">${c.support.toFixed(2)}</span><span class="verdict">—</span></span>
+      </div>
+      ${c.evidence ? `<button class="evtoggle" aria-expanded="false" data-i="${i}"><span class="caret">▸</span>evidence</button>
+      <div class="evbox" id="ev${i}" hidden><span class="lbl">closest passage in the retrieved context</span>
+        <blockquote>${escapeHtml(truncate(cleanEvidence(c.evidence),600))}</blockquote></div>` : ``}
+    </div>`).join("");
+  document.querySelectorAll(".evtoggle").forEach(btn=>btn.addEventListener("click",()=>{
+    const i=btn.dataset.i, box=$("ev"+i), open=box.hidden;
+    box.hidden=!open; btn.setAttribute("aria-expanded", open);
+  }));
+}
+function buildRail(){
+  $("railTicks").innerHTML = state.data.claims.map((c,i)=>
+    `<div class="tick" tabindex="0" data-i="${i}" style="left:${(c.support*100).toFixed(1)}%"
+          title="${escapeHtml(c.text)}  ·  score ${c.support.toFixed(2)}"></div>`).join("");
+  $("thr").value = state.threshold;
+  document.querySelectorAll(".tick").forEach(t=>t.addEventListener("click",()=>{
+    const el=$("cl"+t.dataset.i); if(!el) return;
+    el.scrollIntoView({behavior:reduce()?"auto":"smooth", block:"center"});
+    el.classList.add("flashclaim"); setTimeout(()=>el.classList.remove("flashclaim"),700);
+  }));
+}
+function setClaim(i){
+  const c=state.data.claims[i], el=$("cl"+i); if(!el) return;
+  const s=supported(c);
+  el.classList.remove("pending","s","u"); el.classList.add(s?"s":"u");
+  el.querySelector(".verdict").textContent = s?"supported":"dropped";
+  const tick=$("railTicks").children[i]; if(tick) tick.classList.toggle("u",!s);
+}
+function applyThreshold(animated){
+  state.revealTimers.forEach(clearTimeout); state.revealTimers=[];
+  const claims=state.data.claims;
+  if(animated && !reduce()) claims.forEach((_,i)=>state.revealTimers.push(setTimeout(()=>setClaim(i),120+i*140)));
+  else claims.forEach((_,i)=>setClaim(i));
+  updateReadouts();
+}
+function updateReadouts(){
+  const claims=state.data.claims, nSup=claims.filter(supported).length;
+  const pct=claims.length?Math.round(nSup/claims.length*100):0;
+  $("gpct").textContent=pct+"%";
+  $("gsub").innerHTML=`${nSup} of ${claims.length} claims supported<br><span class="calib-thr">threshold ${state.threshold.toFixed(2)}</span>`;
+  $("dropzone").style.width=(state.threshold*100).toFixed(1)+"%";
+  $("thr").setAttribute("aria-valuetext", state.threshold.toFixed(2));
+  paintCorrected();
+}
+function paintCorrected(){
+  const claims=state.data.claims;
+  if(state.view==="annotated"){
+    $("correctedText").innerHTML=claims.map(c=>{const s=supported(c);
+      return `<span style="color:${s?'var(--ink)':'var(--unsupported)'};${s?'':'text-decoration:line-through'}">${escapeHtml(c.text)}</span>`;}).join(" ");
+  } else {
+    const kept=claims.filter(supported).map(c=>c.text);
+    $("correctedText").textContent=kept.length?kept.join(" "):"I can't answer this from the provided context.";
+  }
+}
+function present(d){
+  state.data=d; state.threshold=(typeof d.threshold==="number")?d.threshold:0.5; state.view="clean"; syncToggle();
+  showOnly("out"); buildClaims(); buildRail(); applyThreshold(true);
+  $("sources").innerHTML="Sources: "+d.sources.map(s=>escapeHtml(s.source)).join(", ")+(d.note?` · <span class="note">${escapeHtml(d.note)}</span>`:"");
+}
+$("thr").addEventListener("input",e=>{ state.threshold=parseFloat(e.target.value); applyThreshold(false); });
+
+function syncToggle(){ $("vClean").setAttribute("aria-pressed",state.view==="clean"); $("vAnno").setAttribute("aria-pressed",state.view==="annotated"); }
+$("vClean").addEventListener("click",()=>{state.view="clean";syncToggle();paintCorrected();});
+$("vAnno").addEventListener("click",()=>{state.view="annotated";syncToggle();paintCorrected();});
+
+function showOnly(id){ ["empty","loading","error","out"].forEach(x=>$(x).hidden=(x!==id)); }
+function escapeHtml(s){ return String(s).replace(/[&<>"]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m])); }
+function truncate(s,n){ return s.length>n ? s.slice(0,n)+"…" : s; }
+
+let stepTimer=null;
+function runSteps(){ const order=["retrieve","generate","verify"]; let i=0;
+  const paint=()=>order.forEach((s,k)=>{const el=document.querySelector(`[data-step="${s}"]`); el.className=k<i?"done":(k===i?"active":"");});
+  paint(); stepTimer=setInterval(()=>{if(i<order.length-1){i++;paint();}},4500); }
+function stopSteps(){ clearInterval(stepTimer); }
+
+$("f").addEventListener("submit",async ev=>{
+  ev.preventDefault(); $("go").disabled=true; showOnly("loading"); runSteps();
+  try{
+    const r=await fetch("/ask",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({query:$("q").value})});
+    if(!r.ok) throw new Error((await r.json().catch(()=>({}))).detail||r.statusText);
+    present(await r.json());
+  }catch(e){ showOnly("error");
+    $("errmsg").textContent=/fetch|network|failed/i.test(e.message)?"Couldn't reach the server. Make sure it's running, then try again.":"The model couldn't answer (is Ollama running?). "+e.message;
+  }finally{ stopSteps(); $("go").disabled=false; }
+});
+
+fetch("/examples").then(r=>r.json()).then(list=>{
+  if(!list.length){ document.querySelector(".examples").hidden=true; return; }
+  $("exbtns").innerHTML=list.map((_,i)=>`<button type="button" class="chip" data-i="${i}">example ${i+1}</button>`).join(" ");
+  document.querySelectorAll(".chip").forEach(b=>b.addEventListener("click",()=>{ $("q").value=list[b.dataset.i].query||""; present(list[b.dataset.i]); }));
+}).catch(()=>{ document.querySelector(".examples").hidden=true; });
+
+// Honor ?q= from the landing page's "verify your own" box: prefill and run.
+const q0 = new URLSearchParams(location.search).get("q");
+if (q0) { $("q").value = q0; $("f").requestSubmit(); }
+</script>
+</body>
+</html>

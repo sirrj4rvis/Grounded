@@ -1,0 +1,704 @@
+[
+  {
+    "id": "TC001",
+    "title": "Hero demo auto-plays verification and shows groundedness improvement",
+    "description": "This verifies that the landing page automatically runs the hero verification demo and ends with supported claims retained, unsupported claims removed, and an improved groundedness result.",
+    "category": "Landing page hero verification demo",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the hero verification demo begins playing automatically"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify supported and unsupported claims are both shown during the demo"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the groundedness result improves by the end of the demo"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC002",
+    "title": "Display a live answer in corrected view after asking a question",
+    "description": "This verifies that submitting a question runs the verification flow and produces a corrected answer that can be reviewed in the grounded view.",
+    "category": "Live question asking and verification",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /app"
+      },
+      {
+        "type": "action",
+        "description": "Enter a question in the ask form"
+      },
+      {
+        "type": "action",
+        "description": "Submit the question"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify claim-by-claim verdicts are displayed"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify a corrected answer is displayed"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC003",
+    "title": "Prefill the dashboard from a landing page question",
+    "description": "This verifies that a user can submit a question from the landing page and land on the dashboard with the question prefilled and verification running.",
+    "category": "Precomputed example verification",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Fill a question into the verify-your-own input"
+      },
+      {
+        "type": "action",
+        "description": "Submit the question"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the dashboard opens with the question prefilled"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify verification is running or displayed for the submitted question"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC004",
+    "title": "Submit a landing page question into the live dashboard",
+    "description": "This verifies that submitting a question from the landing page opens the live dashboard with the question prefilled and the verification process started.",
+    "category": "Verify your own question from the landing page",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Fill in a question into the verification input"
+      },
+      {
+        "type": "action",
+        "description": "Submit the question for verification"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the live dashboard opens with the question prefilled"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify live verification has started"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC005",
+    "title": "Watch the landing hero auto-play its verification demo",
+    "description": "This verifies that a visitor can open the landing page and see the hero demo automatically play through grounded verification with the groundedness meter and hallucination reduction result.",
+    "category": "Precomputed example verification",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Wait for the hero demo to play"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify supported and unsupported claims are shown in the hero"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the groundedness meter changes and the hallucination reduction result is displayed"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC006",
+    "title": "Change the support threshold and see claims reclassify",
+    "description": "This verifies that adjusting the calibration threshold immediately changes which claims are treated as supported or unsupported.",
+    "category": "Calibration threshold adjustment",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /app"
+      },
+      {
+        "type": "action",
+        "description": "Select an example chip"
+      },
+      {
+        "type": "action",
+        "description": "Drag the threshold on the calibration rail"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify claim support classifications update"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the groundedness percentage updates"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC007",
+    "title": "Show the verification loading state while a question is processed",
+    "description": "This verifies that after submitting a question, the interface shows the retrieve, generate, and verify progression before results appear.",
+    "category": "Live question asking and verification",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /app"
+      },
+      {
+        "type": "action",
+        "description": "Enter a question in the ask form"
+      },
+      {
+        "type": "action",
+        "description": "Submit the question"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify a loading state is displayed"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the verification pipeline progress is shown"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC008",
+    "title": "Question prefilled from the URL starts verification on the dashboard",
+    "description": "This verifies that opening the dashboard with a prefilled question automatically loads that question and begins verification.",
+    "category": "Open the live demo dashboard",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /app"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the dashboard loads a prefilled question"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify verification begins automatically for the prefilled question"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC009",
+    "title": "Live dashboard shows abstention for an out-of-corpus question",
+    "description": "This verifies that a user can ask a question outside the provided corpus and receive an abstaining answer instead of a fabricated one.",
+    "category": "Open the live demo dashboard",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /app"
+      },
+      {
+        "type": "action",
+        "description": "Fill in an out-of-corpus question into the question field"
+      },
+      {
+        "type": "action",
+        "description": "Submit the question for verification"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the dashboard shows an abstaining answer"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify claim-by-claim verification results are displayed for the submitted question"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC010",
+    "title": "Abstain from answering an out-of-corpus question",
+    "description": "This verifies that a question outside the available corpus topics returns an abstention instead of a grounded answer.",
+    "category": "Live question asking and verification",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /app"
+      },
+      {
+        "type": "action",
+        "description": "Enter a question outside the available corpus topics"
+      },
+      {
+        "type": "action",
+        "description": "Submit the question"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify an abstention message is displayed"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify no grounded answer is presented"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC011",
+    "title": "Open the live demo dashboard from the landing page",
+    "description": "This verifies that a visitor can move from the landing page to the interactive live verification dashboard.",
+    "category": "Open the live demo dashboard",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Click the live demo entry point"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the interactive verification dashboard is displayed"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC012",
+    "title": "Threshold changes reclassify claims and update the corrected answer",
+    "description": "This verifies that adjusting the support threshold changes claim classifications and updates groundedness and the corrected answer in real time.",
+    "category": "Open the live demo dashboard",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /app"
+      },
+      {
+        "type": "action",
+        "description": "Open a precomputed example"
+      },
+      {
+        "type": "action",
+        "description": "Adjust the support threshold slider"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify claim classifications update after the threshold changes"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the groundedness result and corrected answer update"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC013",
+    "title": "Load a precomputed example and review the verified result",
+    "description": "This verifies that a visitor can open the dashboard, choose a precomputed example, and immediately review claim verdicts, support scores, sources, and the corrected answer.",
+    "category": "Precomputed example verification",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /app"
+      },
+      {
+        "type": "action",
+        "description": "Select an example chip"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify claim-by-claim verification results are displayed"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify a corrected answer is displayed"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC014",
+    "title": "Switch to corrected answer view",
+    "description": "This verifies that a user can switch to the cleaned-up answer view and see only the grounded response content.",
+    "category": "Corrected versus annotated answer toggle",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /app"
+      },
+      {
+        "type": "action",
+        "description": "Switch to the corrected answer view"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the corrected answer is displayed"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify unsupported content is not shown in the answer"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC015",
+    "title": "Switch to annotated answer view",
+    "description": "This verifies that a user can switch to the annotated view and see unsupported text struck through while the rest of the answer remains visible.",
+    "category": "Corrected versus annotated answer toggle",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /app"
+      },
+      {
+        "type": "action",
+        "description": "Switch to the annotated answer view"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the annotated answer is displayed"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify unsupported content is shown inline in the answer"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC016",
+    "title": "Load a precomputed example from the landing page",
+    "description": "This verifies that selecting an example prompt on the landing page opens the dashboard with an example loaded and ready to inspect.",
+    "category": "Open the live demo dashboard",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Choose an example prompt chip"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the live dashboard opens with an example loaded"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify claim-by-claim verification results are displayed"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC017",
+    "title": "See the corrected answer change after threshold adjustment",
+    "description": "This verifies that changing the calibration threshold updates the corrected answer in response to the new support cutoff.",
+    "category": "Calibration threshold adjustment",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /app"
+      },
+      {
+        "type": "action",
+        "description": "Select an example chip"
+      },
+      {
+        "type": "action",
+        "description": "Drag the threshold on the calibration rail"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the corrected answer changes"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the updated groundedness result is displayed"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC018",
+    "title": "Precomputed example shows claim verdicts and corrected answer",
+    "description": "This verifies that a loaded example on the dashboard displays claim verdicts, support scores, evidence, and the corrected answer.",
+    "category": "Open the live demo dashboard",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /app"
+      },
+      {
+        "type": "action",
+        "description": "Open a precomputed example"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify claim verdicts and support scores are displayed"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify evidence and a corrected answer are displayed"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC019",
+    "title": "Keep the answer hidden until verification completes",
+    "description": "This verifies that submitting a question does not show final results before the pipeline finishes and the verified output is ready.",
+    "category": "Live question asking and verification",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /app"
+      },
+      {
+        "type": "action",
+        "description": "Enter a question in the ask form"
+      },
+      {
+        "type": "action",
+        "description": "Submit the question"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the final answer is not shown immediately"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the loading state is displayed"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC020",
+    "title": "Switch to a different example and see the dashboard refresh",
+    "description": "This verifies that selecting another example chip updates the dashboard to a new precomputed verification result.",
+    "category": "Precomputed example verification",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /app"
+      },
+      {
+        "type": "action",
+        "description": "Select one example chip"
+      },
+      {
+        "type": "action",
+        "description": "Select a different example chip"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the displayed verification result updates to a different example"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the displayed claims change"
+      }
+    ],
+    "priority": "Medium"
+  },
+  {
+    "id": "TC021",
+    "title": "Reveal and close a claim's evidence",
+    "description": "This verifies that a user can open a claim's evidence section, inspect the supporting passage, and close it to continue reviewing.",
+    "category": "Per-claim evidence reveal",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /app"
+      },
+      {
+        "type": "action",
+        "description": "Select an example chip"
+      },
+      {
+        "type": "action",
+        "description": "Open a claim's evidence section"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the relevant passage is displayed"
+      },
+      {
+        "type": "action",
+        "description": "Close the claim's evidence section"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the evidence passage is hidden"
+      }
+    ],
+    "priority": "Medium"
+  },
+  {
+    "id": "TC022",
+    "title": "Replay restarts the landing page demo animation",
+    "description": "This verifies that replaying the landing page demo restarts the verification animation from the beginning and runs it again.",
+    "category": "Landing page hero verification demo",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Click the replay control for the hero demo"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the hero verification animation restarts"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the demo reaches a completed verification state again"
+      }
+    ],
+    "priority": "Medium"
+  },
+  {
+    "id": "TC023",
+    "title": "Inspect the support details for a precomputed example",
+    "description": "This verifies that a loaded example exposes claim-level support scores and retrieved source evidence for review.",
+    "category": "Precomputed example verification",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /app"
+      },
+      {
+        "type": "action",
+        "description": "Select an example chip"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify support scores are displayed"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify source evidence is displayed"
+      }
+    ],
+    "priority": "Medium"
+  },
+  {
+    "id": "TC024",
+    "title": "Retain the corrected answer after switching views",
+    "description": "This verifies that a user can move between answer views and still return to the grounded corrected version.",
+    "category": "Corrected versus annotated answer toggle",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /app"
+      },
+      {
+        "type": "action",
+        "description": "Switch to the annotated answer view"
+      },
+      {
+        "type": "action",
+        "description": "Switch back to the corrected answer view"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the corrected answer is displayed"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify unsupported content is not shown in the answer"
+      }
+    ],
+    "priority": "Medium"
+  },
+  {
+    "id": "TC025",
+    "title": "Review a claim after hovering and selecting its marker",
+    "description": "This verifies that a user can inspect a claim marker, read the claim text, and jump to that claim in the verification view.",
+    "category": "Calibration threshold adjustment",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /app"
+      },
+      {
+        "type": "action",
+        "description": "Select an example chip"
+      },
+      {
+        "type": "action",
+        "description": "Hover a claim marker"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the claim text is revealed"
+      },
+      {
+        "type": "action",
+        "description": "Select the same claim marker"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the verification view jumps to that claim"
+      }
+    ],
+    "priority": "Medium"
+  },
+  {
+    "id": "TC026",
+    "title": "Reduced motion shows a static final hero state",
+    "description": "This verifies that when reduced motion is enabled, the landing page shows the final verification state statically instead of auto-playing the animation.",
+    "category": "Landing page hero verification demo",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the hero verification result is displayed statically"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the final groundedness outcome is visible without an active animation"
+      }
+    ],
+    "priority": "Low"
+  }
+]

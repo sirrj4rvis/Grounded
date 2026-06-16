@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+
+# Virtual environment (multi-GB: torch, transformers, etc.)
+.venv/
+venv/
+env/
+
+# Caches
+.cache/
+.huggingface/
+
+# Regenerable / downloaded / large data
+data/chroma/
+data/benchmarks/
+data/corpus_removed/
+data/correction_eval_full.json
+*.partial.jsonl
+
+# TestSprite scratch (keep the report + generated tests)
+.testsprite/
+testsprite_tests/tmp/
+
+# Internal build plan / strategy (not for the public repo)
+CLAUDE.md
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
