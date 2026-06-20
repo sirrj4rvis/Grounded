@@ -27,6 +27,9 @@ const Tile = ({ label, children, className = '' }: { label: string; children: Re
   </div>
 )
 
+// Questions answerable from the live Wikipedia corpus (give a real grounded result).
+const LIVE_QUESTIONS = ['What is photosynthesis?', 'Who was Albert Einstein?', 'What causes earthquakes?']
+
 export default function Dashboard() {
   const [params] = useSearchParams()
   const [query, setQuery] = useState('')
@@ -38,6 +41,7 @@ export default function Dashboard() {
   const [examples, setExamples] = useState<Verification[]>([])
   const [open, setOpen] = useState<number | null>(null)
   const [step, setStep] = useState(0)
+  const [elapsed, setElapsed] = useState(0)
   const didQ = useRef(false)
 
   function present(d: Verification) {
@@ -47,13 +51,14 @@ export default function Dashboard() {
 
   async function runAsk(qStr: string) {
     if (!qStr.trim()) return
-    setStatus('loading'); setStep(0)
+    setStatus('loading'); setStep(0); setElapsed(0)
     const t = window.setInterval(() => setStep((s) => Math.min(2, s + 1)), 4500)
+    const et = window.setInterval(() => setElapsed((e) => e + 1), 1000)
     try { present(await ask(qStr)) }
     catch (e) {
       setError(/fetch|network|failed/i.test(String(e)) ? "Couldn't reach the server. Make sure it's running, then try again." : `The model couldn't answer (is Ollama running?). ${e}`)
       setStatus('error')
-    } finally { clearInterval(t) }
+    } finally { clearInterval(t); clearInterval(et) }
   }
 
   useEffect(() => { fetchExamples().then(setExamples).catch(() => setExamples([])) }, [])
@@ -80,7 +85,14 @@ export default function Dashboard() {
           <button type="submit" disabled={status === 'loading'} className="font-medium px-6 py-3 bg-accent text-bg rounded-[4px] disabled:opacity-50">Ask</button>
         </form>
         <div className="flex flex-wrap items-center gap-2 mt-4 font-mono text-[12px]">
-          <span className="text-muted tracking-[0.04em] uppercase">Examples</span>
+          <span className="text-muted tracking-[0.04em] uppercase shrink-0">Try live</span>
+          {LIVE_QUESTIONS.map((q) => (
+            <button key={q} type="button" disabled={status === 'loading'} onClick={() => { setQuery(q); runAsk(q) }}
+              className="border border-border px-2.5 py-1 text-text hover:text-accent hover:border-accent rounded-[3px] transition-colors disabled:opacity-50">{q}</button>
+          ))}
+        </div>
+        <div className="flex flex-wrap items-center gap-2 mt-2 font-mono text-[12px]">
+          <span className="text-muted tracking-[0.04em] uppercase shrink-0">Caught hallucinations</span>
           {examples.map((ex, i) => (
             <button key={i} type="button" onClick={() => { setQuery(ex.query || ''); present(ex) }}
               className="border border-border px-2.5 py-1 text-muted hover:text-accent hover:border-accent rounded-[3px] transition-colors">{`example ${i + 1}`}</button>
@@ -99,12 +111,13 @@ export default function Dashboard() {
         {status === 'loading' && (
           <div className="border-t border-border mt-8 pt-16 pb-8 text-center">
             <p className="text-text text-[17px]">Verifying…</p>
-            <p className="text-muted text-[14px] mt-2">Generation runs locally on CPU — this can take a minute.</p>
+            <p className="text-muted text-[14px] mt-2">Generation runs locally on CPU — this can take a minute. The first request also loads the model.</p>
             <div className="flex justify-center gap-3 mt-6 font-mono text-[12px] uppercase tracking-[0.06em]">
               {['retrieve', 'generate', 'verify'].map((s, k) => (
                 <span key={s} style={{ color: k < step ? 'var(--color-supported-fg)' : k === step ? 'var(--color-accent)' : 'var(--color-muted)' }}>{s}{k < 2 && <span className="text-border ml-3">→</span>}</span>
               ))}
             </div>
+            <p className="font-mono text-[12px] text-muted mt-5 tnum" aria-live="polite">elapsed {elapsed}s</p>
           </div>
         )}
 
@@ -122,20 +135,20 @@ export default function Dashboard() {
 
             {/* Calibration — full width */}
             <Tile label="Calibration · drag to trade precision against recall" className="md:col-span-3">
-              <div className="flex items-end justify-between mb-4">
+              <div className="flex items-end justify-between mb-4" aria-live="polite">
                 <span className="font-mono tnum text-[2rem] leading-none text-text">{pct}%</span>
                 <span className="font-mono text-[12px] text-muted tnum text-right">{nSup} of {claims.length} supported<br />threshold <span className="text-accent">{threshold.toFixed(2)}</span></span>
               </div>
-              <div className="relative h-4 flex items-center">
-                {/* tick marks at claim score positions */}
-                {claims.map((c, i) => (
-                  <span key={i} title={`score ${c.support.toFixed(2)}`} className="absolute w-px h-2 -translate-x-1/2"
-                    style={{ left: `${c.support * 100}%`, background: supported(c.support) ? 'var(--color-supported)' : 'var(--color-unsupported)' }} />
-                ))}
-                {/* fill left of thumb */}
-                <div className="absolute h-0.5 left-0" style={{ width: `${threshold * 100}%`, background: 'var(--color-supported-fg)' }} />
+              <div className="relative h-6">
                 <input type="range" min={0} max={1} step={0.01} value={threshold} onChange={(e) => setThreshold(parseFloat(e.target.value))}
-                  aria-label="Support-score threshold" className="thumb-brass absolute inset-x-0 w-full" />
+                  aria-label="Support-score threshold" aria-valuetext={`${threshold.toFixed(2)} — ${pct}% of claims supported`}
+                  className="thumb-brass absolute inset-0 w-full h-full" />
+                {/* fill (left of thumb) + per-claim ticks, drawn on top, non-interactive */}
+                <div className="absolute top-1/2 -translate-y-1/2 left-0 h-[3px] rounded pointer-events-none" style={{ width: `${threshold * 100}%`, background: 'var(--color-supported-fg)', opacity: 0.55 }} />
+                {claims.map((c, i) => (
+                  <span key={i} title={`score ${c.support.toFixed(2)}`} className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-[2px] h-3.5 rounded-sm pointer-events-none"
+                    style={{ left: `${c.support * 100}%`, background: supported(c.support) ? 'var(--color-supported-fg)' : 'var(--color-unsupported-fg)' }} />
+                ))}
               </div>
               <div className="flex justify-between font-mono text-[10px] tracking-[0.04em] uppercase text-muted mt-3"><span>0.00 · not in context</span><span>1.00 · grounded</span></div>
             </Tile>
