@@ -1,0 +1,17 @@
+# Keep the Docker build context small — exclude heavy/regenerable dirs.
+.venv/
+frontend/node_modules/
+frontend/dist/
+__pycache__/
+*.py[cod]
+.git/
+.gitignore
+data/benchmarks/
+data/chroma/
+data/correction_eval_full.json
+*.partial.jsonl
+.testsprite/
+testsprite_tests/
+figures/
+.shots/
+*.md

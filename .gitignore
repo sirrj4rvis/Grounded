@@ -28,6 +28,10 @@ testsprite_tests/tmp/
 # Internal build plan / strategy (not for the public repo)
 CLAUDE.md
 
+# React frontend (Vite) — regenerable: `cd frontend && npm install && npm run build`
+frontend/node_modules/
+frontend/dist/
+
 # OS / editor
 .DS_Store
 Thumbs.db

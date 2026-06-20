@@ -1,17 +1,17 @@
-"""FastAPI server: landing page, dashboard, and POST /ask -> groundedness report.
+"""FastAPI server: serves the React SPA + the verification API.
 
-Run:  ./.venv/Scripts/python.exe -m uvicorn server.app:app --port 8000
+Run:  ./.venv/Scripts/python.exe -m uvicorn server.app:app --host 127.0.0.1 --port 8000
+Build the frontend first:  cd frontend && npm run build   (outputs frontend/dist/)
 
 Routes:
-  GET  /          -> landing page (dashboard/landing.html)
-  GET  /app       -> live demo dashboard (dashboard/index.html)
-  GET  /fonts/*   -> self-hosted woff2 (static; must be served or type falls back)
   GET  /examples  -> precomputed real-RAGTruth examples (instant)
-  POST /ask       -> answer + per-claim groundedness verdicts
+  POST /ask       -> answer + per-claim groundedness verdicts (slow, CPU generation)
+  GET  /health    -> health check
+  GET  /assets/*  -> built JS/CSS (Vite)         |  GET /fonts/* -> self-hosted woff2
+  GET  /*         -> SPA fallback (index.html) for client-side routes (/, /app, ...)
 
-Design notes for a CPU-only box:
-  - One global Grounded pipeline, loaded lazily on first request.
-  - Generation takes ~a minute on CPU; this is a demo/eval server, single worker.
+If frontend/dist is absent (frontend not built), falls back to the legacy static
+dashboard so the server still runs.
 """
 
 import json
@@ -24,20 +24,15 @@ from fastapi.staticfiles import StaticFiles
 from pipeline import Grounded
 from server.schemas import AskRequest, AskResponse
 
-DASH_DIR = Path(__file__).resolve().parent.parent / "dashboard"
+ROOT = Path(__file__).resolve().parent.parent
+DIST = ROOT / "frontend" / "dist"
+LEGACY = ROOT / "dashboard"
+SPA = (DIST / "index.html").exists()
 
-app = FastAPI(
-    title="Grounded",
-    description="Self-correcting RAG: answers with per-claim groundedness verdicts.",
-    version="0.2.0",
-)
-
-# Serve the self-hosted fonts. Without this the @font-face URLs 404 and the
-# browser silently falls back to system fonts (the custom type never applies).
-app.mount("/fonts", StaticFiles(directory=str(DASH_DIR / "fonts")), name="fonts")
+app = FastAPI(title="Grounded", description="Self-correcting RAG with per-claim verification.", version="0.3.0")
 
 _pipeline: Grounded | None = None
-_EXAMPLES = DASH_DIR / "demo_examples.json"
+_EXAMPLES = LEGACY / "demo_examples.json"
 
 
 def get_pipeline() -> Grounded:
@@ -47,21 +42,10 @@ def get_pipeline() -> Grounded:
     return _pipeline
 
 
+# ── API routes (defined before the SPA catch-all so they take precedence) ──
 @app.get("/health")
 def health() -> dict:
-    return {"status": "ok"}
-
-
-@app.get("/")
-def landing() -> FileResponse:
-    """Marketing/landing page — the project's pitch and headline result."""
-    return FileResponse(DASH_DIR / "landing.html")
-
-
-@app.get("/app")
-def dashboard() -> FileResponse:
-    """The live verification instrument (color-coded claims + calibration rail)."""
-    return FileResponse(DASH_DIR / "index.html")
+    return {"status": "ok", "frontend": "react" if SPA else "legacy"}
 
 
 @app.get("/examples")
@@ -75,7 +59,6 @@ def examples() -> list:
 @app.post("/ask", response_model=AskResponse)
 def ask(req: AskRequest) -> AskResponse:
     g = get_pipeline()
-    # Per-request overrides without rebuilding the pipeline's loaded models.
     if req.top_k is not None:
         g.top_k = req.top_k
     if req.mode is not None:
@@ -84,3 +67,25 @@ def ask(req: AskRequest) -> AskResponse:
         return AskResponse(**g.ask(req.query))
     except Exception as e:  # surface Ollama/Chroma failures as a clean 503
         raise HTTPException(status_code=503, detail=f"pipeline error: {e}") from e
+
+
+# ── Static assets + SPA ────────────────────────────────────────────────────
+if SPA:
+    app.mount("/assets", StaticFiles(directory=str(DIST / "assets")), name="assets")
+    app.mount("/fonts", StaticFiles(directory=str(DIST / "fonts")), name="fonts")
+
+    @app.get("/{full_path:path}")
+    def spa(full_path: str) -> FileResponse:
+        """Serve the SPA shell for any non-API path (client-side routing)."""
+        return FileResponse(DIST / "index.html")
+else:
+    # Legacy fallback: the original static dashboard (pre-React build).
+    app.mount("/fonts", StaticFiles(directory=str(LEGACY / "fonts")), name="fonts")
+
+    @app.get("/")
+    def legacy_landing() -> FileResponse:
+        return FileResponse(LEGACY / "landing.html")
+
+    @app.get("/app")
+    def legacy_app() -> FileResponse:
+        return FileResponse(LEGACY / "index.html")
