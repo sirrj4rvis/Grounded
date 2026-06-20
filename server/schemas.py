@@ -32,3 +32,4 @@ class AskResponse(BaseModel):
     iterations: int
     claims: list[Claim]
     sources: list[Source]
+    note: str = ""  # abstain reason / provenance (e.g. out-of-corpus); "" when absent
