@@ -11,11 +11,23 @@ Usage:
 """
 
 import json
+import os
 
 from rag.generator import complete, generate
 from rag.retriever import HybridRetriever
 from verify.corrector import correct
 from verify.nli import get_verifier
+
+# Cheap pre-filter: if the best retrieved chunk's cosine similarity is below
+# this, abstain before even generating. NOTE: with bge-small over a large corpus,
+# cosine similarities compress into a high band (even unrelated text scores
+# ~0.55-0.7), so this floor is a weak, conservative net — kept low so it never
+# rejects real in-corpus questions. The PRIMARY out-of-corpus defense is the
+# pipeline itself: the generator answers only from context ("I don't know..."
+# when the answer isn't there) and the verifier drops unsupported claims. That
+# is what makes Grounded honest, not this score.
+RELEVANCE_FLOOR = float(os.environ.get("GROUNDED_RELEVANCE_FLOOR", "0.40"))
+ABSTAIN_OOC = "I couldn't find this in the corpus, so I can't answer it from grounded evidence."
 
 # Phase-2 calibrated sentence-level threshold (max-F1 on RAGTruth calibration
 # split). Falls back to 0.5 if the calibration artifact isn't present.
@@ -30,14 +42,25 @@ class Grounded:
     """The self-correcting RAG layer, wired together. Models load lazily."""
 
     def __init__(self, verifier_kind: str = "minicheck", threshold: float | None = None,
-                 top_k: int = 4, mode: str = "drop", max_iters: int = 2):
+                 top_k: int = 4, mode: str = "drop", max_iters: int = 2,
+                 relevance_floor: float = RELEVANCE_FLOOR):
         self.threshold = threshold if threshold is not None else _calibrated_threshold()
         self.top_k = top_k
         self.mode = mode
         self.max_iters = max_iters
+        self.relevance_floor = relevance_floor
         self._verifier_kind = verifier_kind
         self._retriever = None
         self._verifier = None
+
+    def _abstain(self, query: str, relevance: float, sources: list[dict]) -> dict:
+        """Out-of-corpus response: honest refusal, no generation, no claims."""
+        return {
+            "query": query, "answer": ABSTAIN_OOC, "corrected": ABSTAIN_OOC,
+            "groundedness": 0.0, "abstained": True, "threshold": self.threshold,
+            "iterations": 0, "claims": [], "sources": sources,
+            "note": f"out of corpus — best match {relevance:.2f} < floor {self.relevance_floor:.2f}",
+        }
 
     @property
     def retriever(self):
@@ -53,7 +76,14 @@ class Grounded:
 
     def ask(self, query: str) -> dict:
         """Full pipeline. Returns the answer plus per-sentence receipts."""
-        chunks = self.retriever.retrieve(query, top_k=self.top_k)
+        chunks, relevance = self.retriever.retrieve_scored(query, top_k=self.top_k)
+        sources = [{"id": c["id"], "source": c["source"]} for c in chunks]
+
+        # Out-of-corpus guard: if nothing is close enough, abstain BEFORE
+        # generating — never let the model answer from its own knowledge.
+        if relevance < self.relevance_floor:
+            return self._abstain(query, relevance, sources)
+
         answer = generate(query, chunks)
 
         # The verification context is exactly what the generator saw.

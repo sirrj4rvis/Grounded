@@ -1,6 +1,8 @@
-# Phase 0 — vanilla RAG baseline (CPU-only)
-sentence-transformers>=3.0
-chromadb>=0.5
-rank-bm25>=0.2.2
-requests>=2.31
-fastapi>=0.115
+# Grounded — CPU-only RAG verification stack
+sentence-transformers>=3.0      # bge embeddings + transformers/torch (verifier)
+chromadb>=0.5                   # vector store
+rank-bm25>=0.2.2                # lexical retrieval
+requests>=2.31                 # Ollama client
+fastapi>=0.115                 # API
+uvicorn>=0.30                  # ASGI server (serves the SPA + API)
+datasets>=2.0                  # Wikipedia corpus ingestion (GROUNDED_CORPUS=wikipedia)

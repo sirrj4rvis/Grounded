@@ -78,11 +78,28 @@ class HybridRetriever:
         Each branch fetches 2*top_k candidates so fusion has real overlap
         to work with before we cut to top_k.
         """
+        return self.retrieve_scored(query, top_k)[0]
+
+    def retrieve_scored(self, query: str, top_k: int = 4) -> tuple[list[dict], float]:
+        """Top-k fused chunks AND the best dense cosine similarity for the query.
+
+        The similarity (1 - cosine distance, in [0,1]) is a relevance signal the
+        pipeline uses to abstain when nothing in the corpus is close enough —
+        rather than letting the generator answer from outside knowledge. The
+        dense query is computed once and reused for both ranking and the score.
+        """
         pool = min(2 * top_k, len(self.ids))
-        fused = reciprocal_rank_fusion(
-            [self._dense_search(query, pool), self._bm25_search(query, pool)]
+        emb = self.embedder.encode(BGE_QUERY_PREFIX + query, normalize_embeddings=True)
+        dres = self.collection.query(
+            query_embeddings=[emb.tolist()], n_results=pool, include=["distances"]
         )
-        return [
+        dense_ids = dres["ids"][0]
+        dists = dres["distances"][0]
+        top_relevance = (1.0 - min(dists)) if dists else 0.0  # cosine sim of closest chunk
+
+        fused = reciprocal_rank_fusion([dense_ids, self._bm25_search(query, pool)])
+        chunks = [
             {"id": cid, "text": self.texts[cid], "source": self.metas[cid]["source"]}
             for cid in fused[:top_k]
         ]
+        return chunks, top_relevance

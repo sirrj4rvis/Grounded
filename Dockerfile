@@ -35,6 +35,11 @@ COPY dashboard/demo_examples.json dashboard/
 # Built SPA from stage 1 (server/app.py serves frontend/dist as the SPA).
 COPY --from=frontend /frontend/dist frontend/dist
 
+# Use the small local corpus in the image so the build stays fast (the Wikipedia
+# subset takes ~70 min + network to embed). Swap to a prebuilt/mounted index for
+# a broad-corpus deployment.
+ENV GROUNDED_CORPUS=local
+
 # Build the vector index, and pre-download the verifier + embedder, at build
 # time so the container starts ready and the first request is fast.
 RUN python -m rag.ingest \
