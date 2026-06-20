@@ -8,6 +8,7 @@ here in one obvious place.
 """
 
 import os
+import time
 
 import requests
 
@@ -39,27 +40,47 @@ def build_prompt(query: str, chunks: list[dict]) -> str:
     return f"Context passages:\n{context}\n\nQuestion: {query}\n\nAnswer:"
 
 
+# How many times to retry a TRANSIENT Ollama failure (5xx / dropped connection).
+GEN_RETRIES = int(os.environ.get("GROUNDED_GEN_RETRIES", "3"))
+
+
 def complete(prompt: str, system: str = "", model: str = GEN_MODEL, temperature: float = 0.0) -> str:
     """Single-turn completion via Ollama. The one place we talk to the model.
 
     Shared by the RAG generator and the claim decomposer so there's exactly one
     Ollama client, one timeout, and one default temperature in the codebase.
+
+    Robustness on a 16 GB CPU box: `keep_alive` holds the model resident between
+    calls so we don't repeatedly cold-load it (cold-loading while the verifier is
+    also resident can momentarily exhaust RAM and make Ollama return a transient
+    500 during load). Transient 5xx / connection errors are retried with a short
+    backoff; a 4xx (e.g. model-not-found) is a real error and is NOT retried.
     """
-    response = requests.post(
-        f"{OLLAMA_URL}/api/generate",
-        json={
-            "model": model,
-            "system": system,
-            "prompt": prompt,
-            "stream": False,
-            # temperature 0 by default: eval needs reproducible output, and we
-            # measure groundedness, not creativity.
-            "options": {"temperature": temperature},
-        },
-        timeout=TIMEOUT_SECONDS,
-    )
-    response.raise_for_status()
-    return response.json()["response"].strip()
+    payload = {
+        "model": model,
+        "system": system,
+        "prompt": prompt,
+        "stream": False,
+        # temperature 0 by default: eval needs reproducible output, and we
+        # measure groundedness, not creativity.
+        "options": {"temperature": temperature},
+        "keep_alive": "30m",
+    }
+    for attempt in range(GEN_RETRIES):
+        try:
+            response = requests.post(f"{OLLAMA_URL}/api/generate", json=payload, timeout=TIMEOUT_SECONDS)
+            response.raise_for_status()
+            return response.json()["response"].strip()
+        except requests.exceptions.HTTPError as e:
+            status = e.response.status_code if e.response is not None else None
+            transient = status is not None and 500 <= status < 600
+            if not transient or attempt == GEN_RETRIES - 1:
+                raise  # 4xx, or out of retries -> surface it
+        except requests.exceptions.RequestException:
+            if attempt == GEN_RETRIES - 1:
+                raise  # connection reset / timeout, out of retries
+        time.sleep(3 * (attempt + 1))  # 3s, 6s, ... let the reload settle
+    raise RuntimeError("unreachable")  # loop either returns or raises
 
 
 def generate(query: str, chunks: list[dict], model: str = GEN_MODEL) -> str:

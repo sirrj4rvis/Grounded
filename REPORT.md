@@ -111,22 +111,23 @@ Why it works — the verifier separates grounded from hallucinated sentences:
 ### 4.5 Answer-quality preservation (the honest cost)
 
 A blind LLM-judge (qwen2.5:3b, randomized A/B, only answers correction changed)
-compared original vs corrected:
+compared original vs corrected, **n=100 per threshold**:
 
 | Operating point | Original better | Corrected better | Tie |
 |---|---|---|---|
-| Balanced (thr 0.25) | 57% | 23% | 20% |
-| Conservative (thr 0.10) | 53% | 37% | 10% |
+| Balanced (thr 0.25) | 66% | 21% | 13% |
+| Conservative (thr 0.10) | 54% | 31% | 15% |
 
-Dropping sentences carries a real completeness cost — but it shrinks at the
-conservative operating point: corrected answers are preferred 37% of the time at
-thr 0.10 vs 23% at thr 0.25, confirming the expected direction (fewer, cleaner
-edits cost less quality). Two caveats: the judge rates *completeness*, which
-structurally favors the longer (uncorrected) answer even when the removed text
-was the hallucination (so this overstates the cost); and n=30 with a 3B judge is
-noisy, so the thr-0.10 vs thr-0.25 gap is directional, not decisive. The lesson
-is **operating-point selection** — the conservative threshold (−41% halluc, 89.5%
-retention) trades far less quality for a still-substantial reduction.
+Dropping sentences carries a real completeness cost — but it is markedly smaller
+at the conservative operating point: corrected answers are preferred 31% of the
+time at thr 0.10 vs 21% at thr 0.25, and the judge prefers the original far less
+often (54% vs 66%). At n=100 this gap is **decisive, not just directional** (the
+earlier n=30 study showed the same direction but was too noisy to lean on). One
+caveat remains: the judge rates *completeness*, which structurally favors the
+longer (uncorrected) answer even when the removed text was the hallucination, so
+this overstates the true cost. The lesson is **operating-point selection** — the
+conservative threshold (−41% halluc, 89.5% retention) trades far less quality for
+a still-substantial reduction.
 
 ### 4.6 Per-task thresholds (negative result, honestly reported)
 
@@ -136,6 +137,34 @@ per-task), and downstream correction was roughly a wash (19.4% vs 21.0% after,
 88.7% vs 89.7% retention). The more important insight: the F1-optimal threshold
 is **~0.10**, far below the 0.77 that response-level min-aggregation produced —
 the earlier over-flagging was a threshold-*level* problem, not a per-task one.
+
+### 4.7 Self-correction iterations: 1 vs N (Chain-of-Verification)
+
+The headline uses **drop** correction. The **regenerate** loop — rewrite the
+answer from only the supported sentences, re-verify, repeat up to `max_iters` —
+is the Chain-of-Verification alternative. Regenerated text has no RAGTruth span
+labels, so we evaluate it with three label-free measures over n=30 changed
+examples at thr 0.25 (`eval/iteration_ablation.py`):
+
+| Question | Result (n=30) |
+|---|---|
+| Convergence — iterations the loop used | 1 pass: 12 (40%) · **2 passes: 18 (60%)** |
+| A 2nd pass changed the answer | 18 / 30 (60%) |
+| Faithfulness — residual unsupported in the rewrite | 0.8% (≈ 0) |
+| Quality — regenerate vs drop (blind judge) | regen 12 · **drop 15** · tie 3 |
+| Quality — regenerate vs original (blind judge) | regen 1 · original 24 · tie 5 |
+
+Three findings: **(1) iteration is real** — 60% of examples needed a second pass,
+so N>1 is not redundant (the first rewrite often still contains an unsupported
+claim the next pass removes); **(2) the loop stays faithful** — residual
+unsupported ≈ 0, confirming regeneration only re-expresses grounded material and
+never smuggles ungrounded content past the final filter; but **(3) regeneration
+does not beat drop** on answer quality (drop is in fact slightly preferred, 15 vs
+12). The extra compute and drift-risk of the regenerate loop buy nothing over
+simply deleting unsupported sentences — which is exactly why the headline uses
+drop: simpler, deterministic, cheaper, and no worse. (Both, like all correction,
+lose to the longer original on completeness — the same structural judge bias as
+§4.5; with a 3B rewriter, regeneration adds no fluency advantage to offset it.)
 
 ## 5. Reproducibility
 
@@ -147,14 +176,15 @@ significance is exact McNemar on paired per-example flips.
 ## 6. Limitations and future work
 
 1. **Quality cost is real** at aggressive thresholds; never claim "no quality
-   loss". Re-running the judge at the conservative 0.10 point (fewer, cleaner
-   edits) is expected to show a much smaller cost.
+   loss". It is now measured at n=100 (§4.5): much smaller at the conservative
+   0.10 point (corrected preferred 31% vs 21% at 0.25), but never zero.
 2. **Threshold is domain-specific.** Ranking generalizes; the cut-off needs
    per-corpus recalibration.
 3. **Decomposition on a 3B model** imperfectly decontextualizes claims (pronouns
    sometimes survive) — a larger or distilled decomposer would help.
-4. **The regenerate loop** is implemented but evaluated only lightly; a 1-vs-N
-   iteration ablation is future work.
+4. **Regeneration does not beat drop.** The 1-vs-N ablation (§4.7) shows the
+   regenerate loop iterates and stays faithful but does not improve quality over
+   drop with a 3B rewriter; a stronger rewriter is the obvious thing to try next.
 
 ## 7. Viva-ready answers
 

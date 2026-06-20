@@ -180,7 +180,7 @@ flowchart TB
 | [`rag/`](rag/) | `ingest` (chunk + embed → Chroma) · `retriever` (BM25 + dense, RRF) · `generator` (Ollama) |
 | [`verify/`](verify/) | `decompose` (answer → atomic claims) · `nli` (MiniCheck + DeBERTa) · `corrector` (drop/flag/regenerate) |
 | [`pipeline.py`](pipeline.py) | the live path: retrieve → generate → decompose → verify → correct → report |
-| [`eval/`](eval/) | `datasets` · `metrics` · `baseline` · `calibrate` · `run_eval` · `analyze` (CIs) · `cross_dataset` · `quality_judge` · `figures` |
+| [`eval/`](eval/) | `datasets` · `metrics` · `baseline` · `calibrate` · `run_eval` · `analyze` (CIs) · `cross_dataset` · `quality_judge` · `iteration_ablation` · `figures` |
 | [`server/`](server/) | FastAPI app + Pydantic schemas; serves the SPA and the JSON API |
 | [`frontend/`](frontend/) | React + Vite dashboard with the color-coded claim view |
 
@@ -236,10 +236,16 @@ across datasets, but the *threshold* does not — it must be recalibrated per
 domain.
 
 **Answer-quality preservation — the honest cost.** A blind LLM-judge (randomized
-A/B, only on answers correction changed) prefers the original over the corrected
-answer 57% vs 23% at the balanced point, narrowing to 53% vs 37% at the
-conservative point — confirming the expected direction: fewer, cleaner edits cost
-less quality. This is reported, not hidden; see [REPORT.md §4.5](REPORT.md).
+A/B, only on answers correction changed, n=100 per threshold) prefers the original
+over the corrected answer 66% vs 21% at the balanced point, narrowing to 54% vs
+31% at the conservative point — the cost is real but markedly smaller with fewer,
+cleaner edits. Reported, not hidden; see [REPORT.md §4.5](REPORT.md).
+
+**Self-correction iterations (1 vs N).** An ablation of the Chain-of-Verification
+regenerate loop (n=30) finds it genuinely iterates (60% of cases need a 2nd pass)
+and stays faithful (residual unsupported ≈ 0), but **does not beat plain drop** on
+quality (drop preferred 15 vs 12) — which is exactly why the headline uses drop.
+See [REPORT.md §4.7](REPORT.md).
 
 | ![before / after](figures/before_after.png) | ![verifier ablation](figures/verifier_ablation.png) |
 |:---:|:---:|
@@ -426,10 +432,10 @@ docker run -p 8000:8000 grounded     # → http://localhost:8000
 
 ## Roadmap
 
-- A full **1-vs-N correction-iteration** ablation (the regenerate loop is
-  implemented but only lightly evaluated).
 - **Re-retrieval on unsupported claims** before dropping, to recover content
   instead of only removing it.
+- A **stronger rewriter** for the regenerate loop — the 1-vs-N ablation showed a
+  3B rewriter doesn't beat drop; a larger model might.
 - A larger / distilled **atomic-claim decomposer**.
 - **pgvector on Neon** as a "real backend" alternative to local Chroma.
 
