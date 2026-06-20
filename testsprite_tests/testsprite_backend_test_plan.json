@@ -1,0 +1,52 @@
+[
+  {
+    "id": "TC001",
+    "title": "gethealthreturnsservicestatus",
+    "description": "Test GET /health endpoint to verify it returns HTTP 200 with JSON containing status 'ok' and frontend field set to either 'react' or 'legacy'. Also test the behavior when the service is unhealthy to ensure it returns a non-200 error or no successful response."
+  },
+  {
+    "id": "TC002",
+    "title": "getexamplesreturnsprecomputedverificationexamples",
+    "description": "Test GET /examples endpoint to verify it returns HTTP 200 with a JSON array of precomputed Verification objects including claims, scores, evidence, and sources. Also test the error response when the examples file or demo data cannot be loaded."
+  },
+  {
+    "id": "TC003",
+    "title": "postaskverifiesandcorrectsanswersforvalidquestions",
+    "description": "Test POST /ask endpoint with a valid query and optional parameters top_k and mode to verify it returns HTTP 200 with the expected response containing answer, corrected answer, groundedness score, claims, sources, and note."
+  },
+  {
+    "id": "TC004",
+    "title": "postaskreturnsabstainresponseforoutofcorpusquestions",
+    "description": "Test POST /ask endpoint with an out-of-corpus question to verify it returns HTTP 200 with abstained set to true and a refusal message indicating inability to answer from the provided context."
+  },
+  {
+    "id": "TC005",
+    "title": "postaskvalidatesinputparametersandreturns422oninvalidinput",
+    "description": "Test POST /ask endpoint with invalid inputs such as missing query, query length over 2000 characters, top_k outside the range 1-10, or unsupported mode to verify it returns HTTP 422 validation errors."
+  },
+  {
+    "id": "TC006",
+    "title": "postaskreturns503whengeneratorisunreachable",
+    "description": "Test POST /ask endpoint behavior when the Ollama generator is unreachable or another pipeline failure occurs to verify it returns HTTP 503 with a clean error detail."
+  },
+  {
+    "id": "TC007",
+    "title": "getrootservesspashellhtml",
+    "description": "Test GET / endpoint to verify it returns HTTP 200 with the React single-page application shell HTML for the landing page."
+  },
+  {
+    "id": "TC008",
+    "title": "getunknownnonapiroutesreturnindexhtml",
+    "description": "Test GET /app and other unknown non-API routes to verify they return HTTP 200 with index.html to support client-side routing of the React SPA."
+  },
+  {
+    "id": "TC009",
+    "title": "getfontsfilereturnsfontassetforvalidwoff2filename",
+    "description": "Test GET /fonts/{file} endpoint with a valid woff2 font filename to verify it returns HTTP 200 with the requested font asset and correct content type."
+  },
+  {
+    "id": "TC010",
+    "title": "getfontsfilereturns404forunknownfilename",
+    "description": "Test GET /fonts/{file} endpoint with an unknown or invalid font filename to verify it returns a non-200 error such as HTTP 404."
+  }
+]
